@@ -13,7 +13,6 @@ fileprivate enum ImageProperty: String {
     case url = "url"
     case width = "width"
     case height = "height"
-    case shadow = "shadow"
 }
 
 class ImageComponent: BaseComponent {
@@ -62,8 +61,6 @@ extension ImageComponent {
             case .height:
                 setHeight(property.value)
                 break
-            case .shadow:
-                setShadow(property.value)
             }
         }
     }
@@ -86,10 +83,6 @@ extension ImageComponent {
             let cgHeight = CGFloat(heightValue)
             self.height = cgHeight
         }
-    }
-    
-    private func setShadow(_ shadow: String?) {
-        
     }
 }
 
