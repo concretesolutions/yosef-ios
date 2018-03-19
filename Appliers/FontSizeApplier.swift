@@ -5,13 +5,9 @@
 //  Created by kaique.pantosi on 19/03/18.
 //
 
-class FontSizeApplier: PropertyApplier<UILabel> {
+class FontSizeApplier: PropertyApplier<UILabel, CGFloat> {
     
-   override func apply(value: Any, to: UILabel) throws -> UILabel {
-        guard let floatValue = value as? CGFloat else {
-            throw ParseError.invalidType
-        }
-        
+   override func apply(value: CGFloat, to: UILabel) throws -> UILabel {
         to.font = UIFont.systemFont(ofSize: floatValue)
         
         return to
