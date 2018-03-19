@@ -53,13 +53,12 @@ public class DynamicComponent: NSObject, BaseModelProtocol {
     }
     
     static private func parsePropertiesArray(dictionary: [String: Any]) -> [DynamicProperty] {
-        var propertiesArray = [DynamicProperty]()
         if let propertiesDictionary = dictionary[kProperties] as? [[String : Any]] {
-            for item in propertiesDictionary {
-                propertiesArray.append(DynamicProperty.parse(dictionary: item))
-            }
+           return propertiesDictionary.flatMap({
+                return DynamicProperty(dictionary: $0)
+            })
         }
-        return propertiesArray
+        return []
     }
     
 }

@@ -9,7 +9,12 @@
 import UIKit
 
 class DynamicProperty: NSObject, BaseModelProtocol {
-
+    
+    static var typeConverters: [String: TypeConverter] = ["dimen" : FloatTypeConverter(),
+                                                          "string" : ConcreteTypeConverter<String>(),
+                                                          "color" : ColorTypeConverter(),
+                                                          "url" : URLTypeConverter()]
+    
     // MARK: Constants
     
     fileprivate static let kName = "name"
@@ -18,38 +23,39 @@ class DynamicProperty: NSObject, BaseModelProtocol {
     
     // MARK: Properties
     
-    var name: String?
-    var type: String?
-    var value: String?
+    var name: String
+    var type: String
+    var value: Any
     
     // MARK: Initializers
     
-    override init() {
-        super.init()
-    }
-    
-    init(name: String?, type: String?, value: String?) {
+    init(dictionary: [String: Any]) throws {
+        guard let name = dictionary[DynamicProperty.kName] as? String,
+            let type = dictionary[DynamicProperty.kType] as? String,
+            let value = dictionary[DynamicProperty.kValue] as? String else {
+                throw DynamicPropertyError.invalidJSONFormat
+        }
+        
+        guard let typeConverter = DynamicProperty.typeConverters[type] else {
+            throw DynamicPropertyError.unknownType(type: type)
+        }
+        
+        guard let convertedValue = typeConverter.validate(value: value) else {
+            throw DynamicPropertyError.invalidValue(type: type, value: value)
+        }
+        
         self.name = name
         self.type = type
-        self.value = value
+        self.value = convertedValue
     }
-    
-    static func parse(dictionary: [String: Any]) -> DynamicProperty {
-        let dynamicPropety = DynamicProperty()
-        fillWithDictionary(&dynamicPropety.name, key: kName, dictionary: dictionary)
-        fillWithDictionary(&dynamicPropety.type, key: kType, dictionary: dictionary)
-        fillWithDictionary(&dynamicPropety.value, key: kValue, dictionary: dictionary)
-        return dynamicPropety
-    }
-    
 }
 
 extension DynamicProperty {
     
     override var debugDescription: String {
-        let name = self.name ?? ""
-        let type = self.type ?? ""
-        let value = self.value ?? ""
+        let name = self.name
+        let type = self.type
+        let value = self.value
         return "DynamicProperty:\n\tname: \(name)\n\ttype: \(type)\n\tvalue: \(value)"
     }
     

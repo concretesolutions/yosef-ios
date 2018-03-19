@@ -16,7 +16,12 @@ fileprivate enum LabelViewProperty: String {
 }
 
 class LabelComponent: BaseComponent {
-
+    
+    private var propertyDictionary: [LabelViewProperty: PropertyApplier<UILabel>] = [.text: WritableKeyPathApplicator(\UILabel.text),
+                                                                                     .textColor: WritableKeyPathApplicator(\UILabel.textColor),
+                                                                                     .backgroundColor: WritableKeyPathApplicator(\UILabel.backgroundColor),
+                                                                                     .textSize: FontSizeApplier()]
+    
     fileprivate let kLabelComponentType = "text"
     fileprivate let kLabelComponentTitleInsetTop = CGFloat(4)
     fileprivate let kLabelComponentTitleInsetBottom = CGFloat(4)
@@ -31,10 +36,14 @@ class LabelComponent: BaseComponent {
     
     fileprivate var label: UILabel!
     
-    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) {
+    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws {
         if dynamicComponent.type == kLabelComponentType {
             self.label = UILabel()
-            self.addProperties(properties: dynamicComponent.properties)
+            self.label.numberOfLines = kLabelComponentNumberOfLines
+            self.label.adjustsFontSizeToFitWidth = true
+            self.label.lineBreakMode = .byClipping
+            self.label.baselineAdjustment = .alignCenters
+            try self.addProperties(properties: dynamicComponent.properties)
             view.addSubview(self.label)
             self.setupConstraints(view: view)
         }
@@ -53,57 +62,18 @@ class LabelComponent: BaseComponent {
         label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: kLabelComponentTitleInsetRight).isActive = true
     }
     
-    private func addProperties(properties: [DynamicProperty]?) {
-        if let properties = properties {
-            for item in properties {
-                self.identityAndApplyProperties(property: item)
-            }
-        }
+    private func addProperties(properties: [DynamicProperty]?) throws {
+            try properties?.forEach({
+                try self.identityAndApplyProperties(property: $0)
+            })
     }
     
-    private func identityAndApplyProperties(property: DynamicProperty) {
-        if let propertyName = property.name, let textViewProperty = LabelViewProperty(rawValue: propertyName) {
-            switch textViewProperty {
-            case .text:
-                self.setLabelText(text: property.value)
-                break
-            case .textColor:
-                self.setLabelTextColor(textColorString: property.value)
-                break
-            case .backgroundColor:
-                self.setLabelBackgroundColor(colorString: property.value)
-                break
-            case .textSize:
-                self.setLabelTextSize(textSize: property.value)
-                break
-            }
+    private func identityAndApplyProperties(property: DynamicProperty) throws {
+        guard let textViewProperty = LabelViewProperty(rawValue: property.name),
+            let applier = propertyDictionary[textViewProperty] else {
+                throw ParseError.unknownProperty
         }
-    }
-    
-    private func setLabelText(text: String?) {
-        label.text = text
-        label.numberOfLines = kLabelComponentNumberOfLines
-        label.adjustsFontSizeToFitWidth = true
-        label.lineBreakMode = .byClipping
-        label.baselineAdjustment = .alignCenters
-    }
-    
-    private func setLabelTextColor(textColorString: String?) {
-        if let color = textColorString {
-            label.textColor = UIColor.init(hexadecimalString:color)
-        }
-    }
-    
-    private func setLabelBackgroundColor(colorString: String?) {
-        if let color = colorString {
-            label.backgroundColor = UIColor.init(hexadecimalString:color)
-        }
-    }
-    
-    private func setLabelTextSize(textSize: String?) {
-        if let sizeString = textSize, let sizeValue = Float(sizeString) {
-            let fontSize = CGFloat(sizeValue)
-            label.font = UIFont.systemFont(ofSize: fontSize)
-        }
+        
+        _ = try applier.apply(value: property.value, to: label)
     }
 }
