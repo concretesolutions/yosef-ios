@@ -1,0 +1,136 @@
+{
+    "type": "elementGroup",
+    "properties": [
+                   {
+                   "name": "orientation",
+                   "type": "string",
+                   "value": "vertical"
+                   }
+                   ],
+    "children": [
+                 {
+                 "type": "image",
+                 "properties": [
+                                {
+                                "name": "url",
+                                "type": "string",
+                                "value": "https://www.alt-codes.net/images/dollar-sign.png"
+                                },
+                                {
+                                "name": "width",
+                                "type": "dimen",
+                                "value": "115"
+                                },
+                                {
+                                "name": "height",
+                                "type": "dimen",
+                                "value": "115"
+                                }
+                                ]
+                 },
+                 {
+                 "type": "text",
+                 "properties": [
+                                {
+                                "name": "text",
+                                "type": "string",
+                                "value": "O seu saldo é R$ 32,00"
+                                },
+                                {
+                                "name": "textColor",
+                                "type": "color",
+                                "value": "#333839"
+                                },
+                                {
+                                "name": "textSize",
+                                "type": "dimen",
+                                "value": "25"
+                                }
+                                ]
+                 },
+                 {
+                 "type": "text",
+                 "properties": [
+                                {
+                                "name": "text",
+                                "type": "string",
+                                "value": "Você gostaria de um empréstimo para equilibrar suas finanças?"
+                                },
+                                {
+                                "name": "textColor",
+                                "type": "color",
+                                "value": "#333839"
+                                },
+                                {
+                                "name": "textSize",
+                                "type": "dimen",
+                                "value": "18"
+                                }
+                                ]
+                 },
+                 {
+                 "type": "elementGroup",
+                 "properties": [
+                                {
+                                "name": "orientation",
+                                "type": "string",
+                                "value": "horizontal"
+                                }
+                                ],
+                 "children": [
+                              {
+                              "type": "button",
+                              "properties": [
+                                             {
+                                             "name": "action",
+                                             "type": "string",
+                                             "value": "closeFlow"
+                                             },
+                                             {
+                                             "name": "text",
+                                             "type": "string",
+                                             "value": "Não"
+                                             },
+                                             {
+                                             "name": "backgroundColor",
+                                             "type": "color",
+                                             "value": "#a4a4a4"
+                                             },
+                                             {
+                                             "name": "textColor",
+                                             "type": "color",
+                                             "value": "#515151"
+                                             }
+                                             ],
+                              "children": null
+                              },
+                              {
+                              "type": "button",
+                              "properties": [
+                                             {
+                                             "name": "action",
+                                             "type": "string",
+                                             "value": "sim"
+                                             },
+                                             {
+                                             "name": "text",
+                                             "type": "string",
+                                             "value": "Sim"
+                                             },
+                                             {
+                                             "name": "backgroundColor",
+                                             "type": "color",
+                                             "value": "#fd5501"
+                                             },
+                                             {
+                                             "name": "textColor",
+                                             "type": "color",
+                                             "value": "#ffffff"
+                                             }
+                                             ],
+                              "children": null
+                              }
+                              ]
+                 }
+                 ]
+}

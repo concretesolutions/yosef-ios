@@ -1,0 +1,24 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '9.0'
+use_frameworks!
+#inhibit_all_warnings!
+#install! 'cocoapods', :warn_for_multiple_pod_sources => false
+
+def common_targets()
+    pod 'Yosef', :path => '../'
+end
+
+def tests_targets()
+    pod 'iOSSnapshotTestCase'
+end
+
+target 'Yosef_Example' do
+  common_targets
+
+  target 'Yosef_Tests' do
+    inherit! :search_paths
+    tests_targets
+    
+  end
+end
