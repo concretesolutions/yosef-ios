@@ -11,7 +11,7 @@ import UIKit
 fileprivate enum ButtonProperty: String {
     case text = "text"
     case textColor = "textColor"
-    case action = "action"
+//    case action = "action"
     case backgroundColor = "backgroundColor"
     case textSize = "textSize"
 }
@@ -28,7 +28,34 @@ public class DynamicButton: UIButton {
     }
 }
 
+extension UIButton {
+    var text: String? {
+        get {
+            return self.title(for: .normal)
+        }
+        
+        set {
+            self.setTitle(newValue, for: .normal)
+        }
+    }
+    
+    var textColor: UIColor? {
+        get {
+            return self.titleColor(for: .normal)
+        }
+        set {
+            self.setTitleColor(newValue, for: .normal)
+        }
+    }
+}
+
 class ButtonComponent: BaseComponent {
+    
+    private var propertyDictionary: [ButtonProperty: AnyPropertyApplier<UIButton>] =
+        [.text: AnyPropertyApplier(KeyPathApplier(\UIButton.text)),
+         .textColor: AnyPropertyApplier(KeyPathApplier(\UIButton.textColor)),
+         .backgroundColor: AnyPropertyApplier(KeyPathApplier(\UIButton.backgroundColor)),
+         .textSize: AnyPropertyApplier(FontSizeApplier<UIButton>())]
     
     fileprivate let kButtonComponentType = "button"
     fileprivate let kButtonComponentTitleInsetTop = CGFloat(4)
@@ -47,14 +74,19 @@ class ButtonComponent: BaseComponent {
     fileprivate var button: DynamicButton!
     fileprivate var buttonActionListener: DynamicActionDelegate!
     
-    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) {
+    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws {
         if dynamicComponent.type == kButtonComponentType {
             self.button = DynamicButton()
+            self.button.titleEdgeInsets = UIEdgeInsetsMake(kButtonComponentTitleInsetTop, kButtonComponentTitleInsetLeft, kButtonComponentTitleInsetBottom, kButtonComponentTitleInsetRight)
+            self.button.titleLabel?.numberOfLines = kButtonComponentNumberOfLines
+            self.button.titleLabel?.adjustsFontSizeToFitWidth = true
+            self.button.titleLabel?.lineBreakMode = .byClipping
+            self.button.titleLabel?.baselineAdjustment = .alignCenters
             self.button.delegate = actionDelegate
             self.button.addTarget(self.button, action: #selector(DynamicButton.buttonTapped), for: .touchUpInside)
             self.buttonActionListener = actionDelegate
             self.setupDefaultProperties()
-            self.addProperties(properties: dynamicComponent.properties)
+            try self.addProperties(properties: dynamicComponent.properties)
             view.addSubview(button)
             self.setupConstraints(view: view)
         }
@@ -77,65 +109,18 @@ class ButtonComponent: BaseComponent {
         view.addConstraint(NSLayoutConstraint(item: self.button, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: kButtonComponentDefaultMultiplierConstraint, constant: kButtonComponentHeightConstraint))
     }
     
-    private func addProperties(properties: [DynamicProperty]?) {
-        if let properties = properties {
-            for item in properties {
-                self.identityAndApplyProperties(property: item)
-            }
+    private func addProperties(properties: [DynamicProperty]?) throws {
+        try properties?.forEach({
+            try self.identityAndApplyProperties(property: $0)
+        })
+    }
+    
+    private func identityAndApplyProperties(property: DynamicProperty) throws {
+        guard let textViewProperty = ButtonProperty(rawValue: property.name),
+            let applier = propertyDictionary[textViewProperty] else {
+                throw ParseError.unknownProperty
         }
-    }
-    
-    private func identityAndApplyProperties(property: DynamicProperty) {
-        if let propertyName = property.name, let buttonProperty = ButtonProperty(rawValue: propertyName) {
-            switch buttonProperty {
-            case .text:
-                self.setButtonTitle(title: property.value)
-                break
-            case .action:
-                self.setButtonAction(action: property.value)
-                break
-            case .backgroundColor:
-                self.setButtonBackgroundColor(colorString: property.value)
-                break
-            case .textColor:
-                self.setButtonTextColor(textColorString: property.value)
-                break
-            case .textSize:
-                self.setButtonTextSize(textSize: property.value)
-                break
-            }
-        }
-    }
-    
-    private func setButtonTitle(title: String?) {
-        button.titleEdgeInsets = UIEdgeInsetsMake(kButtonComponentTitleInsetTop, kButtonComponentTitleInsetLeft, kButtonComponentTitleInsetBottom, kButtonComponentTitleInsetRight)
-        button.setTitle(title, for: .normal)
-        button.titleLabel?.numberOfLines = kButtonComponentNumberOfLines
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.lineBreakMode = .byClipping
-        button.titleLabel?.baselineAdjustment = .alignCenters
-    }
-    
-    private func setButtonAction(action: String?) {
-        self.button.action = action
-    }
-    
-    private func setButtonTextColor(textColorString: String?) {
-        if let color = textColorString {
-            button.setTitleColor(UIColor.init(hexadecimalString:color), for: .normal)
-        }
-    }
-    
-    private func setButtonBackgroundColor(colorString: String?) {
-        if let color = colorString {
-            button.backgroundColor = UIColor.init(hexadecimalString:color)
-        }
-    }
-    
-    private func setButtonTextSize(textSize: String?) {
-        if let sizeString = textSize, let sizeValue = Float(sizeString) {
-            let fonteSize = CGFloat(sizeValue)
-            button.titleLabel?.font = UIFont.systemFont(ofSize: fonteSize)
-        }
+        
+        _ = try applier.apply(value: property.value, to: button)
     }
 }

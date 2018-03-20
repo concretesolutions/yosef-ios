@@ -24,7 +24,7 @@ public class DynamicView: NSObject {
         view.translatesAutoresizingMaskIntoConstraints = false
         if let componentType = components[dynamicsComponent.type ?? ""] {
             let comp = componentType.init()
-            comp.applyViewsFromJson(view: view,
+            try! comp.applyViewsFromJson(view: view,
                                     dynamicComponent: dynamicsComponent,
                                     actionDelegate: actionDelegate)
         }

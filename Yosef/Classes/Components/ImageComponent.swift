@@ -17,9 +17,11 @@ fileprivate enum ImageProperty: String {
 
 class ImageComponent: BaseComponent {
     
-    private var propertyDictionary: [ImageProperty: PropertyApplier<UIImageView>] = [.url: KingfisherApplier(),
-                                                                                     .width: WritableKeyPathApplicator(\UIImageView.frame.width),
-                                                                                     .height: WritableKeyPathApplicator(\UIImageView.frame.height)]
+    private var propertyDictionary: [ImageProperty: AnyPropertyApplier<UIImageView>] =
+        [.url: AnyPropertyApplier(KingfisherApplier()),
+//         .width: AnyPropertyApplier(KeyPathApplier(\UIImageView.frame.width)),
+//         .height: AnyPropertyApplier(KeyPathApplier(\UIImageView.frame.height))
+    ]
     
     fileprivate let kImageComponentType = "image"
     
@@ -54,16 +56,16 @@ extension ImageComponent {
     }
     
     private func identifyAndApplyProperty(_ property: DynamicProperty) {
-        if let imageProperty = ImageProperty(rawValue: property.name) {
+        if let propertyValue = property.value as? String, let imageProperty = ImageProperty(rawValue: property.name) {
             switch imageProperty {
             case .url:
-                getImageFromURL(property.value)
+                getImageFromURL(propertyValue)
                 break
             case .width:
-                setWidth(property.value)
+                setWidth(propertyValue)
                 break
             case .height:
-                setHeight(property.value)
+                setHeight(propertyValue)
                 break
             }
         }

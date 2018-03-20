@@ -7,11 +7,13 @@
 
 import Kingfisher
 
-class KingfisherApplier: PropertyApplier<UIImageView, URL> {
+class KingfisherApplier: TypedPropertyApplier {
+    typealias ViewType = UIImageView
     
-    override func apply(value: URL, to: UIImageView) throws -> UIImageView {
-        to.kf.setImage(with: urlValue)
+    func apply(value: URL, to: UIImageView) throws -> UIImageView {
+        to.kf.setImage(with: value)
         
         return to
     }
+    
 }

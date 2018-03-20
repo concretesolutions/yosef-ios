@@ -22,14 +22,14 @@ class RadioGroupComponent: BaseComponent {
                     .properties?
                     .filter { $0.name == "text" }
                     .first?
-                    .value ?? ""
+                    .value as? String ?? ""
                 items.append(item)
             }
             let title = dynamicComponent
                 .properties?
                 .filter { $0.name == "text" }
                 .first?
-                .value ?? ""
+                .value as? String ?? ""
             let radioView = RadioGroupView()
             self.radioView = radioView
             radioView.translatesAutoresizingMaskIntoConstraints = false
@@ -68,10 +68,10 @@ extension RadioGroupComponent {
     
     private func add(properties: [DynamicProperty]?) {
         guard let properties = properties else { return }
-        for p in properties.filter({ !specialProperties.contains($0.name ?? "") }) {
-            let key = propertyNamesTranslator[p.name ?? ""] ?? (p.name ?? "")
-            let converter = propertyValuesTranslator[p.name ?? ""] ?? { $0 }
-            let value = converter(p.value ?? "")
+        for p in properties.filter({ !specialProperties.contains($0.name) }) {
+            let key = propertyNamesTranslator[p.name] ?? (p.name)
+            let converter = propertyValuesTranslator[p.name] ?? { $0 }
+            let value = converter(p.value as? String ?? "")
             radioView?.setValue(value, forKeyPath: key)
         }
     }

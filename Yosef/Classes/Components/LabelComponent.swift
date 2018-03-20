@@ -17,10 +17,11 @@ fileprivate enum LabelViewProperty: String {
 
 class LabelComponent: BaseComponent {
     
-    private var propertyDictionary: [LabelViewProperty: PropertyApplier<UILabel>] = [.text: WritableKeyPathApplicator(\UILabel.text),
-                                                                                     .textColor: WritableKeyPathApplicator(\UILabel.textColor),
-                                                                                     .backgroundColor: WritableKeyPathApplicator(\UILabel.backgroundColor),
-                                                                                     .textSize: FontSizeApplier()]
+    private var propertyDictionary: [LabelViewProperty: AnyPropertyApplier<UILabel>] =
+        [.text: AnyPropertyApplier(KeyPathApplier(\UILabel.text)),
+         .textColor: AnyPropertyApplier(KeyPathApplier(\UILabel.textColor)),
+         .backgroundColor: AnyPropertyApplier(KeyPathApplier(\UILabel.backgroundColor)),
+         .textSize: AnyPropertyApplier(FontSizeApplier<UILabel>())]
     
     fileprivate let kLabelComponentType = "text"
     fileprivate let kLabelComponentTitleInsetTop = CGFloat(4)
@@ -63,9 +64,9 @@ class LabelComponent: BaseComponent {
     }
     
     private func addProperties(properties: [DynamicProperty]?) throws {
-            try properties?.forEach({
-                try self.identityAndApplyProperties(property: $0)
-            })
+        try properties?.forEach({
+            try self.identityAndApplyProperties(property: $0)
+        })
     }
     
     private func identityAndApplyProperties(property: DynamicProperty) throws {
@@ -77,3 +78,4 @@ class LabelComponent: BaseComponent {
         _ = try applier.apply(value: property.value, to: label)
     }
 }
+

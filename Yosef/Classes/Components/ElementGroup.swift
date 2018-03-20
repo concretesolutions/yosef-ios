@@ -46,7 +46,7 @@ extension ElementGroupComponent {
     }
     
     private func identityAndApplyProperties(property: DynamicProperty) {
-        if let propertyName = property.name, let propertyValue = property.value,let elementGroupProperty = ElementGroupProperty(rawValue: propertyName) {
+        if let propertyValue = property.value as? String, let elementGroupProperty = ElementGroupProperty(rawValue: property.name) {
             switch elementGroupProperty {
             case .orientation:
                 if let ori = ElementGroupOrientation(rawValue: propertyValue) {

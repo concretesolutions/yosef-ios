@@ -8,15 +8,15 @@
 import Foundation
 
 class FloatTypeConverter: ConcreteTypeConverter<CGFloat> {
-    override func validate(value: Any) -> Any? {
+    override func validateForType(value: Any) -> CGFloat? {
         if let stringValue = value as? String, let value = NumberFormatter().number(from: stringValue) {
-            return value
+            return CGFloat(truncating: value)
         }
         
         if let intValue = value as? Int {
             return CGFloat(intValue)
         }
         
-        return super.validate(value: value) as? Float
+        return super.validateForType(value: value)
     }
 }

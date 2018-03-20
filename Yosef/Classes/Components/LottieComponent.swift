@@ -41,10 +41,10 @@ extension LottieComponent {
     }
     
     private func identifyAndApplyProperty(_ property: DynamicProperty) {
-        if let propertyName = property.name, let lottieProperty = LottieProperty(rawValue: propertyName) {
+        if let propertyValue = property.value as? String, let lottieProperty = LottieProperty(rawValue: property.name) {
             switch lottieProperty {
             case .value:
-                setAnimationValue(property.value)
+                setAnimationValue(propertyValue)
                 break
             }
         }

@@ -65,19 +65,19 @@ class TextFieldComponent: BaseComponent {
     }
     
     private func identityAndApplyProperties(property: DynamicProperty) {
-        if let propertyName = property.name, let textFieldProperty = TextFieldProperty(rawValue: propertyName) {
+        if let propertyValue = property.value as? String, let textFieldProperty = TextFieldProperty(rawValue: property.name) {
             switch textFieldProperty {
             case .text:
-                self.setTextFieldText(text: property.value)
+                self.setTextFieldText(text: propertyValue)
                 break
             case .textColor:
-                self.setTextFieldTextColor(textColorString: property.value)
+                self.setTextFieldTextColor(textColorString: propertyValue)
                 break
             case .placeholder:
-                self.setTextFieldPlaceholder(placeholder: property.value)
+                self.setTextFieldPlaceholder(placeholder: propertyValue)
                 break
             case .action:
-                self.setTextFieldAction(action: property.value)
+                self.setTextFieldAction(action: propertyValue)
                 break
             }
         }

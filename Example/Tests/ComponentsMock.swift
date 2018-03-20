@@ -103,9 +103,7 @@ class ComponentsMocks {
     }
     
     func property(_ info: [String: Any]) -> DynamicProperty {
-        return DynamicProperty(name: info["name"] as? String,
-                                 type: info["type"] as? String,
-                                 value: info["value"] as? String)
+        return try! DynamicProperty(dictionary: info)
     }
     
     
