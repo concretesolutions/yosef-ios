@@ -33,7 +33,7 @@ extension UIButton: TextComponent {
     }
 }
 
-class FontSizeApplier<TextViewComponent: TextComponent>: TypedPropertyApplier {
+public class FontSizeApplier<TextViewComponent: TextComponent>: TypedPropertyApplier {
     
     typealias ViewType = TextViewComponent
     

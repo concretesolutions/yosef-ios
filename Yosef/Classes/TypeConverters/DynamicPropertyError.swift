@@ -6,7 +6,7 @@
 //  Copyright © 2018 Concrete. All rights reserved.
 //
 
-enum DynamicPropertyError: Error {
+public enum DynamicPropertyError: Error {
     case invalidJSONFormat
     case invalidValue(type: String, value: Any)
     case unknownType(type: String)

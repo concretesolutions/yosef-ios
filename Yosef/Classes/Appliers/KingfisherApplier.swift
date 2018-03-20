@@ -8,7 +8,7 @@
 
 import Kingfisher
 
-class KingfisherApplier: TypedPropertyApplier {
+public class KingfisherApplier: TypedPropertyApplier {
     typealias ViewType = UIImageView
     
     func apply(value: URL, to: UIImageView) throws -> UIImageView {

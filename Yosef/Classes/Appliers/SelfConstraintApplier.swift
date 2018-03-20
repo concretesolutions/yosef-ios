@@ -11,7 +11,7 @@ enum Dimension {
     case height
 }
 
-class SelfConstraintApplier<V: UIView>: TypedPropertyApplier {
+public class SelfConstraintApplier<V: UIView>: TypedPropertyApplier {
     
     typealias ViewType = V
     

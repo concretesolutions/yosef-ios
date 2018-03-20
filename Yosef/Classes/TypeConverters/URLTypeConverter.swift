@@ -6,7 +6,7 @@
 //  Copyright © 2018 Concrete. All rights reserved.
 //
 
-class URLTypeConverter: TypeConverter {
+public class URLTypeConverter: TypeConverter {
     
     func validate(value: Any) -> Any? {
         guard let stringValue = value as? String else {

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Concrete. All rights reserved.
 //
 
-class ColorTypeConverter: TypeConverter {
+public class ColorTypeConverter: TypeConverter {
     
     func validate(value: Any) -> Any? {
         guard let stringValue = value as? String else {
