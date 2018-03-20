@@ -42,7 +42,7 @@ class RadioGroupComponent: BaseComponent {
             radioView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
             radioView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             //...
-            radioView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(items.count)*44).isActive = true
+//            radioView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(items.count)*44).isActive = true
             //...
             add(properties: dynamicComponent.properties)
             view.setNeedsLayout()
@@ -181,10 +181,12 @@ class RadioItem: UIView {
     func setupConstraints() {
         selectionIndicator.heightAnchor.constraint(equalToConstant: 20).isActive = true
         selectionIndicator.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        selectionIndicator.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         selectionIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         selectionIndicator.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: selectionIndicator.trailingAnchor, constant: 8).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
 }

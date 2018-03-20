@@ -61,7 +61,8 @@ private class ElementListView: UIView, UITableViewDataSource, UITableViewDelegat
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.estimatedRowHeight = 150
+        tableView.estimatedRowHeight = 300
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
         return tableView
     }()
@@ -86,10 +87,5 @@ private class ElementListView: UIView, UITableViewDataSource, UITableViewDelegat
             .leadingAnchor(equalTo: view.leadingAnchor)
             .trailingAnchor(equalTo: view.trailingAnchor)
         return cell
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
+    }    
 }

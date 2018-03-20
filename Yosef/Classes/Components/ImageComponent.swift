@@ -19,8 +19,8 @@ class ImageComponent: BaseComponent {
     
     private var propertyDictionary: [ImageProperty: AnyPropertyApplier<UIImageView>] =
         [.url: AnyPropertyApplier(KingfisherApplier()),
-//         .width: AnyPropertyApplier(KeyPathApplier(\UIImageView.frame.width)),
-//         .height: AnyPropertyApplier(KeyPathApplier(\UIImageView.frame.height))
+         .width: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .width)),
+         .height: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .height))
     ]
     
     fileprivate let kImageComponentType = "image"
@@ -31,13 +31,11 @@ class ImageComponent: BaseComponent {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    fileprivate var height: CGFloat?
-    fileprivate var width: CGFloat?
     
-    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) {
+    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws {
         if dynamicComponent.type == kImageComponentType {
             view.addSubview(imageView)
-            addProperties(dynamicComponent.properties)
+            try addProperties(properties: dynamicComponent.properties)
             setUpConstraints(view)
         }
     }
@@ -47,48 +45,19 @@ class ImageComponent: BaseComponent {
 // MARK: - Properties
 
 extension ImageComponent {
-    private func addProperties(_ properties: [DynamicProperty]?) {
-        if let properties = properties {
-            for property in properties {
-                self.identifyAndApplyProperty(property)
-            }
-        }
+    private func addProperties(properties: [DynamicProperty]?) throws {
+        try properties?.forEach({
+            try self.identityAndApplyProperties(property: $0)
+        })
     }
     
-    private func identifyAndApplyProperty(_ property: DynamicProperty) {
-        if let propertyValue = property.value as? String, let imageProperty = ImageProperty(rawValue: property.name) {
-            switch imageProperty {
-            case .url:
-                getImageFromURL(propertyValue)
-                break
-            case .width:
-                setWidth(propertyValue)
-                break
-            case .height:
-                setHeight(propertyValue)
-                break
-            }
+    private func identityAndApplyProperties(property: DynamicProperty) throws {
+        guard let textViewProperty = ImageProperty(rawValue: property.name),
+            let applier = propertyDictionary[textViewProperty] else {
+                throw ParseError.unknownProperty
         }
-    }
-    
-    private func getImageFromURL(_ url: String?) {
-        if let url = url {
-            imageView.kf.setImage(with: URL(string: url))
-        }
-    }
-    
-    private func setWidth(_ width: String?) {
-        if let width = width, let widthValue = Float(width) {
-            let cgWidth = CGFloat(widthValue)
-            self.width = cgWidth
-        }
-    }
-    
-    private func setHeight(_ height: String?) {
-        if let height = height, let heightValue = Float(height) {
-            let cgHeight = CGFloat(heightValue)
-            self.height = cgHeight
-        }
+        
+        _ = try applier.apply(value: property.value, to: imageView)
     }
 }
 
@@ -101,7 +70,5 @@ extension ImageComponent {
             .bottomAnchor(equalTo: view.bottomAnchor, constant: 0)
             .leadingAnchor(equalTo: view.leadingAnchor, constant: 0)
             .trailingAnchor(equalTo: view.trailingAnchor, constant: 0)
-            .heightAnchor(equalTo: height ?? 0)
-            .widthAnchor(equalTo: width ?? 0)
     }
 }

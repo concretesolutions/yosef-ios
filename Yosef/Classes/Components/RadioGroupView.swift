@@ -70,10 +70,12 @@ class RadioGroupView: UIView, RadioItemDelegate {
         stackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        stackView.setContentCompressionResistancePriority(.required, for: .vertical)
         confirmButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20).isActive = true
         confirmButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
         confirmButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
         confirmButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
+        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func buildHierarchy() {
