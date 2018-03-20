@@ -18,7 +18,7 @@ Yosef reads JSON files to generate views, so that they can be created dynamicall
   s.homepage      = 'https://github.com/concretesolutions/yosef-ios'
   # s.screenshots   = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license         = { :type => 'MIT', :file => 'LICENSE' }
-  s.author          = { 'Guilherme Bayma' => 'guilherme.bayma@concrete.com.br', 'Emannuel Carvalho' => 'emannuel.carvalho@concrete.com.br', 'Kaique Pantosi' => 'kaique.pantosi@concrete.com.br', 'Concrete' => 'contato@concrete.com.br' }
+  s.author          = { 'Guilherme Bayma' => 'guilherme.bayma@concrete.com.br', 'Emannuel Carvalho' => 'emannuel.carvalho@concrete.com.br', 'Kaique Pantosi' => 'kaique.pantosi@concrete.com.br', 'Bruno Mazzo' => 'bruno.mazzo@concrete.com.br', 'Concrete' => 'contato@concrete.com.br' }
   s.source          = { :git => 'https://github.com/concretesolutions/yosef-ios.git', :tag => s.version.to_s }
 
   s.platform                = :ios, '9.0'
