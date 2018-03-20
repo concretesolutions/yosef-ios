@@ -19,6 +19,7 @@ extension UILabel: TextComponent {
         }
     }
 }
+
 extension UIButton: TextComponent {
     public var _font: UIFont! {
         get {
@@ -31,16 +32,12 @@ extension UIButton: TextComponent {
     }
 }
 
-class FontSizeApplier<TextViewType: UIView>: TypedPropertyApplier {
-
-    typealias ViewType = TextViewType
+class FontSizeApplier<TextViewComponent: TextComponent>: TypedPropertyApplier {
     
-    func apply(value: CGFloat, to view: TextViewType) throws -> TextViewType {
-        guard let textComponent = view as? TextComponent else {
-            throw ParseError.invalidType
-        }
-        textComponent._font = UIFont.systemFont(ofSize: value)
-
+    typealias ViewType = TextViewComponent
+    
+    func apply(value: CGFloat, to view: TextViewComponent) throws -> TextViewComponent {
+        view._font = UIFont.systemFont(ofSize: value)
         return view
     }
 }
