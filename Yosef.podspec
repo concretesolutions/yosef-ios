@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Yosef'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'Create views from JSON'
 
   s.description      = <<-DESC
