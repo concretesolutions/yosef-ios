@@ -55,11 +55,6 @@ class RadioGroupComponent: BaseComponent {
         "text": "actionTitle"
     ]
     
-    let propertyValuesTranslator: [String: ((String) -> Any)] = [
-        "backgroundColor": { UIColor.init(hexadecimalString: $0) },
-        "textColor": { UIColor.init(hexadecimalString: $0) }
-    ]
-    
     let specialProperties = [String]()
     
 }
@@ -70,9 +65,7 @@ extension RadioGroupComponent {
         guard let properties = properties else { return }
         for p in properties.filter({ !specialProperties.contains($0.name) }) {
             let key = propertyNamesTranslator[p.name] ?? (p.name)
-            let converter = propertyValuesTranslator[p.name] ?? { $0 }
-            let value = converter(p.value as? String ?? "")
-            radioView?.setValue(value, forKeyPath: key)
+            radioView?.setValue(p.value, forKeyPath: key)
         }
     }
     
