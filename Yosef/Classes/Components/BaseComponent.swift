@@ -15,5 +15,4 @@ class BaseComponent: NSObject, ComponentDelegate {
     }
     
     func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws { }
-    
 }

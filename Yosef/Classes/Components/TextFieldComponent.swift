@@ -15,11 +15,16 @@ class DynamicTextField: UITextField {
 fileprivate enum TextFieldProperty: String {
     case text = "text"
     case textColor = "textColor"
-    case action = "action"
+//    case action = "action"
     case placeholder = "placeholder"
 }
 
 class TextFieldComponent: BaseComponent {
+    
+    private var propertyDictionary: [TextFieldProperty: AnyPropertyApplier<UITextField>] =
+        [.text: AnyPropertyApplier(KeyPathApplier(\UITextField.text)),
+         .textColor: AnyPropertyApplier(KeyPathApplier(\UITextField.textColor)),
+         .placeholder: AnyPropertyApplier(KeyPathApplier(\UITextField.placeholder))]
     
     fileprivate let kTextFieldComponentType = "textField"
     fileprivate let kTextFieldComponentLeadingConstraint = CGFloat(16)
@@ -31,13 +36,13 @@ class TextFieldComponent: BaseComponent {
     private var textField: DynamicTextField!
     private var actionDelegate: DynamicActionDelegate?
     
-    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) {
+    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws {
         if dynamicComponent.type == kTextFieldComponentType {
             self.textField = DynamicTextField()
             self.textField.delegate = self
             self.textField.returnKeyType = .done
             self.actionDelegate = actionDelegate
-            self.addProperties(properties: dynamicComponent.properties)
+            try self.addProperties(properties: dynamicComponent.properties)
             view.addSubview(self.textField)
             self.setupConstraints(view: view)
         }
@@ -56,55 +61,23 @@ class TextFieldComponent: BaseComponent {
         view.addConstraint(NSLayoutConstraint(item: self.textField, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: kTextFieldComponentDefaultMultiplierConstraint, constant: kTextFieldComponentHeightConstraint))
     }
     
-    private func addProperties(properties: [DynamicProperty]?) {
-        if let properties = properties {
-            for item in properties {
-                self.identityAndApplyProperties(property: item)
-            }
+    private func addProperties(properties: [DynamicProperty]?) throws {
+        try properties?.forEach({
+            try self.identityAndApplyProperties(property: $0)
+        })
+    }
+    
+    private func identityAndApplyProperties(property: DynamicProperty) throws {
+        guard let textFieldProperty = TextFieldProperty(rawValue: property.name),
+            let applier = propertyDictionary[textFieldProperty] else {
+                throw ParseError.unknownProperty
         }
+        
+        _ = try applier.apply(value: property.value, to: textField)
     }
-    
-    private func identityAndApplyProperties(property: DynamicProperty) {
-        if let propertyValue = property.value as? String, let textFieldProperty = TextFieldProperty(rawValue: property.name) {
-            switch textFieldProperty {
-            case .text:
-                self.setTextFieldText(text: propertyValue)
-                break
-            case .textColor:
-                self.setTextFieldTextColor(textColorString: propertyValue)
-                break
-            case .placeholder:
-                self.setTextFieldPlaceholder(placeholder: propertyValue)
-                break
-            case .action:
-                self.setTextFieldAction(action: propertyValue)
-                break
-            }
-        }
-    }
-    
-    private func setTextFieldAction(action: String?) {
-        self.textField.action = action
-    }
-    
-    private func setTextFieldPlaceholder(placeholder: String?) {
-        textField.placeholder = placeholder
-    }
-    
-    private func setTextFieldText(text: String?) {
-        textField.text = text
-    }
-    
-    private func setTextFieldTextColor(textColorString: String?) {
-        if let color = textColorString {
-            textField.textColor = UIColor.init(hexadecimalString:color)
-        }
-    }
-    
 }
 
 extension TextFieldComponent: UITextFieldDelegate {
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if self.actionDelegate != nil {

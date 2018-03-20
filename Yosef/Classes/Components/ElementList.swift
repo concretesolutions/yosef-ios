@@ -1,8 +1,9 @@
 //
 //  ElementList.swift
-//  iOSSnapshotTestCase
+//  Yosef
 //
 //  Created by kaique.pantosi on 15/03/18.
+//  Copyright © 2018 Concrete. All rights reserved.
 //
 
 import UIKit

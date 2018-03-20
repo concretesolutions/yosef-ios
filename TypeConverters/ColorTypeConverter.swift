@@ -1,8 +1,9 @@
 //
 //  ColorTypeConverter.swift
-//  iOSSnapshotTestCase
+//  Yosef
 //
 //  Created by kaique.pantosi on 19/03/18.
+//  Copyright © 2018 Concrete. All rights reserved.
 //
 
 class ColorTypeConverter: TypeConverter {

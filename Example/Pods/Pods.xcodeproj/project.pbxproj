@@ -31,7 +31,7 @@
 		0F7FC07C2060312F008AB8B5 /* DynamicPropertyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC07B2060312F008AB8B5 /* DynamicPropertyError.swift */; };
 		0F7FC07E206042ED008AB8B5 /* URLTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC07D206042ED008AB8B5 /* URLTypeConverter.swift */; };
 		0F7FC080206047B7008AB8B5 /* PropertyApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC07F206047B7008AB8B5 /* PropertyApplier.swift */; };
-		0F7FC082206047E5008AB8B5 /* WritableKeyPathApplicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC081206047E5008AB8B5 /* WritableKeyPathApplicator.swift */; };
+		0F7FC082206047E5008AB8B5 /* KeyPathApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC081206047E5008AB8B5 /* KeyPathApplier.swift */; };
 		0F7FC08420604828008AB8B5 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC08320604828008AB8B5 /* ParseError.swift */; };
 		0F7FC0862060493E008AB8B5 /* FontSizeApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC0852060493E008AB8B5 /* FontSizeApplier.swift */; };
 		0F7FC08A20604D19008AB8B5 /* KingfisherApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC08920604D19008AB8B5 /* KingfisherApplier.swift */; };
@@ -294,7 +294,7 @@
 		0F7FC07B2060312F008AB8B5 /* DynamicPropertyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicPropertyError.swift; sourceTree = "<group>"; };
 		0F7FC07D206042ED008AB8B5 /* URLTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTypeConverter.swift; sourceTree = "<group>"; };
 		0F7FC07F206047B7008AB8B5 /* PropertyApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyApplier.swift; sourceTree = "<group>"; };
-		0F7FC081206047E5008AB8B5 /* WritableKeyPathApplicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritableKeyPathApplicator.swift; sourceTree = "<group>"; };
+		0F7FC081206047E5008AB8B5 /* KeyPathApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPathApplier.swift; sourceTree = "<group>"; };
 		0F7FC08320604828008AB8B5 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
 		0F7FC0852060493E008AB8B5 /* FontSizeApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizeApplier.swift; sourceTree = "<group>"; };
 		0F7FC08920604D19008AB8B5 /* KingfisherApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KingfisherApplier.swift; sourceTree = "<group>"; };
@@ -601,7 +601,7 @@
 				9AC1424F63B8EE5B0B547CC2F980F8BA /* DynamicProperty.swift */,
 				0F7FC06E20602B6B008AB8B5 /* TypeConverter.swift */,
 				0F7FC07F206047B7008AB8B5 /* PropertyApplier.swift */,
-				0F7FC081206047E5008AB8B5 /* WritableKeyPathApplicator.swift */,
+				0F7FC081206047E5008AB8B5 /* KeyPathApplier.swift */,
 				0F7FC08320604828008AB8B5 /* ParseError.swift */,
 				1D132A882060957000FE463F /* TypedPropertyApplier.swift */,
 			);
@@ -1377,7 +1377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F7FC07820602DE3008AB8B5 /* TypeConverter.swift in Sources */,
-				0F7FC082206047E5008AB8B5 /* WritableKeyPathApplicator.swift in Sources */,
+				0F7FC082206047E5008AB8B5 /* KeyPathApplier.swift in Sources */,
 				0F7FC07720602DD4008AB8B5 /* ColorTypeConverter.swift in Sources */,
 				0F25EB44205B23E000A5E608 /* ElementList.swift in Sources */,
 				0F7FC08E20604F8B008AB8B5 /* SelfConstraintApplier.swift in Sources */,

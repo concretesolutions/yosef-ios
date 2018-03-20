@@ -3,6 +3,7 @@
 //  Yosef
 //
 //  Created by Bruno Mazzo on 19/03/2018.
+//  Copyright © 2018 Concrete. All rights reserved.
 //
 
 protocol TypedPropertyApplier: PropertyApplier {
