@@ -25,7 +25,7 @@ Yosef reads JSON files to generate views, so that they can be created dynamicall
   s.ios.deployment_target   = '9.0'
   s.requires_arc            = true
 
-  # s.source_files = 'Yosef/Classes/**/*.swift'
+  s.source_files = 'Yosef/Classes/**/*.swift'
   s.swift_version = '4.0'
 
   # s.resource_bundles = {
