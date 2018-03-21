@@ -18,7 +18,7 @@ public class SelfConstraintApplier<V: UIView>: TypedPropertyApplier {
     let dimension: Dimension
     
     init(dimension: Dimension) {
-       self.dimension = dimension
+        self.dimension = dimension
     }
     
     func apply(value: CGFloat, to view: V) throws -> V {
