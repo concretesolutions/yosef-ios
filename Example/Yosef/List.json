@@ -1,118 +1,277 @@
 {
     "type": "elementList",
-    "properties": [
-                   {
+    "properties": [{
                    "name": "orientation",
                    "type": "string",
                    "value": "vertical"
+                   },
+                   {
+                   "name": "spacing",
+                   "type": "dimen",
+                   "value": "16"
                    }
                    ],
-    "children": [
+    "children": [{
+                 "type": "frame",
+                 "properties": [],
+                 "children": [{
+                              "type": "image",
+                              "properties": [{
+                                             "name": "url",
+                                             "type": "url",
+                                             "value": "https://demoalto-impresionesaerea.netdna-ssl.com/2017/11/baby-driver.jpg"
+                                             },
+                                             {
+                                             "name": "height",
+                                             "type": "dimen",
+                                             "value": "305"
+                                             }
+                                             ]
+                              },
+                              {
+                              "type": "elementGroup",
+                              "properties": [{
+                                             "name": "orientation",
+                                             "type": "string",
+                                             "value": "vertical"
+                                             },
+                                             {
+                                             "name": "gravity",
+                                             "type": "gravity",
+                                             "value": "bottom"
+                                             }
+                                             ],
+                              "children": [{
+                                           "type": "text",
+                                           "properties": [{
+                                                          "name": "text",
+                                                          "type": "string",
+                                                          "value": "Lorem Ipsum"
+                                                          },
+                                                          {
+                                                          "name": "textColor",
+                                                          "type": "color",
+                                                          "value": "#e14b4b"
+                                                          },
+                                                          {
+                                                          "name": "textSize",
+                                                          "type": "dimen",
+                                                          "value": "12"
+                                                          }
+                                                          ]
+                                           },
+                                           {
+                                           "type": "text",
+                                           "properties": [{
+                                                          "name": "text",
+                                                          "type": "string",
+                                                          "value": "Lorem ipsum dolor sit aconsectetur adipiscing sed do eiusmod tempor"
+                                                          },
+                                                          {
+                                                          "name": "textColor",
+                                                          "type": "color",
+                                                          "value": "#FFFFFF"
+                                                          },
+                                                          {
+                                                          "name": "textSize",
+                                                          "type": "dimen",
+                                                          "value": "24"
+                                                          }
+                                                          ]
+                                           }
+                                           ]
+                              }
+                              ]
+                 },
                  {
                  "type": "text",
-                 "properties": [
-                                {
+                 "properties": [{
                                 "name": "text",
                                 "type": "string",
-                                "value": "Quanto você gostaria de receber de empréstimo?"
+                                "value": "27/02/2018"
                                 },
                                 {
                                 "name": "textColor",
                                 "type": "color",
-                                "value": "#333839"
+                                "value": "#999999"
                                 },
                                 {
                                 "name": "textSize",
                                 "type": "dimen",
-                                "value": "18"
+                                "value": "12"
                                 }
                                 ]
                  },
                  {
-                 "type": "radioGroupButton",
-                 "properties": [
-                                {
-                                "name": "backgroundColor",
-                                "type": "color",
-                                "value": "#fd5501"
-                                },
-                                {
+                 "type": "text",
+                 "properties": [{
                                 "name": "text",
                                 "type": "string",
-                                "value": "Confirmar empréstimo"
+                                "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut"
                                 },
                                 {
                                 "name": "textColor",
                                 "type": "color",
-                                "value": "#ffffff"
+                                "value": "#3d000000"
+                                },
+                                {
+                                "name": "textSize",
+                                "type": "dimen",
+                                "value": "16"
+                                },
+                                {
+                                "name": "textStyle",
+                                "type": "fontWeight",
+                                "value": "bold"
                                 }
-                                ],
-                 "children": [
-                              {
-                              "type": "radioButton",
-                              "properties": [
-                                             {
-                                             "name": "textColor",
-                                             "type": "color",
-                                             "value": "#000000"
+                                ]
+                 },
+                 {
+                 "type": "text",
+                 "properties": [{
+                                "name": "text",
+                                "type": "string",
+                                "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                                },
+                                {
+                                "name": "textColor",
+                                "type": "color",
+                                "value": "#dd000000"
+                                },
+                                {
+                                "name": "textSize",
+                                "type": "dimen",
+                                "value": "16"
+                                },
+                                {
+                                "name": "textStyle",
+                                "type": "fontWeight",
+                                "value": "bold"
+                                }
+                                ]
+                 },
+                 {
+                 "type": "frame",
+                 "properties": [],
+                 "children": [{
+                              "type": "image",
+                              "properties": [{
+                                             "name": "url",
+                                             "type": "url",
+                                             "value": "https://i.ytimg.com/vi/DpjdZSvt7sU/maxresdefault.jpg"
                                              },
                                              {
-                                             "name": "tintColor",
-                                             "type": "color",
-                                             "value": "#fd5501"
-                                             },
-                                             {
-                                             "name": "text",
-                                             "type": "string",
-                                             "value": "R$ 1.000,00"
+                                             "name": "height",
+                                             "type": "dimen",
+                                             "value": "209"
                                              }
-                                             ],
-                              "children": null
+                                             ]
                               },
                               {
-                              "type": "radioButton",
-                              "properties": [
-                                             {
-                                             "name": "textColor",
-                                             "type": "color",
-                                             "value": "#000000"
-                                             },
-                                             {
-                                             "name": "tintColor",
-                                             "type": "color",
-                                             "value": "#fd5501"
-                                             },
-                                             {
-                                             "name": "text",
+                              "type": "elementGroup",
+                              "properties": [{
+                                             "name": "orientation",
                                              "type": "string",
-                                             "value": "R$ 5.000,00"
+                                             "value": "vertical"
+                                             },
+                                             {
+                                             "name": "gravity",
+                                             "type": "gravity",
+                                             "value": "bottom"
                                              }
                                              ],
-                              "children": null
-                              },
-                              {
-                              "type": "radioButton",
-                              "properties": [
-                                             {
-                                             "name": "textColor",
-                                             "type": "color",
-                                             "value": "#000000"
-                                             },
-                                             {
-                                             "name": "tintColor",
-                                             "type": "color",
-                                             "value": "#fd5501"
-                                             },
-                                             {
-                                             "name": "text",
-                                             "type": "string",
-                                             "value": "R$ 10.000,00"
-                                             }
-                                             ],
-                              "children": null
+                              "children": [{
+                                           "type": "text",
+                                           "properties": [{
+                                                          "name": "text",
+                                                          "type": "string",
+                                                          "value": "______________________________________________"
+                                                          },
+                                                          {
+                                                          "name": "textColor",
+                                                          "type": "color",
+                                                          "value": "#FFFFFF"
+                                                          },
+                                                          {
+                                                          "name": "textSize",
+                                                          "type": "dimen",
+                                                          "value": "18"
+                                                          }
+                                                          ]
+                                           },
+                                           {
+                                           "type": "frame",
+                                           "properties": [],
+                                           "children": [{
+                                                        "type": "elementGroup",
+                                                        "properties": [{
+                                                                       "name": "orientation",
+                                                                       "type": "string",
+                                                                       "value": "horizontal"
+                                                                       }],
+                                                        "children": [{
+                                                                     "type": "text",
+                                                                     "properties": [{
+                                                                                    "name": "text",
+                                                                                    "type": "string",
+                                                                                    "value": "ICON"
+                                                                                    },
+                                                                                    {
+                                                                                    "name": "textColor",
+                                                                                    "type": "color",
+                                                                                    "value": "#FFFFFF"
+                                                                                    },
+                                                                                    {
+                                                                                    "name": "textSize",
+                                                                                    "type": "dimen",
+                                                                                    "value": "12"
+                                                                                    }
+                                                                                    ]
+                                                                     },
+                                                                     {
+                                                                     "type": "text",
+                                                                     "properties": [{
+                                                                                    "name": "text",
+                                                                                    "type": "string",
+                                                                                    "value": "DESCRIPTION"
+                                                                                    },
+                                                                                    {
+                                                                                    "name": "textColor",
+                                                                                    "type": "color",
+                                                                                    "value": "#FFFFFF"
+                                                                                    },
+                                                                                    {
+                                                                                    "name": "textSize",
+                                                                                    "type": "dimen",
+                                                                                    "value": "10"
+                                                                                    }]
+                                                                     }
+                                                                     ]
+                                                        }
+                                                        ]
+                                           }
+                                           ]
                               }
                               ]
+                 },
+                 {
+                 "type": "text",
+                 "properties": [{
+                                "name": "text",
+                                "type": "string",
+                                "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip"
+                                },
+                                {
+                                "name": "textColor",
+                                "type": "color",
+                                "value": "#dd000000"
+                                },
+                                {
+                                "name": "textSize",
+                                "type": "dimen",
+                                "value": "16"
+                                }
+                                ]
                  }
                  ]
 }
-

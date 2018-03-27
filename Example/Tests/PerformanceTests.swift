@@ -39,7 +39,7 @@ class PerformanceTests: XCTestCase {
             let comp = DynamicComponent.parse(dictionary: jsonDict!) as DynamicComponent
             let delegate = MockDelegate()
             startMeasuring()
-            let _ = DynamicView.createView(dynamicsComponent: comp, actionDelegate: delegate)
+            let _ = try! DynamicView.createView(dynamicsComponent: comp, actionDelegate: delegate)
             stopMeasuring()
         }
     }

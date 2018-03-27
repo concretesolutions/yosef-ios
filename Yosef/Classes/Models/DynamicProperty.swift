@@ -13,7 +13,10 @@ class DynamicProperty: NSObject, BaseModelProtocol {
     static var typeConverters: [String: TypeConverter] = ["dimen" : FloatTypeConverter(),
                                                           "string" : ConcreteTypeConverter<String>(),
                                                           "color" : ColorTypeConverter(),
-                                                          "url" : URLTypeConverter()]
+                                                          "url" : URLTypeConverter(),
+                                                          "fontWeight": FontWeightTypeConverter(),
+                                                          "gravity": GravityTypeConverter(),
+                                                          "margin": MarginTypeConverter()]
     
     // MARK: Constants
     

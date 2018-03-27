@@ -36,16 +36,13 @@ class TextFieldComponent: BaseComponent {
     private var textField: DynamicTextField!
     private var actionDelegate: DynamicActionDelegate?
     
-    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws {
-        if dynamicComponent.type == kTextFieldComponentType {
+    override func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
             self.textField = DynamicTextField()
             self.textField.delegate = self
             self.textField.returnKeyType = .done
             self.actionDelegate = actionDelegate
             try self.addProperties(properties: dynamicComponent.properties)
-            view.addSubview(self.textField)
-            self.setupConstraints(view: view)
-        }
+        return self.textField
     }
     
     // MARK: Setup Properties

@@ -74,8 +74,7 @@ class ButtonComponent: BaseComponent {
     fileprivate var button: DynamicButton!
     fileprivate var buttonActionListener: DynamicActionDelegate!
     
-    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws {
-        if dynamicComponent.type == kButtonComponentType {
+    override func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
             self.button = DynamicButton()
             self.button.titleEdgeInsets = UIEdgeInsetsMake(kButtonComponentTitleInsetTop, kButtonComponentTitleInsetLeft, kButtonComponentTitleInsetBottom, kButtonComponentTitleInsetRight)
             self.button.titleLabel?.numberOfLines = kButtonComponentNumberOfLines
@@ -87,9 +86,7 @@ class ButtonComponent: BaseComponent {
             self.buttonActionListener = actionDelegate
             self.setupDefaultProperties()
             try self.addProperties(properties: dynamicComponent.properties)
-            view.addSubview(button)
-            self.setupConstraints(view: view)
-        }
+            return self.button
     }
     
     private func setupDefaultProperties(){

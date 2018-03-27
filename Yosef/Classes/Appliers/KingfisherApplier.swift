@@ -15,5 +15,4 @@ public class KingfisherApplier: TypedPropertyApplier {
         to.kf.setImage(with: value)
         return to
     }
-    
 }

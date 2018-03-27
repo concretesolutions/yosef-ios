@@ -28,16 +28,13 @@ class ImageComponent: BaseComponent {
     fileprivate lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
-    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws {
-        if dynamicComponent.type == kImageComponentType {
-            view.addSubview(imageView)
-            try addProperties(properties: dynamicComponent.properties)
-            setUpConstraints(view)
-        }
+    override func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
+        try addProperties(properties: dynamicComponent.properties)
+        return self.imageView
     }
     
 }
@@ -66,9 +63,9 @@ extension ImageComponent {
 extension ImageComponent {
     private func setUpConstraints(_ view: UIView) {
         imageView
-            .topAnchor(equalTo: view.topAnchor, constant: 0)
-            .bottomAnchor(equalTo: view.bottomAnchor, constant: 0)
-            .leadingAnchor(equalTo: view.leadingAnchor, constant: 0)
-            .trailingAnchor(equalTo: view.trailingAnchor, constant: 0)
+            .topAnchor(equalTo: view.topAnchor, constant: topPadding ?? 0)
+            .bottomAnchor(equalTo: view.bottomAnchor, constant: bottomPadding ?? 0)
+            .leadingAnchor(equalTo: view.leadingAnchor, constant: leadingPadding ?? 0)
+            .trailingAnchor(equalTo: view.trailingAnchor, constant: trailingPadding ?? 0)
     }
 }

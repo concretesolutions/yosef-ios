@@ -19,13 +19,13 @@ class LottieComponent: BaseComponent {
     
     fileprivate var lottieView: LOTAnimationView!
     
-    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) {
-        if dynamicComponent.type == kLottieComponentType {
+    override func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
+    
             self.addProperties(dynamicComponent.properties)
-            self.setUpAnimation(view)
-            view.addSubview(lottieView)
-            setUpConstraints(view)
-        }
+            self.setUpAnimation()
+        
+            return self.lottieView
+        
     }
 }
 
@@ -62,23 +62,11 @@ extension LottieComponent {
 // MARK: - Animation
 
 extension LottieComponent {
-    private func setUpAnimation(_ view: UIView) {
+    private func setUpAnimation() {
         //        lottieView.contentMode = .scaleAspectFit
         //        lottieView.animationSpeed = 1.0
         lottieView.loopAnimation = true
         lottieView.play()
-    }
-}
-
-// MARK: - Constraints
-
-extension LottieComponent {
-    private func setUpConstraints(_ view: UIView) {
-        lottieView
-            .centerXAnchor(equalTo: view.centerXAnchor)
-            .centerYAnchor(equalTo: view.centerYAnchor)
-            .heightAnchor(equalTo: 200)
-            .widthAnchor(equalTo: 200)
     }
 }
 

@@ -14,10 +14,10 @@ protocol TypedPropertyApplier: PropertyApplier {
 
 extension TypedPropertyApplier {
     func apply(value: Any, to view: ViewType) throws -> ViewType {
-        guard let value = value as? Model else {
+        guard let model = value as? Model else {
             throw ParseError.invalidType
         }
         
-        return try self.apply(value: value, to: view)
+        return try self.apply(value: model, to: view)
     }
 }

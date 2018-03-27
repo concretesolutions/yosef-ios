@@ -19,16 +19,15 @@ public class DynamicView: NSObject {
     ///   - actionDelegate: The delegate to be passed to the newly created view if its a control
     /// - Returns: a `UIView` created according to the informations in the `dynamicsComponent`.
     public static func createView(dynamicsComponent: DynamicComponent,
-                                  actionDelegate: DynamicActionDelegate) -> UIView {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+                                  actionDelegate: DynamicActionDelegate) throws -> UIView {
+        
         if let componentType = components[dynamicsComponent.type ?? ""] {
             let comp = componentType.init()
-            try! comp.applyViewsFromJson(view: view,
-                                    dynamicComponent: dynamicsComponent,
+            return try! comp.applyViewsFromJson(dynamicComponent: dynamicsComponent,
                                     actionDelegate: actionDelegate)
+        } else {
+            throw ParseError.invalidType
         }
-        return view
     }
     
     // Add new components here
@@ -40,7 +39,8 @@ public class DynamicView: NSObject {
         "radioGroupButton": RadioGroupComponent.self,
         "image": ImageComponent.self,
         "animation": LottieComponent.self,
-        "elementList": ElementList.self
+        "elementList": ElementList.self,
+        "frame": FrameComponent.self
     ]
     
 }

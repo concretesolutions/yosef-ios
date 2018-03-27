@@ -37,7 +37,7 @@ class DynamicViewTests: FBSnapshotTestCase {
     
     func testLabel() {
         let info = mocks.labelMock
-        let label = DynamicView.createView(dynamicsComponent: info,
+        let label = try! DynamicView.createView(dynamicsComponent: info,
                                              actionDelegate: MockDynamicViewDelegate())
         setupView(with: label)
         FBSnapshotVerifyView(view)
@@ -45,28 +45,28 @@ class DynamicViewTests: FBSnapshotTestCase {
     
     func testButton() {
         let info = mocks.buttonMock
-        let button = DynamicView.createView(dynamicsComponent: info, actionDelegate: MockDynamicViewDelegate())
+        let button = try! DynamicView.createView(dynamicsComponent: info, actionDelegate: MockDynamicViewDelegate())
         setupView(with: button)
         FBSnapshotVerifyView(view)
     }
     
     func testGroup() {
         let info = mocks.elementGroup
-        let group = DynamicView.createView(dynamicsComponent: info, actionDelegate: MockDynamicViewDelegate())
+        let group = try! DynamicView.createView(dynamicsComponent: info, actionDelegate: MockDynamicViewDelegate())
         setupView(with: group)
         FBSnapshotVerifyView(view)
     }
     
     func testRadioGroup() {
         let info = mocks.radioGroup
-        let group = DynamicView.createView(dynamicsComponent: info, actionDelegate: MockDynamicViewDelegate())
+        let group = try! DynamicView.createView(dynamicsComponent: info, actionDelegate: MockDynamicViewDelegate())
         setupView(with: group)
         FBSnapshotVerifyView(view)
     }
     
     func testImage() {
         let info = mocks.imageMock
-        let image = DynamicView.createView(dynamicsComponent: info, actionDelegate: MockDynamicViewDelegate())
+        let image = try! DynamicView.createView(dynamicsComponent: info, actionDelegate: MockDynamicViewDelegate())
         
         setupView(with: image)
         FBSnapshotVerifyView(view)
@@ -78,7 +78,7 @@ class DynamicViewTests: FBSnapshotTestCase {
         // TODO: it shouldn't need to access the subviews
         let info = mocks.buttonMock
         let delegate = MockDynamicViewDelegate()
-        let button = DynamicView
+        let button = try! DynamicView
             .createView(dynamicsComponent: info,
                         actionDelegate: delegate)
             .subviews
@@ -94,7 +94,7 @@ class DynamicViewTests: FBSnapshotTestCase {
         // TODO: it shouldn't need to access the subviews
         let info = mocks.radioGroup
         let delegate = MockDynamicViewDelegate()
-        let dynamicView = DynamicView
+        let dynamicView = try! DynamicView
             .createView(dynamicsComponent: info,
                         actionDelegate: delegate)
             .subviews // TODO: change structure

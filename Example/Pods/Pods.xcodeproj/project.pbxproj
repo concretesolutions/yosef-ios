@@ -31,11 +31,18 @@
 		0F0B2C3B206286B400837C20 /* ColorTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0B2C36206286B400837C20 /* ColorTypeConverter.swift */; };
 		0F0B2C3C206286B400837C20 /* URLTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0B2C37206286B400837C20 /* URLTypeConverter.swift */; };
 		0F25EB44205B23E000A5E608 /* ElementList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F25EB42205B239800A5E608 /* ElementList.swift */; };
+		0F3A6EAE20697BF000F60D31 /* FontWeightTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A6EAD20697BF000F60D31 /* FontWeightTypeConverter.swift */; };
+		0F3A6EB0206998A600F60D31 /* GravityTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A6EAF206998A600F60D31 /* GravityTypeConverter.swift */; };
+		0F3A6EB22069ABCA00F60D31 /* MarginTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A6EB12069ABCA00F60D31 /* MarginTypeConverter.swift */; };
+		0F3A6EB42069B01B00F60D31 /* EmptyApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A6EB32069B01B00F60D31 /* EmptyApplier.swift */; };
+		0F3A6EB72069B33500F60D31 /* MarginApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3A6EB62069B33500F60D31 /* MarginApplier.swift */; };
 		0F755ADCEAA8BF40FF7BECCBD8B5310B /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48F02BEFB29C6DE26D1CE8A1AD88B7E /* ImageDownloader.swift */; };
 		0F7FC07820602DE3008AB8B5 /* TypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC06E20602B6B008AB8B5 /* TypeConverter.swift */; };
 		0F7FC080206047B7008AB8B5 /* PropertyApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC07F206047B7008AB8B5 /* PropertyApplier.swift */; };
 		0F7FC082206047E5008AB8B5 /* KeyPathApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC081206047E5008AB8B5 /* KeyPathApplier.swift */; };
 		0F7FC08420604828008AB8B5 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7FC08320604828008AB8B5 /* ParseError.swift */; };
+		0F83BE6B2064533500A3DD0F /* FrameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F83BE692064531500A3DD0F /* FrameComponent.swift */; };
+		0F83BE6D20645DD900A3DD0F /* FontStyleApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F83BE6C20645DD900A3DD0F /* FontStyleApplier.swift */; };
 		0FCD971E8D1ADF47505F579AD27BC81B /* LOTKeyframe.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E1D363BDF2CC3DA7C804624D53439F0 /* LOTKeyframe.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		11ECC5C9BE0D9AE6AE8079882CB5AF75 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA168C9A66FA5A99597F330C319087A /* Image.swift */; };
 		11ED8CB8C0D87C40409896E92108BF1D /* DynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A24D78B8AAE00A0015F9B8F9091DCF5 /* DynamicView.swift */; };
@@ -295,10 +302,17 @@
 		0F0B2C36206286B400837C20 /* ColorTypeConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTypeConverter.swift; sourceTree = "<group>"; };
 		0F0B2C37206286B400837C20 /* URLTypeConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLTypeConverter.swift; sourceTree = "<group>"; };
 		0F25EB42205B239800A5E608 /* ElementList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementList.swift; sourceTree = "<group>"; };
+		0F3A6EAD20697BF000F60D31 /* FontWeightTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWeightTypeConverter.swift; sourceTree = "<group>"; };
+		0F3A6EAF206998A600F60D31 /* GravityTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityTypeConverter.swift; sourceTree = "<group>"; };
+		0F3A6EB12069ABCA00F60D31 /* MarginTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginTypeConverter.swift; sourceTree = "<group>"; };
+		0F3A6EB32069B01B00F60D31 /* EmptyApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyApplier.swift; sourceTree = "<group>"; };
+		0F3A6EB62069B33500F60D31 /* MarginApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginApplier.swift; sourceTree = "<group>"; };
 		0F7FC06E20602B6B008AB8B5 /* TypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConverter.swift; sourceTree = "<group>"; };
 		0F7FC07F206047B7008AB8B5 /* PropertyApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyApplier.swift; sourceTree = "<group>"; };
 		0F7FC081206047E5008AB8B5 /* KeyPathApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPathApplier.swift; sourceTree = "<group>"; };
 		0F7FC08320604828008AB8B5 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
+		0F83BE692064531500A3DD0F /* FrameComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameComponent.swift; sourceTree = "<group>"; };
+		0F83BE6C20645DD900A3DD0F /* FontStyleApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleApplier.swift; sourceTree = "<group>"; };
 		1027F480DC21DFB685281D20DA6AB67D /* LOTValueInterpolator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTValueInterpolator.h; path = "lottie-ios/Classes/RenderSystem/InterpolatorNodes/LOTValueInterpolator.h"; sourceTree = "<group>"; };
 		10290D70F7A3179049BE0530B05B834E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		113D6B1515602CCE3B9EC17292B537B3 /* Pods-Yosef_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Yosef_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -615,6 +629,8 @@
 				0F0B2C2C2062864000837C20 /* KingfisherApplier.swift */,
 				0F0B2C2D2062864000837C20 /* SelfConstraintApplier.swift */,
 				0F0B2C2E2062864000837C20 /* FontSizeApplier.swift */,
+				0F83BE6C20645DD900A3DD0F /* FontStyleApplier.swift */,
+				0F3A6EB32069B01B00F60D31 /* EmptyApplier.swift */,
 			);
 			name = Appliers;
 			path = Yosef/Classes/Appliers;
@@ -628,9 +644,20 @@
 				0F0B2C35206286B400837C20 /* FloatTypeConverter.swift */,
 				0F0B2C36206286B400837C20 /* ColorTypeConverter.swift */,
 				0F0B2C37206286B400837C20 /* URLTypeConverter.swift */,
+				0F3A6EAD20697BF000F60D31 /* FontWeightTypeConverter.swift */,
+				0F3A6EAF206998A600F60D31 /* GravityTypeConverter.swift */,
+				0F3A6EB12069ABCA00F60D31 /* MarginTypeConverter.swift */,
 			);
 			name = TypeConverters;
 			path = Yosef/Classes/TypeConverters;
+			sourceTree = "<group>";
+		};
+		0F3A6EB52069B32400F60D31 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0F3A6EB62069B33500F60D31 /* MarginApplier.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		18A6342BA530E58B73E48B33A92C4D23 /* Pods-Yosef_Example */ = {
@@ -758,6 +785,7 @@
 		80D33AE702A5F15FCC41C4CA5CF5DE6E /* Yosef */ = {
 			isa = PBXGroup;
 			children = (
+				0F3A6EB52069B32400F60D31 /* Utilities */,
 				0F0B2C2B2062864000837C20 /* Appliers */,
 				0F0B2C32206286B400837C20 /* TypeConverters */,
 				6A24D78B8AAE00A0015F9B8F9091DCF5 /* DynamicView.swift */,
@@ -1027,6 +1055,7 @@
 		FEDEBFA8C8B20B8CA0425E58BBA61F88 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				0F83BE692064531500A3DD0F /* FrameComponent.swift */,
 				4F36FE59A26041CAEFF504F7292F9ABB /* BaseComponent.swift */,
 				582C3F6765DC4E33D5748A5662CBD8A7 /* ButtonComponent.swift */,
 				F86C7E6544E41B09B9B076C232957927 /* ElementGroup.swift */,
@@ -1381,21 +1410,28 @@
 				0F7FC07820602DE3008AB8B5 /* TypeConverter.swift in Sources */,
 				0F7FC082206047E5008AB8B5 /* KeyPathApplier.swift in Sources */,
 				0F25EB44205B23E000A5E608 /* ElementList.swift in Sources */,
+				0F83BE6D20645DD900A3DD0F /* FontStyleApplier.swift in Sources */,
+				0F3A6EB22069ABCA00F60D31 /* MarginTypeConverter.swift in Sources */,
 				B3AAF7043A1975AB33B54A98E9A0C76E /* BaseComponent.swift in Sources */,
 				0F0B2C38206286B400837C20 /* DynamicPropertyError.swift in Sources */,
 				0F7FC080206047B7008AB8B5 /* PropertyApplier.swift in Sources */,
 				BF039944599FD9090B07208A82C89653 /* BaseModelProtocol.swift in Sources */,
 				0F0B2C3A206286B400837C20 /* FloatTypeConverter.swift in Sources */,
 				1D132A892060957000FE463F /* TypedPropertyApplier.swift in Sources */,
+				0F3A6EB72069B33500F60D31 /* MarginApplier.swift in Sources */,
 				61E2F1A75B8F40CCAA458DE7ABB36CF1 /* ButtonComponent.swift in Sources */,
+				0F3A6EAE20697BF000F60D31 /* FontWeightTypeConverter.swift in Sources */,
 				E73CAA1E47C8B4DAD1D0BEE385940D2C /* DynamicComponent.swift in Sources */,
 				0F0B2C2F2062864000837C20 /* KingfisherApplier.swift in Sources */,
 				0F0B2C39206286B400837C20 /* ConcreteTypeConverter.swift in Sources */,
+				0F3A6EB42069B01B00F60D31 /* EmptyApplier.swift in Sources */,
+				0F83BE6B2064533500A3DD0F /* FrameComponent.swift in Sources */,
 				E7F9D1BC6B562FFA83496FB6B7C2807A /* DynamicProperty.swift in Sources */,
 				11ED8CB8C0D87C40409896E92108BF1D /* DynamicView.swift in Sources */,
 				046ACF26F534C1C1402D34A396711F39 /* DynamicViewProtocols.swift in Sources */,
 				36D498C1DB8D0F8DC9CD759C8721DD3E /* ElementGroup.swift in Sources */,
 				0F0B2C302062864000837C20 /* SelfConstraintApplier.swift in Sources */,
+				0F3A6EB0206998A600F60D31 /* GravityTypeConverter.swift in Sources */,
 				4F6600E2CDB6C4B9BB3931FC3B51D1B5 /* ImageComponent.swift in Sources */,
 				FFB3D356C5B8E194A5A0619FEB5D8F76 /* LabelComponent.swift in Sources */,
 				0F0B2C3B206286B400837C20 /* ColorTypeConverter.swift in Sources */,

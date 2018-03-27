@@ -23,14 +23,15 @@ class ElementGroupComponent: BaseComponent {
     fileprivate var orientation = ElementGroupOrientation.vertical
     fileprivate var stackView: UIStackView!
     
-    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) {
-        if dynamicComponent.type == kElementGroupComponentType {
+    override func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
+        
             self.stackView = UIStackView()
             
             self.addProperties(properties: dynamicComponent.properties)
-            setUpStackView(view)
-            addChild(dynamicComponent.children ?? [], view: view, action: actionDelegate)
-        }
+            setUpStackView()
+            addChild(dynamicComponent.children ?? [], action: actionDelegate)
+        return self.stackView
+        
     }
 }
 
@@ -61,8 +62,7 @@ extension ElementGroupComponent {
 // MARK: - Setup Stack View
 
 extension ElementGroupComponent {
-    private func setUpStackView(_ view: UIView) {
-        setUpConstraints(view)
+    private func setUpStackView() {
         
         switch self.orientation {
         case .horizontal:
@@ -79,23 +79,24 @@ extension ElementGroupComponent {
         self.stackView.spacing = 16
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
     }
-    
-    private func setUpConstraints(_ view: UIView) {
-        view.addSubview(self.stackView)
-        self.stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        self.stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        self.stackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        self.stackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-    }
 }
 
 // MARK: - Add Child elements
 
 extension ElementGroupComponent {
-    private func addChild(_ childs: [DynamicComponent], view: UIView, action: DynamicActionDelegate) {
+    private func addChild(_ childs: [DynamicComponent], action: DynamicActionDelegate) {
         for child in childs {
-            let childView = DynamicView.createView(dynamicsComponent: child, actionDelegate: action)
-            self.stackView.addArrangedSubview(childView)
+            let view = try! DynamicView.createView(dynamicsComponent: child, actionDelegate: action)
+            let marginView = UIView()
+            
+            marginView.translatesAutoresizingMaskIntoConstraints = false
+            view.translatesAutoresizingMaskIntoConstraints = false
+            marginView.addSubview(view)
+            
+            let marginApplier = MarginApplier()
+            marginApplier.tryApplyMargin(component: child, to: view, in: marginView)
+            
+            self.stackView.addArrangedSubview(marginView)
         }
     }
 }

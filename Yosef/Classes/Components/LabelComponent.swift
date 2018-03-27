@@ -13,15 +13,19 @@ fileprivate enum LabelViewProperty: String {
     case textColor = "textColor"
     case backgroundColor = "backgroundColor"
     case textSize = "textSize"
+    case textStyle = "textStyle"
+    case margin = "margin"
 }
 
 class LabelComponent: BaseComponent {
     
-    private var propertyDictionary: [LabelViewProperty: AnyPropertyApplier<UILabel>] =
+    private var propertyDictionary: [LabelViewProperty: AnyPropertyApplier<UILabel>?] =
         [.text: AnyPropertyApplier(KeyPathApplier(\UILabel.text)),
          .textColor: AnyPropertyApplier(KeyPathApplier(\UILabel.textColor)),
          .backgroundColor: AnyPropertyApplier(KeyPathApplier(\UILabel.backgroundColor)),
-         .textSize: AnyPropertyApplier(FontSizeApplier<UILabel>())]
+         .textSize: AnyPropertyApplier(FontSizeApplier<UILabel>()),
+         .textStyle: AnyPropertyApplier(FontStyleApplier<UILabel>()),
+         .margin: AnyPropertyApplier(EmptyApplier<UILabel>())]
     
     fileprivate let kLabelComponentType = "text"
     fileprivate let kLabelComponentTitleInsetTop = CGFloat(4)
@@ -37,17 +41,15 @@ class LabelComponent: BaseComponent {
     
     fileprivate var label: UILabel!
     
-    override func applyViewsFromJson(view: UIView, dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws {
-        if dynamicComponent.type == kLabelComponentType {
+    override func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
+        
             self.label = UILabel()
             self.label.numberOfLines = kLabelComponentNumberOfLines
             self.label.adjustsFontSizeToFitWidth = true
             self.label.lineBreakMode = .byClipping
             self.label.baselineAdjustment = .alignCenters
             try self.addProperties(properties: dynamicComponent.properties)
-            view.addSubview(self.label)
-            self.setupConstraints(view: view)
-        }
+        return self.label
     }
     
     // MARK: Setup Properties
@@ -75,7 +77,7 @@ class LabelComponent: BaseComponent {
                 throw ParseError.unknownProperty
         }
         
-        _ = try applier.apply(value: property.value, to: label)
+        _ = try applier?.apply(value: property.value, to: label)
     }
 }
 

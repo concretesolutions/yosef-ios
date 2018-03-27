@@ -12,10 +12,9 @@ class RadioGroupComponent: BaseComponent {
 
     private var radioView: RadioGroupView?
     
-    override func applyViewsFromJson(view: UIView,
-                                     dynamicComponent: DynamicComponent,
-                                     actionDelegate: DynamicActionDelegate) {
-        if dynamicComponent.type == "radioGroupButton" {
+    override func applyViewsFromJson(dynamicComponent: DynamicComponent,
+                                     actionDelegate: DynamicActionDelegate) throws -> UIView {
+        
             var items = [String]()
             for child in dynamicComponent.children ?? [] {
                 let item = child
@@ -36,17 +35,18 @@ class RadioGroupComponent: BaseComponent {
             radioView.items = items
             radioView.title = title
             radioView.delegate = actionDelegate
-            view.addSubview(radioView)
-            radioView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-            radioView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-            radioView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-            radioView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//            view.addSubview(radioView)
+//            radioView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//            radioView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+//            radioView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//            radioView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
             //...
 //            radioView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(items.count)*44).isActive = true
             //...
             add(properties: dynamicComponent.properties)
-            view.setNeedsLayout()
-        }
+//            view.setNeedsLayout()
+        
+        return radioView
     }
     
     let propertyNamesTranslator = [
