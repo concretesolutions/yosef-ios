@@ -30,7 +30,7 @@ private class FrameComponentView: UIView {
         self.delegate = delegate
         super.init(frame: .zero)
         setupView()
-        try setupChilds()
+        try setupChildren()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,7 +43,7 @@ private class FrameComponentView: UIView {
         
     }
     
-    private func setupChilds() throws {
+    private func setupChildren() throws {
         for component in components {
             let childView = try DynamicView.createView(dynamicsComponent: component, actionDelegate: delegate)
             self.addSubview(childView)
