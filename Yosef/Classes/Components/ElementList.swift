@@ -82,4 +82,8 @@ private class ElementListView: UIView, UITableViewDataSource, UITableViewDelegat
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 }
