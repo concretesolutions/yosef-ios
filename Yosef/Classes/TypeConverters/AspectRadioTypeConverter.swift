@@ -19,6 +19,10 @@ struct AspectRadio {
         self.height = height
         self.width = width
     }
+    
+    var radio: Float {
+        return self.height / self.width
+    }
 }
 
 class AspectRadioTypeConverter: TypedTypeConverter {
