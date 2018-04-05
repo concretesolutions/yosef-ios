@@ -61,6 +61,7 @@
 		1D21BAEE20768A9000B936F6 /* FontWeightApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21BAED20768A9000B936F6 /* FontWeightApplier.swift */; };
 		1D21BAF020768AA600B936F6 /* FontStyleTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21BAEF20768AA600B936F6 /* FontStyleTypeConverter.swift */; };
 		1D21BAF220768BCB00B936F6 /* ScaleTypeTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21BAF120768BCB00B936F6 /* ScaleTypeTypeConverter.swift */; };
+		1D21BAF420768D1700B936F6 /* ScaleTypeApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21BAF320768D1700B936F6 /* ScaleTypeApplier.swift */; };
 		1F9214A4C924FA030E8DFDEDF4D3BBDF /* LottieComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B29760B605289F01C80ABC1DE4468 /* LottieComponent.swift */; };
 		20F792EAC48F2BA3E240962A12213EE3 /* Pods-Yosef_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 463109EE65C4470A574CBB7267DDC5D2 /* Pods-Yosef_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22D210672129FD13CF593B4070F52589 /* LOTShapeCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = FA696AC6C6D84A6ED3248F52921D8D20 /* LOTShapeCircle.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -334,6 +335,7 @@
 		1D21BAED20768A9000B936F6 /* FontWeightApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWeightApplier.swift; sourceTree = "<group>"; };
 		1D21BAEF20768AA600B936F6 /* FontStyleTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleTypeConverter.swift; sourceTree = "<group>"; };
 		1D21BAF120768BCB00B936F6 /* ScaleTypeTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleTypeTypeConverter.swift; sourceTree = "<group>"; };
+		1D21BAF320768D1700B936F6 /* ScaleTypeApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleTypeApplier.swift; sourceTree = "<group>"; };
 		1D56A03B9A9B27C274B934810ACAD347 /* LOTAnimationTransitionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAnimationTransitionController.m; path = "lottie-ios/Classes/Private/LOTAnimationTransitionController.m"; sourceTree = "<group>"; };
 		1DCBE27293ECDF0F01D3F060F09A1CE8 /* LOTCompositionContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTCompositionContainer.m; path = "lottie-ios/Classes/AnimatableLayers/LOTCompositionContainer.m"; sourceTree = "<group>"; };
 		1F1BF239A0EF56FEE7241CB3CB53E316 /* LOTRenderNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTRenderNode.h; path = "lottie-ios/Classes/RenderSystem/LOTRenderNode.h"; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 				0F3A6EB32069B01B00F60D31 /* EmptyApplier.swift */,
 				1D21BAEB20766A3600B936F6 /* AspectRadioApplier.swift */,
 				1D21BAED20768A9000B936F6 /* FontWeightApplier.swift */,
+				1D21BAF320768D1700B936F6 /* ScaleTypeApplier.swift */,
 			);
 			name = Appliers;
 			path = Yosef/Classes/Appliers;
@@ -1434,6 +1437,7 @@
 				1D132A892060957000FE463F /* TypedPropertyApplier.swift in Sources */,
 				0F3A6EB9206ADCDB00F60D31 /* MarginApplier.swift in Sources */,
 				61E2F1A75B8F40CCAA458DE7ABB36CF1 /* ButtonComponent.swift in Sources */,
+				1D21BAF420768D1700B936F6 /* ScaleTypeApplier.swift in Sources */,
 				0F3A6EAE20697BF000F60D31 /* FontWeightTypeConverter.swift in Sources */,
 				E73CAA1E47C8B4DAD1D0BEE385940D2C /* DynamicComponent.swift in Sources */,
 				0F0B2C2F2062864000837C20 /* KingfisherApplier.swift in Sources */,
