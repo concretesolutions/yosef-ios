@@ -1,5 +1,5 @@
 //
-//  AspectRadioTypeConverter.swift
+//  aspectRatioTypeConverter.swift
 //  Yosef
 //
 //  Created by Bruno Mazzo on 05/04/2018.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AspectRadio {
+struct aspectRatio {
     var height: Float
     var width: Float
     
@@ -25,9 +25,9 @@ struct AspectRadio {
     }
 }
 
-class AspectRadioTypeConverter: TypedTypeConverter {
+class aspectRatioTypeConverter: TypedTypeConverter {
     
-    func validateForType(value: Any) -> AspectRadio? {
+    func validateForType(value: Any) -> aspectRatio? {
         guard let stringValue = value as? String else {
             return nil
         }
@@ -44,6 +44,6 @@ class AspectRadioTypeConverter: TypedTypeConverter {
         let heightString = valuesArray[0]
         let widthString = valuesArray[1]
         
-        return AspectRadio(height: heightString.floatValue, width: widthString.floatValue)
+        return aspectRatio(height: heightString.floatValue, width: widthString.floatValue)
     }
 }

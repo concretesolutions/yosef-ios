@@ -14,7 +14,7 @@ fileprivate enum ImageProperty: String {
     case width = "width"
     case height = "height"
     case scaleType = "scaleType"
-    case aspectRadio = "aspectRadio"
+    case aspectRatio = "aspectRatio"
     case margin = "margin"
 }
 
@@ -25,7 +25,7 @@ class ImageComponent: BaseComponent {
          .width: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .width)),
          .height: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .height)),
          .scaleType: AnyPropertyApplier(ScaleTypeApplier<UIImageView>()),
-         .aspectRadio: AnyPropertyApplier(AspectRadioApplier<UIImageView>()),
+         .aspectRatio: AnyPropertyApplier(aspectRatioApplier<UIImageView>()),
          .margin: AnyPropertyApplier(EmptyApplier<UIImageView>()),
     ]
     

@@ -26,8 +26,8 @@
                                              "value": "scaleAspectFit"
                                              },
                                              {
-                                             "name": "aspectRadio",
-                                             "type": "aspectRadio",
+                                             "name": "aspectRatio",
+                                             "type": "aspectRatio",
                                              "value": "6:11"
                                              },
                                              {
@@ -215,8 +215,8 @@
                                              "value": "scaleAspectFit"
                                              },
                                              {
-                                             "name": "aspectRadio",
-                                             "type": "aspectRadio",
+                                             "name": "aspectRatio",
+                                             "type": "aspectRatio",
                                              "value": "1.5:2"
                                              },
                                              {
