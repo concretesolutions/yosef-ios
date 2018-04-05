@@ -76,8 +76,10 @@ private class FrameComponentView: UIView {
                 childView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
                 childView.rightAnchor.constraint(lessThanOrEqualTo: self.rightAnchor).isActive = true
                 childView.leftAnchor.constraint(greaterThanOrEqualTo: self.leftAnchor).isActive = true
-                
             }
+            
+            let marginApplier = MarginApplier()
+            marginApplier.applyIfExistMargin(component: component, to: childView, in: self)
         }
     }
 }

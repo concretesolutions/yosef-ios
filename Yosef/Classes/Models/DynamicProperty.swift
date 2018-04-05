@@ -17,7 +17,7 @@ class DynamicProperty: NSObject {
                                                           "fontWeight": FontWeightTypeConverter(),
                                                           "gravity": GravityTypeConverter(),
                                                           "margin": MarginTypeConverter(),
-                                                          "AspectRadio": AspectRadioTypeConverter()]
+                                                          "aspectRadio": AspectRadioTypeConverter()]
     
     // MARK: Constants
     

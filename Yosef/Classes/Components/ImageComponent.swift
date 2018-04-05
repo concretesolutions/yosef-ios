@@ -14,6 +14,8 @@ fileprivate enum ImageProperty: String {
     case width = "width"
     case height = "height"
     case scaleType = "scaleType"
+    case aspectRadio = "aspectRadio"
+    case margin = "margin"
 }
 
 class ImageComponent: BaseComponent {
@@ -23,6 +25,8 @@ class ImageComponent: BaseComponent {
          .width: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .width)),
          .height: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .height)),
          .scaleType: AnyPropertyApplier(EmptyApplier<UIImageView>()),
+         .aspectRadio: AnyPropertyApplier(AspectRadioApplier<UIImageView>()),
+         .margin: AnyPropertyApplier(EmptyApplier<UIImageView>()),
     ]
     
     fileprivate let kImageComponentType = "image"
@@ -31,8 +35,6 @@ class ImageComponent: BaseComponent {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        imageView.setContentCompressionResistancePriority(.required, for: .vertical)
-        imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -60,17 +62,5 @@ extension ImageComponent {
         }
         
         _ = try applier.apply(value: property.value, to: imageView)
-    }
-}
-
-// MARK: - Constraints
-
-extension ImageComponent {
-    private func setUpConstraints(_ view: UIView) {
-        imageView
-            .topAnchor(equalTo: view.topAnchor, constant: topPadding ?? 0)
-            .bottomAnchor(equalTo: view.bottomAnchor, constant: bottomPadding ?? 0)
-            .leadingAnchor(equalTo: view.leadingAnchor, constant: leadingPadding ?? 0)
-            .trailingAnchor(equalTo: view.trailingAnchor, constant: trailingPadding ?? 0)
     }
 }

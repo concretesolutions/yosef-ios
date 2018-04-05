@@ -24,6 +24,16 @@
                                              "name": "scaleType",
                                              "type": "string",
                                              "value": "scaleAspectFit"
+                                             },
+                                             {
+                                             "name": "aspectRadio",
+                                             "type": "aspectRadio",
+                                             "value": "1.5:2"
+                                             },
+                                             {
+                                             "name": "margin",
+                                             "type": "margin",
+                                             "value": "0"
                                              }
                                              ]
                               },
@@ -39,11 +49,6 @@
                                              "name": "gravity",
                                              "type": "gravity",
                                              "value": "bottom"
-                                             },
-                                             {
-                                             "name": "margin",
-                                             "type": "margin",
-                                             "value": "14"
                                              }
                                              ],
                               "children": [
@@ -69,6 +74,11 @@
                                                           "name": "textSize",
                                                           "type": "dimen",
                                                           "value": "12"
+                                                          },
+                                                          {
+                                                          "name": "margin",
+                                                          "type": "margin",
+                                                          "value": "14,0"
                                                           }
                                                           ]
                                            },
@@ -94,6 +104,11 @@
                                                           "name": "textSize",
                                                           "type": "dimen",
                                                           "value": "24"
+                                                          },
+                                                          {
+                                                          "name": "margin",
+                                                          "type": "margin",
+                                                          "value": "14,0"
                                                           }
                                                           ]
                                            }
@@ -198,7 +213,19 @@
                                              "name": "scaleType",
                                              "type": "string",
                                              "value": "scaleAspectFit"
-                                             }
+                                             },
+                                             {
+                                             "name": "aspectRadio",
+                                             "type": "aspectRadio",
+                                             "value": "1.5:2"
+                                             },
+                                             {
+                                             "name": "margin",
+                                             "type": "margin",
+                                             "value": "0"
+                                             },
+                                             
+                                             
                                              ]
                               },
                               {
