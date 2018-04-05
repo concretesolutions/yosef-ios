@@ -24,7 +24,7 @@ class ImageComponent: BaseComponent {
         [.url: AnyPropertyApplier(KingfisherApplier()),
          .width: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .width)),
          .height: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .height)),
-         .scaleType: AnyPropertyApplier(EmptyApplier<UIImageView>()),
+         .scaleType: AnyPropertyApplier(ScaleTypeApplier<UIImageView>()),
          .aspectRadio: AnyPropertyApplier(AspectRadioApplier<UIImageView>()),
          .margin: AnyPropertyApplier(EmptyApplier<UIImageView>()),
     ]

@@ -22,13 +22,13 @@
                                              },
                                              {
                                              "name": "scaleType",
-                                             "type": "string",
+                                             "type": "scaleType",
                                              "value": "scaleAspectFit"
                                              },
                                              {
                                              "name": "aspectRadio",
                                              "type": "aspectRadio",
-                                             "value": "1.5:2"
+                                             "value": "6:11"
                                              },
                                              {
                                              "name": "margin",
@@ -211,7 +211,7 @@
                                              },
                                              {
                                              "name": "scaleType",
-                                             "type": "string",
+                                             "type": "scaleType",
                                              "value": "scaleAspectFit"
                                              },
                                              {
