@@ -16,7 +16,8 @@ class DynamicProperty: NSObject {
                                                           "url" : URLTypeConverter(),
                                                           "fontWeight": FontWeightTypeConverter(),
                                                           "gravity": GravityTypeConverter(),
-                                                          "margin": MarginTypeConverter()]
+                                                          "margin": MarginTypeConverter(),
+                                                          "AspectRadio": AspectRadioTypeConverter()]
     
     // MARK: Constants
     
