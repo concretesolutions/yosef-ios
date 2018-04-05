@@ -306,7 +306,7 @@
 		0F3A6EAF206998A600F60D31 /* GravityTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityTypeConverter.swift; sourceTree = "<group>"; };
 		0F3A6EB12069ABCA00F60D31 /* MarginTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginTypeConverter.swift; sourceTree = "<group>"; };
 		0F3A6EB32069B01B00F60D31 /* EmptyApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyApplier.swift; sourceTree = "<group>"; };
-		0F3A6EB8206ADCDB00F60D31 /* MarginApplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarginApplier.swift; path = ../Yosef/Classes/Utilities/MarginApplier.swift; sourceTree = "<group>"; };
+		0F3A6EB8206ADCDB00F60D31 /* MarginApplier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarginApplier.swift; sourceTree = "<group>"; };
 		0F7FC06E20602B6B008AB8B5 /* TypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeConverter.swift; sourceTree = "<group>"; };
 		0F7FC07F206047B7008AB8B5 /* PropertyApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyApplier.swift; sourceTree = "<group>"; };
 		0F7FC081206047E5008AB8B5 /* KeyPathApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPathApplier.swift; sourceTree = "<group>"; };
@@ -657,7 +657,8 @@
 			children = (
 				0F3A6EB8206ADCDB00F60D31 /* MarginApplier.swift */,
 			);
-			path = Utilities;
+			name = Utilities;
+			path = Yosef/Classes/Utilities;
 			sourceTree = "<group>";
 		};
 		18A6342BA530E58B73E48B33A92C4D23 /* Pods-Yosef_Example */ = {
