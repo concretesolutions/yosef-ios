@@ -26,6 +26,15 @@ public class FontWeightTypeConverter: TypeConverter {
             return nil
         }
         
+        
+        
+        guard let fontWeight = FontWeight(rawValue: stringValue)?.getFontWeight() else {
+            return nil
+        }
+        
+        var attributeDescriptor = [UIFontDescriptor.TraitKey : Any]()
+        attributeDescriptor[UIFontDescriptor.TraitKey.weight] = fontWeight
+        
         return FontWeight(rawValue: stringValue)?.getFontWeight()
     }
 }

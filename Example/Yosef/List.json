@@ -62,7 +62,7 @@
                                                           },
                                                           {
                                                           "name": "textStyle",
-                                                          "type": "fontWeight",
+                                                          "type": "fontStyle",
                                                           "value": "bold"
                                                           },
                                                           {
@@ -92,7 +92,7 @@
                                                           },
                                                           {
                                                           "name": "textStyle",
-                                                          "type": "fontWeight",
+                                                          "type": "fontStyle",
                                                           "value": "bold"
                                                           },
                                                           {

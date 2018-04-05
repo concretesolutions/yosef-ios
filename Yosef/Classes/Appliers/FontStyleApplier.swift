@@ -10,21 +10,19 @@ import Foundation
 public class FontStyleApplier<TextViewComponent: TextComponent>: TypedPropertyApplier {
     
     typealias ViewType = TextViewComponent
-    
-    func apply(value: UIFont.Weight, to view: TextViewComponent) throws -> TextViewComponent {
+    func apply(value: [UIFontDescriptorSymbolicTraits], to view: TextViewComponent) throws -> TextViewComponent {
         let currentFont = view._font ?? UIFont.systemFont(ofSize: 14.0)
         
-        var descriptor = currentFont.fontDescriptor.fontAttributes
-        var attributes = (descriptor[.traits] as? [UIFontDescriptor.TraitKey: Any]) ?? [:]
+        var traits = currentFont.fontDescriptor.symbolicTraits
+        value.forEach { traits.insert($0) }
         
-        attributes[.weight] = value
-        
-        descriptor[.traits] = attributes
-        
-        let fontDescriptor = UIFontDescriptor(fontAttributes: descriptor)
+        guard let fontDescriptor = currentFont.fontDescriptor.withSymbolicTraits(traits) else {
+            return view
+        }
         
         view._font = UIFont(descriptor: fontDescriptor, size: currentFont.pointSize)
         
         return view
     }
 }
+

@@ -58,6 +58,8 @@
 		1D132A892060957000FE463F /* TypedPropertyApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D132A882060957000FE463F /* TypedPropertyApplier.swift */; };
 		1D21BAEA2076683200B936F6 /* AspectRadioTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21BAE92076683200B936F6 /* AspectRadioTypeConverter.swift */; };
 		1D21BAEC20766A3600B936F6 /* AspectRadioApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21BAEB20766A3600B936F6 /* AspectRadioApplier.swift */; };
+		1D21BAEE20768A9000B936F6 /* FontWeightApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21BAED20768A9000B936F6 /* FontWeightApplier.swift */; };
+		1D21BAF020768AA600B936F6 /* FontStyleTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21BAEF20768AA600B936F6 /* FontStyleTypeConverter.swift */; };
 		1F9214A4C924FA030E8DFDEDF4D3BBDF /* LottieComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B29760B605289F01C80ABC1DE4468 /* LottieComponent.swift */; };
 		20F792EAC48F2BA3E240962A12213EE3 /* Pods-Yosef_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 463109EE65C4470A574CBB7267DDC5D2 /* Pods-Yosef_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22D210672129FD13CF593B4070F52589 /* LOTShapeCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = FA696AC6C6D84A6ED3248F52921D8D20 /* LOTShapeCircle.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -328,6 +330,8 @@
 		1D132A882060957000FE463F /* TypedPropertyApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedPropertyApplier.swift; sourceTree = "<group>"; };
 		1D21BAE92076683200B936F6 /* AspectRadioTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectRadioTypeConverter.swift; sourceTree = "<group>"; };
 		1D21BAEB20766A3600B936F6 /* AspectRadioApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AspectRadioApplier.swift; sourceTree = "<group>"; };
+		1D21BAED20768A9000B936F6 /* FontWeightApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWeightApplier.swift; sourceTree = "<group>"; };
+		1D21BAEF20768AA600B936F6 /* FontStyleTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleTypeConverter.swift; sourceTree = "<group>"; };
 		1D56A03B9A9B27C274B934810ACAD347 /* LOTAnimationTransitionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAnimationTransitionController.m; path = "lottie-ios/Classes/Private/LOTAnimationTransitionController.m"; sourceTree = "<group>"; };
 		1DCBE27293ECDF0F01D3F060F09A1CE8 /* LOTCompositionContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTCompositionContainer.m; path = "lottie-ios/Classes/AnimatableLayers/LOTCompositionContainer.m"; sourceTree = "<group>"; };
 		1F1BF239A0EF56FEE7241CB3CB53E316 /* LOTRenderNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTRenderNode.h; path = "lottie-ios/Classes/RenderSystem/LOTRenderNode.h"; sourceTree = "<group>"; };
@@ -633,6 +637,7 @@
 				0F83BE6C20645DD900A3DD0F /* FontStyleApplier.swift */,
 				0F3A6EB32069B01B00F60D31 /* EmptyApplier.swift */,
 				1D21BAEB20766A3600B936F6 /* AspectRadioApplier.swift */,
+				1D21BAED20768A9000B936F6 /* FontWeightApplier.swift */,
 			);
 			name = Appliers;
 			path = Yosef/Classes/Appliers;
@@ -650,6 +655,7 @@
 				0F3A6EAF206998A600F60D31 /* GravityTypeConverter.swift */,
 				0F3A6EB12069ABCA00F60D31 /* MarginTypeConverter.swift */,
 				1D21BAE92076683200B936F6 /* AspectRadioTypeConverter.swift */,
+				1D21BAEF20768AA600B936F6 /* FontStyleTypeConverter.swift */,
 			);
 			name = TypeConverters;
 			path = Yosef/Classes/TypeConverters;
@@ -1413,6 +1419,7 @@
 			files = (
 				0F7FC07820602DE3008AB8B5 /* TypeConverter.swift in Sources */,
 				0F7FC082206047E5008AB8B5 /* KeyPathApplier.swift in Sources */,
+				1D21BAF020768AA600B936F6 /* FontStyleTypeConverter.swift in Sources */,
 				0F25EB44205B23E000A5E608 /* ElementList.swift in Sources */,
 				0F83BE6D20645DD900A3DD0F /* FontStyleApplier.swift in Sources */,
 				0F3A6EB22069ABCA00F60D31 /* MarginTypeConverter.swift in Sources */,
@@ -1441,6 +1448,7 @@
 				FFB3D356C5B8E194A5A0619FEB5D8F76 /* LabelComponent.swift in Sources */,
 				0F0B2C3B206286B400837C20 /* ColorTypeConverter.swift in Sources */,
 				1F9214A4C924FA030E8DFDEDF4D3BBDF /* LottieComponent.swift in Sources */,
+				1D21BAEE20768A9000B936F6 /* FontWeightApplier.swift in Sources */,
 				0F0B2C3C206286B400837C20 /* URLTypeConverter.swift in Sources */,
 				16EABF6D57147199E2B675DCF204E4A5 /* RadioGroupComponent.swift in Sources */,
 				0F0B2C312062864000837C20 /* FontSizeApplier.swift in Sources */,
