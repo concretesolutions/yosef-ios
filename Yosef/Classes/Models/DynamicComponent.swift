@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class DynamicComponent: NSObject, BaseModelProtocol {
+public class DynamicComponent: NSObject {
 
     // MARK: Constants
     

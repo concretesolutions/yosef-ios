@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DynamicProperty: NSObject, BaseModelProtocol {
+class DynamicProperty: NSObject {
     
     static var typeConverters: [String: TypeConverter] = ["dimen" : FloatTypeConverter(),
                                                           "string" : ConcreteTypeConverter<String>(),
