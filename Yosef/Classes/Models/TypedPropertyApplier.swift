@@ -15,7 +15,7 @@ protocol TypedPropertyApplier: PropertyApplier {
 extension TypedPropertyApplier {
     func apply(value: Any, to view: ViewType) throws -> ViewType {
         guard let model = value as? Model else {
-            throw ParseError.invalidType
+            throw ParseError.invalidTypeValue(String(describing: type(of: value)))
         }
         
         return try self.apply(value: model, to: view)

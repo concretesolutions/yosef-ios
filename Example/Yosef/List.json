@@ -1,36 +1,36 @@
 {
     "type": "elementList",
-    "properties": [{
-                   "name": "orientation",
-                   "type": "string",
-                   "value": "vertical"
-                   },
+    "properties": [
                    {
-                   "name": "spacing",
-                   "type": "dimen",
-                   "value": "16"
+                   "name": "backgroundColor",
+                   "type": "color",
+                   "value": "#f6f9fd"
                    }
                    ],
-    "children": [{
+    "children": [
+                 {
                  "type": "frame",
                  "properties": [],
-                 "children": [{
+                 "children": [
+                              {
                               "type": "image",
-                              "properties": [{
+                              "properties": [
+                                             {
                                              "name": "url",
                                              "type": "url",
                                              "value": "https://demoalto-impresionesaerea.netdna-ssl.com/2017/11/baby-driver.jpg"
                                              },
                                              {
-                                             "name": "height",
-                                             "type": "dimen",
-                                             "value": "305"
+                                             "name": "scaleType",
+                                             "type": "string",
+                                             "value": "scaleAspectFit"
                                              }
                                              ]
                               },
                               {
                               "type": "elementGroup",
-                              "properties": [{
+                              "properties": [
+                                             {
                                              "name": "orientation",
                                              "type": "string",
                                              "value": "vertical"
@@ -39,14 +39,26 @@
                                              "name": "gravity",
                                              "type": "gravity",
                                              "value": "bottom"
+                                             },
+                                             {
+                                             "name": "margin",
+                                             "type": "margin",
+                                             "value": "14"
                                              }
                                              ],
-                              "children": [{
+                              "children": [
+                                           {
                                            "type": "text",
-                                           "properties": [{
+                                           "properties": [
+                                                          {
                                                           "name": "text",
                                                           "type": "string",
                                                           "value": "Lorem Ipsum"
+                                                          },
+                                                          {
+                                                          "name": "textStyle",
+                                                          "type": "fontWeight",
+                                                          "value": "bold"
                                                           },
                                                           {
                                                           "name": "textColor",
@@ -62,10 +74,16 @@
                                            },
                                            {
                                            "type": "text",
-                                           "properties": [{
+                                           "properties": [
+                                                          {
                                                           "name": "text",
                                                           "type": "string",
                                                           "value": "Lorem ipsum dolor sit aconsectetur adipiscing sed do eiusmod tempor"
+                                                          },
+                                                          {
+                                                          "name": "textStyle",
+                                                          "type": "fontWeight",
+                                                          "value": "bold"
                                                           },
                                                           {
                                                           "name": "textColor",
@@ -85,7 +103,8 @@
                  },
                  {
                  "type": "text",
-                 "properties": [{
+                 "properties": [
+                                {
                                 "name": "text",
                                 "type": "string",
                                 "value": "27/02/2018"
@@ -99,12 +118,18 @@
                                 "name": "textSize",
                                 "type": "dimen",
                                 "value": "12"
+                                },
+                                {
+                                "name": "margin",
+                                "type": "margin",
+                                "value": "14, 14, 14, 0"
                                 }
                                 ]
                  },
                  {
                  "type": "text",
-                 "properties": [{
+                 "properties": [
+                                {
                                 "name": "text",
                                 "type": "string",
                                 "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incididunt ut"
@@ -120,15 +145,16 @@
                                 "value": "16"
                                 },
                                 {
-                                "name": "textStyle",
-                                "type": "fontWeight",
-                                "value": "bold"
+                                "name": "margin",
+                                "type": "margin",
+                                "value": "14, 4, 14, 0"
                                 }
                                 ]
                  },
                  {
                  "type": "text",
-                 "properties": [{
+                 "properties": [
+                                {
                                 "name": "text",
                                 "type": "string",
                                 "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
@@ -144,32 +170,41 @@
                                 "value": "16"
                                 },
                                 {
-                                "name": "textStyle",
-                                "type": "fontWeight",
-                                "value": "bold"
+                                "name": "margin",
+                                "type": "margin",
+                                "value": "14, 20, 14, 0"
                                 }
                                 ]
                  },
                  {
                  "type": "frame",
-                 "properties": [],
-                 "children": [{
+                 "properties": [
+                                {
+                                "name": "margin",
+                                "type": "margin",
+                                "value": "14, 20, 14, 0"
+                                }
+                                ],
+                 "children": [
+                              {
                               "type": "image",
-                              "properties": [{
+                              "properties": [
+                                             {
                                              "name": "url",
                                              "type": "url",
                                              "value": "https://i.ytimg.com/vi/DpjdZSvt7sU/maxresdefault.jpg"
                                              },
                                              {
-                                             "name": "height",
-                                             "type": "dimen",
-                                             "value": "209"
+                                             "name": "scaleType",
+                                             "type": "string",
+                                             "value": "scaleAspectFit"
                                              }
                                              ]
                               },
                               {
                               "type": "elementGroup",
-                              "properties": [{
+                              "properties": [
+                                             {
                                              "name": "orientation",
                                              "type": "string",
                                              "value": "vertical"
@@ -180,9 +215,11 @@
                                              "value": "bottom"
                                              }
                                              ],
-                              "children": [{
+                              "children": [
+                                           {
                                            "type": "text",
-                                           "properties": [{
+                                           "properties": [
+                                                          {
                                                           "name": "text",
                                                           "type": "string",
                                                           "value": "______________________________________________"
@@ -202,38 +239,49 @@
                                            {
                                            "type": "frame",
                                            "properties": [],
-                                           "children": [{
+                                           "children": [
+                                                        {
                                                         "type": "elementGroup",
-                                                        "properties": [{
+                                                        "properties": [
+                                                                       {
                                                                        "name": "orientation",
                                                                        "type": "string",
                                                                        "value": "horizontal"
-                                                                       }],
-                                                        "children": [{
-                                                                     "type": "text",
-                                                                     "properties": [{
-                                                                                    "name": "text",
-                                                                                    "type": "string",
-                                                                                    "value": "ICON"
+                                                                       },
+                                                                       {
+                                                                       "name": "margin",
+                                                                       "type": "margin",
+                                                                       "value": "14, 8, 14, 8"
+                                                                       }
+                                                                       ],
+                                                        "children": [
+                                                                     {
+                                                                     "type": "image",
+                                                                     "properties": [
+                                                                                    {
+                                                                                    "name": "url",
+                                                                                    "type": "url",
+                                                                                    "value": "http://www.iconsplace.com/icons/preview/white/slr-camera-256.png"
                                                                                     },
                                                                                     {
-                                                                                    "name": "textColor",
-                                                                                    "type": "color",
-                                                                                    "value": "#FFFFFF"
-                                                                                    },
-                                                                                    {
-                                                                                    "name": "textSize",
+                                                                                    "name": "width",
                                                                                     "type": "dimen",
-                                                                                    "value": "12"
+                                                                                    "value": "20"
+                                                                                    },
+                                                                                    {
+                                                                                    "name": "height",
+                                                                                    "type": "dimen",
+                                                                                    "value": "20"
                                                                                     }
                                                                                     ]
                                                                      },
                                                                      {
                                                                      "type": "text",
-                                                                     "properties": [{
+                                                                     "properties": [
+                                                                                    {
                                                                                     "name": "text",
                                                                                     "type": "string",
-                                                                                    "value": "DESCRIPTION"
+                                                                                    "value": "Lorem ipsum dolor sit amet, consectetur"
                                                                                     },
                                                                                     {
                                                                                     "name": "textColor",
@@ -244,7 +292,13 @@
                                                                                     "name": "textSize",
                                                                                     "type": "dimen",
                                                                                     "value": "10"
-                                                                                    }]
+                                                                                    },
+                                                                                    {
+                                                                                    "name": "margin",
+                                                                                    "type": "margin",
+                                                                                    "value": "14, 5, 0, 0"
+                                                                                    }
+                                                                                    ]
                                                                      }
                                                                      ]
                                                         }
@@ -256,7 +310,8 @@
                  },
                  {
                  "type": "text",
-                 "properties": [{
+                 "properties": [
+                                {
                                 "name": "text",
                                 "type": "string",
                                 "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip"
@@ -270,6 +325,11 @@
                                 "name": "textSize",
                                 "type": "dimen",
                                 "value": "16"
+                                },
+                                {
+                                "name": "margin",
+                                "type": "margin",
+                                "value": "14, 20, 14, 14"
                                 }
                                 ]
                  }

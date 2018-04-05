@@ -21,12 +21,13 @@ public class DynamicView: NSObject {
     public static func createView(dynamicsComponent: DynamicComponent,
                                   actionDelegate: DynamicActionDelegate) throws -> UIView {
         
-        if let componentType = components[dynamicsComponent.type ?? ""] {
+        let componentTypeName = dynamicsComponent.type
+        if let componentType = components[componentTypeName] {
             let comp = componentType.init()
             return try! comp.applyViewsFromJson(dynamicComponent: dynamicsComponent,
                                     actionDelegate: actionDelegate)
         } else {
-            throw ParseError.invalidType
+            throw ParseError.invalidType(componentTypeName)
         }
     }
     

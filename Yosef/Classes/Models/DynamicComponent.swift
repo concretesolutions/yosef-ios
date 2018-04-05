@@ -18,28 +18,28 @@ public class DynamicComponent: NSObject, BaseModelProtocol {
     
     // MARK: Properties
     
-    var type: String?
+    var type: String
     var children: [DynamicComponent]?
     var properties: [DynamicProperty]?
     
     // MARK: Initializers
     
     override init() {
-        super.init()
+        fatalError()
     }
     
-    init(type: String?, children: [DynamicComponent]?, properties: [DynamicProperty]?) {
+    init(type: String, children: [DynamicComponent]?, properties: [DynamicProperty]?) {
         self.type = type
         self.children = children
         self.properties = properties
     }
     
     public static func parse(dictionary: [String: Any]) -> DynamicComponent {
-        let dynamicComponent = DynamicComponent()
-        dynamicComponent.children = self.parseChildrenArray(dictionary: dictionary)
-        dynamicComponent.properties = self.parsePropertiesArray(dictionary: dictionary)
-        fillWithDictionary(&dynamicComponent.type, key: kType, dictionary: dictionary)
-        return dynamicComponent
+        let childrens = self.parseChildrenArray(dictionary: dictionary)
+        let properties = self.parsePropertiesArray(dictionary: dictionary)
+        let type = dictionary[kType] as? String ?? ""
+        
+        return DynamicComponent(type: type, children: childrens, properties: properties)
     }
     
     static private func parseChildrenArray(dictionary: [String: Any]) -> [DynamicComponent] {

@@ -74,7 +74,7 @@ class LabelComponent: BaseComponent {
     private func identityAndApplyProperties(property: DynamicProperty) throws {
         guard let textViewProperty = LabelViewProperty(rawValue: property.name),
             let applier = propertyDictionary[textViewProperty] else {
-                throw ParseError.unknownProperty
+                throw ParseError.unknownProperty(property.name)
         }
         
         _ = try applier?.apply(value: property.value, to: label)

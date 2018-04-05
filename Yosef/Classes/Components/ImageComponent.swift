@@ -13,6 +13,7 @@ fileprivate enum ImageProperty: String {
     case url = "url"
     case width = "width"
     case height = "height"
+    case scaleType = "scaleType"
 }
 
 class ImageComponent: BaseComponent {
@@ -20,7 +21,8 @@ class ImageComponent: BaseComponent {
     private var propertyDictionary: [ImageProperty: AnyPropertyApplier<UIImageView>] =
         [.url: AnyPropertyApplier(KingfisherApplier()),
          .width: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .width)),
-         .height: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .height))
+         .height: AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .height)),
+         .scaleType: AnyPropertyApplier(EmptyApplier<UIImageView>()),
     ]
     
     fileprivate let kImageComponentType = "image"
@@ -29,6 +31,9 @@ class ImageComponent: BaseComponent {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        imageView.setContentCompressionResistancePriority(.required, for: .vertical)
+        imageView.setContentCompressionResistancePriority(.required, for: .horizontal)
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -51,7 +56,7 @@ extension ImageComponent {
     private func identityAndApplyProperties(property: DynamicProperty) throws {
         guard let textViewProperty = ImageProperty(rawValue: property.name),
             let applier = propertyDictionary[textViewProperty] else {
-                throw ParseError.unknownProperty
+                throw ParseError.unknownProperty(property.name)
         }
         
         _ = try applier.apply(value: property.value, to: imageView)

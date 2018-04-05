@@ -7,6 +7,7 @@
 //
 
 enum ParseError: Error {
-    case invalidType
-    case unknownProperty
+    case invalidType(String)
+    case invalidTypeValue(String)
+    case unknownProperty(String)
 }
