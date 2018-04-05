@@ -47,10 +47,11 @@ private class FrameComponentView: UIView {
         for component in components {
             let childView = try DynamicView.createView(dynamicsComponent: component, actionDelegate: delegate)
             self.addSubview(childView)
-            
-            let gravity = component.properties?.first(where: { $0.name == "gravity" })?.value as? Gravity ?? Gravity()
-            
             childView.translatesAutoresizingMaskIntoConstraints = false
+            
+            if let gravity = component.properties?.first(where: { $0.name == "gravity" })?.value as? Gravity {
+            
+            
             
             switch gravity.vertical {
             case .bottom:
@@ -76,6 +77,7 @@ private class FrameComponentView: UIView {
                 childView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
                 childView.rightAnchor.constraint(lessThanOrEqualTo: self.rightAnchor).isActive = true
                 childView.leftAnchor.constraint(greaterThanOrEqualTo: self.leftAnchor).isActive = true
+            }
             }
             
             let marginApplier = MarginApplier()
