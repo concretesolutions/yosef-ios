@@ -95,11 +95,11 @@ class ComponentsMocks {
     }
     
     var elementGroup: DynamicComponent {
-        return DynamicComponent(dictionary: loadComponent(fileName: "Step1") ?? [:])
+        return try! DynamicComponent(dictionary: loadComponent(fileName: "Step1") ?? [:])
     }
     
     var radioGroup: DynamicComponent {
-        return DynamicComponent(dictionary: loadComponent(fileName: "Step2") ?? [:])
+        return try! DynamicComponent(dictionary: loadComponent(fileName: "Step2") ?? [:])
     }
     
     func property(_ info: [String: Any]) -> DynamicProperty {

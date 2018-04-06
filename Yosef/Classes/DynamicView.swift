@@ -23,7 +23,7 @@ public class DynamicView: NSObject {
         
         let componentTypeName = dynamicsComponent.type
         if let comp = components[componentTypeName] {
-            return try! comp.createViewFromJson(dynamicComponent: dynamicsComponent,
+            return try comp.createViewFromJson(dynamicComponent: dynamicsComponent,
                                     actionDelegate: actionDelegate)
         } else {
             throw ParseError.invalidType(componentTypeName)

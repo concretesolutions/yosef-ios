@@ -28,7 +28,7 @@ class PerformanceTests: XCTestCase {
         self.measureMetrics([.wallClockTime], automaticallyStartMeasuring: false) {
             guard jsonDict != nil else { XCTFail("JSON dictionary is nil");return }
             startMeasuring()
-            let _ = DynamicComponent(dictionary: jsonDict!)
+            let _ = try! DynamicComponent(dictionary: jsonDict!)
             stopMeasuring()
         }
     }
@@ -36,7 +36,7 @@ class PerformanceTests: XCTestCase {
     func testRenderPerformance() {
         self.measureMetrics([.wallClockTime], automaticallyStartMeasuring: false) {
             guard jsonDict != nil else { XCTFail("JSON dictionary is nil");return }
-            let comp = DynamicComponent(dictionary: jsonDict!) as DynamicComponent
+            let comp = try! DynamicComponent(dictionary: jsonDict!) as DynamicComponent
             let delegate = MockDelegate()
             startMeasuring()
             let _ = try! DynamicView.createView(dynamicsComponent: comp, actionDelegate: delegate)

@@ -30,28 +30,28 @@ public class DynamicComponent {
         self.properties = properties
     }
     
-    public convenience init(dictionary: [String: Any]) {
-        let childrens = DynamicComponent.parseChildrenArray(dictionary: dictionary)
-        let properties = DynamicComponent.parsePropertiesArray(dictionary: dictionary)
+    public convenience init(dictionary: [String: Any]) throws {
+        let childrens = try DynamicComponent.parseChildrenArray(dictionary: dictionary)
+        let properties = try DynamicComponent.parsePropertiesArray(dictionary: dictionary)
         let type = dictionary[DynamicComponent.kType] as? String ?? ""
         
         self.init(type: type, children: childrens, properties: properties)
     }
     
-    static private func parseChildrenArray(dictionary: [String: Any]) -> [DynamicComponent] {
+    static private func parseChildrenArray(dictionary: [String: Any]) throws -> [DynamicComponent] {
         var childrenArray = [DynamicComponent]()
         if let childrenDictionary = dictionary[kChildren] as? [[String : Any]] {
             for item in childrenDictionary {
-                childrenArray.append(DynamicComponent(dictionary: item))
+                childrenArray.append(try DynamicComponent(dictionary: item))
             }
         }
         return childrenArray
     }
     
-    static private func parsePropertiesArray(dictionary: [String: Any]) -> [DynamicProperty] {
+    static private func parsePropertiesArray(dictionary: [String: Any]) throws -> [DynamicProperty] {
         if let propertiesDictionary = dictionary[kProperties] as? [[String : Any]] {
-           return propertiesDictionary.compactMap({
-                return try! DynamicProperty(dictionary: $0)
+           return try propertiesDictionary.compactMap({
+                return try DynamicProperty(dictionary: $0)
             })
         }
         return []

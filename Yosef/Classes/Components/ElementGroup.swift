@@ -29,7 +29,7 @@ class ElementGroupComponent: ViewComponent {
             
             self.addProperties(properties: dynamicComponent.properties, on: stackView)
             self.setUp(stackView: stackView)
-            self.addChild(dynamicComponent.children, action: actionDelegate, on: stackView)
+            try self.addChild(dynamicComponent.children, action: actionDelegate, on: stackView)
         return stackView
         
     }
@@ -72,9 +72,9 @@ class ElementGroupComponent: ViewComponent {
         stackView.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    private func addChild(_ childs: [DynamicComponent], action: DynamicActionDelegate, on stackView: UIStackView) {
+    private func addChild(_ childs: [DynamicComponent], action: DynamicActionDelegate, on stackView: UIStackView) throws {
         for child in childs {
-            let view = try! DynamicView.createView(dynamicsComponent: child, actionDelegate: action)
+            let view = try DynamicView.createView(dynamicsComponent: child, actionDelegate: action)
             let marginView = UIView()
             
             marginView.translatesAutoresizingMaskIntoConstraints = false
