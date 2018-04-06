@@ -33,9 +33,15 @@ class aspectRatioTypeConverter: TypedTypeConverter {
         }
         
         let numberFormater = NumberFormatter()
+        #if swift(>=4.1)
         let valuesArray = stringValue.split(separator: ":").compactMap {
             return numberFormater.number(from: String($0))
         }
+        #else
+        let valuesArray = stringValue.split(separator: ":").flatMap {
+            return numberFormater.number(from: String($0))
+        }
+        #endif
         
         guard valuesArray.count == 2 else {
             return nil

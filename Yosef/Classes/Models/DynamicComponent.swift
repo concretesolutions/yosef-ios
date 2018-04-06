@@ -50,9 +50,15 @@ public class DynamicComponent {
     
     static private func parsePropertiesArray(dictionary: [String: Any]) throws -> [DynamicProperty] {
         if let propertiesDictionary = dictionary[kProperties] as? [[String : Any]] {
-           return try propertiesDictionary.compactMap({
+            #if swift(>=4.1)
+            return try propertiesDictionary.compactMap({
                 return try DynamicProperty(dictionary: $0)
             })
+            #else
+            return try propertiesDictionary.flatMap({
+                return try DynamicProperty(dictionary: $0)
+            })
+            #endif
         }
         return []
     }

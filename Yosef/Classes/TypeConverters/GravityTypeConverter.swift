@@ -68,9 +68,15 @@ public class GravityTypeConverter: TypeConverter {
             return nil
         }
         
+        #if swift(>=4.1)
         let margins = stringValue.split(separator: ",").compactMap({
             return GravityName(rawValue: String($0))
         })
+        #else
+        let margins = stringValue.split(separator: ",").flatMap({
+            return GravityName(rawValue: String($0))
+        })
+        #endif
         
         return Gravity(gravityNames: margins)
     }

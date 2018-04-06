@@ -19,7 +19,7 @@ public class MarginTypeConverter: TypedTypeConverter {
         guard let stringValue = value as? String else {
             return nil
         }
-        
+        #if swift(>=4.1)
         let margins = stringValue.split(separator: ",").compactMap({ stringValue -> CGFloat? in
             if let value = NumberFormatter().number(from: String(stringValue)) {
                 return CGFloat(truncating: value)
@@ -27,7 +27,15 @@ public class MarginTypeConverter: TypedTypeConverter {
                 return nil
             }
         })
-        
+        #else
+        let margins = stringValue.split(separator: ",").flatMap({ stringValue -> CGFloat? in
+            if let value = NumberFormatter().number(from: String(stringValue)) {
+                return CGFloat(truncating: value)
+            } else {
+                return nil
+            }
+        })
+        #endif
         if margins.count == 1 {
             return Margin(left: margins[0], right: margins[0], top: margins[0], bottom: margins[0])
         } else if margins.count == 2 {
