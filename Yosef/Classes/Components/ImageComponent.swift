@@ -27,6 +27,4 @@ class ImageComponent: PropertyBasedViewComponent {
          "margin": AnyPropertyApplier(EmptyApplier<UIImageView>()),
     ]
     
-    fileprivate let kImageComponentType = "image"
-    
 }

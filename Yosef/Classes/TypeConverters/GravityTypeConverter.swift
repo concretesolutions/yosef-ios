@@ -68,7 +68,7 @@ public class GravityTypeConverter: TypeConverter {
             return nil
         }
         
-        let margins = stringValue.split(separator: ",").flatMap({
+        let margins = stringValue.split(separator: ",").compactMap({
             return GravityName(rawValue: String($0))
         })
         

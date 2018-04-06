@@ -28,16 +28,12 @@ class ElementGroupComponent: ViewComponent {
             let stackView = UIStackView()
             
             self.addProperties(properties: dynamicComponent.properties, on: stackView)
-            setUp(stackView: stackView)
-            addChild(dynamicComponent.children, action: actionDelegate, on: stackView)
+            self.setUp(stackView: stackView)
+            self.addChild(dynamicComponent.children, action: actionDelegate, on: stackView)
         return stackView
         
     }
-}
-
-// MARK: - Setup Properties
-
-extension ElementGroupComponent {
+    
     private func addProperties(properties: [DynamicProperty]?, on view: UIStackView) {
         if let properties = properties {
             for item in properties {
@@ -57,11 +53,7 @@ extension ElementGroupComponent {
             }
         }
     }
-}
-
-// MARK: - Setup Stack View
-
-extension ElementGroupComponent {
+    
     private func setUp(stackView: UIStackView) {
         
         switch self.orientation {
@@ -79,11 +71,7 @@ extension ElementGroupComponent {
         stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
     }
-}
 
-// MARK: - Add Child elements
-
-extension ElementGroupComponent {
     private func addChild(_ childs: [DynamicComponent], action: DynamicActionDelegate, on stackView: UIStackView) {
         for child in childs {
             let view = try! DynamicView.createView(dynamicsComponent: child, actionDelegate: action)

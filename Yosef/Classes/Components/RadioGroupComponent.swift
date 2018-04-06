@@ -19,15 +19,13 @@ class RadioGroupComponent: ViewComponent {
             for child in dynamicComponent.children {
                 let item = child
                     .properties
-                    .filter { $0.name == "text" }
-                    .first?
+                    .first { $0.name == "text" }?
                     .value as? String ?? ""
                 items.append(item)
             }
             let title = dynamicComponent
                 .properties
-                .filter { $0.name == "text" }
-                .first?
+                .first { $0.name == "text" }?
                 .value as? String ?? ""
             let radioView = RadioGroupView()
             self.radioView = radioView
@@ -35,16 +33,7 @@ class RadioGroupComponent: ViewComponent {
             radioView.items = items
             radioView.title = title
             radioView.delegate = actionDelegate
-//            view.addSubview(radioView)
-//            radioView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//            radioView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-//            radioView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//            radioView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-            //...
-//            radioView.heightAnchor.constraint(equalToConstant: 100 + CGFloat(items.count)*44).isActive = true
-            //...
             add(properties: dynamicComponent.properties)
-//            view.setNeedsLayout()
         
         return radioView
     }

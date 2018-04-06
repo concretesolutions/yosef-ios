@@ -8,15 +8,6 @@
 
 import UIKit
 
-fileprivate enum LabelViewProperty: String {
-    case text = "text"
-    case textColor = "textColor"
-    case backgroundColor = "backgroundColor"
-    case textSize = "textSize"
-    case textStyle = "textStyle"
-    case margin = "margin"
-}
-
 class LabelComponent: PropertyBasedViewComponent {
     func createView() -> UILabel {
         let label = UILabel()

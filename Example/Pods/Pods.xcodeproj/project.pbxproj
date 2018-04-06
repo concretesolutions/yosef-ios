@@ -64,6 +64,7 @@
 		1D21BAF420768D1700B936F6 /* ScaleTypeApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21BAF320768D1700B936F6 /* ScaleTypeApplier.swift */; };
 		1D21BAF62076A63600B936F6 /* SeparatorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D21BAF52076A63600B936F6 /* SeparatorComponent.swift */; };
 		1DEBEA512077CA8200EFD977 /* PropertyBasedViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBEA502077CA8200EFD977 /* PropertyBasedViewComponent.swift */; };
+		1DEBEA532077CF5F00EFD977 /* UIButton+Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEBEA522077CF5F00EFD977 /* UIButton+Properties.swift */; };
 		1F9214A4C924FA030E8DFDEDF4D3BBDF /* LottieComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180B29760B605289F01C80ABC1DE4468 /* LottieComponent.swift */; };
 		20F792EAC48F2BA3E240962A12213EE3 /* Pods-Yosef_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 463109EE65C4470A574CBB7267DDC5D2 /* Pods-Yosef_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22D210672129FD13CF593B4070F52589 /* LOTShapeCircle.h in Headers */ = {isa = PBXBuildFile; fileRef = FA696AC6C6D84A6ED3248F52921D8D20 /* LOTShapeCircle.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -342,6 +343,7 @@
 		1D56A03B9A9B27C274B934810ACAD347 /* LOTAnimationTransitionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTAnimationTransitionController.m; path = "lottie-ios/Classes/Private/LOTAnimationTransitionController.m"; sourceTree = "<group>"; };
 		1DCBE27293ECDF0F01D3F060F09A1CE8 /* LOTCompositionContainer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LOTCompositionContainer.m; path = "lottie-ios/Classes/AnimatableLayers/LOTCompositionContainer.m"; sourceTree = "<group>"; };
 		1DEBEA502077CA8200EFD977 /* PropertyBasedViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyBasedViewComponent.swift; sourceTree = "<group>"; };
+		1DEBEA522077CF5F00EFD977 /* UIButton+Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Properties.swift"; sourceTree = "<group>"; };
 		1F1BF239A0EF56FEE7241CB3CB53E316 /* LOTRenderNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTRenderNode.h; path = "lottie-ios/Classes/RenderSystem/LOTRenderNode.h"; sourceTree = "<group>"; };
 		203E566D202B1C5CD9B1C565D06A6D96 /* LOTAsset.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LOTAsset.h; path = "lottie-ios/Classes/Models/LOTAsset.h"; sourceTree = "<group>"; };
 		219C6EC083EB46C2E7DC15D7675E830D /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -626,11 +628,7 @@
 			children = (
 				18F108C7599115B4A9C8B31D27B1E2F6 /* DynamicComponent.swift */,
 				9AC1424F63B8EE5B0B547CC2F980F8BA /* DynamicProperty.swift */,
-				0F7FC06E20602B6B008AB8B5 /* TypeConverter.swift */,
-				0F7FC07F206047B7008AB8B5 /* PropertyApplier.swift */,
-				0F7FC081206047E5008AB8B5 /* KeyPathApplier.swift */,
 				0F7FC08320604828008AB8B5 /* ParseError.swift */,
-				1D132A882060957000FE463F /* TypedPropertyApplier.swift */,
 			);
 			name = Models;
 			path = Yosef/Classes/Models;
@@ -647,6 +645,9 @@
 				1D21BAEB20766A3600B936F6 /* AspectRatioApplier.swift */,
 				1D21BAED20768A9000B936F6 /* FontWeightApplier.swift */,
 				1D21BAF320768D1700B936F6 /* ScaleTypeApplier.swift */,
+				0F7FC081206047E5008AB8B5 /* KeyPathApplier.swift */,
+				0F7FC07F206047B7008AB8B5 /* PropertyApplier.swift */,
+				1D132A882060957000FE463F /* TypedPropertyApplier.swift */,
 			);
 			name = Appliers;
 			path = Yosef/Classes/Appliers;
@@ -666,6 +667,7 @@
 				0F3A6EB12069ABCA00F60D31 /* MarginTypeConverter.swift */,
 				1D21BAE92076683200B936F6 /* AspectRatioTypeConverter.swift */,
 				1D21BAEF20768AA600B936F6 /* FontStyleTypeConverter.swift */,
+				0F7FC06E20602B6B008AB8B5 /* TypeConverter.swift */,
 			);
 			name = TypeConverters;
 			path = Yosef/Classes/TypeConverters;
@@ -761,6 +763,7 @@
 			children = (
 				843F36C24F396BA365A45EE18987FCED /* UIColor+Hexadecimal.swift */,
 				51E8218EFB409B885B9696D46C4A4474 /* UIView+Constraints.swift */,
+				1DEBEA522077CF5F00EFD977 /* UIButton+Properties.swift */,
 			);
 			name = Extensions;
 			path = Yosef/Classes/Extensions;
@@ -1429,6 +1432,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DEBEA532077CF5F00EFD977 /* UIButton+Properties.swift in Sources */,
 				0F7FC07820602DE3008AB8B5 /* TypeConverter.swift in Sources */,
 				0F7FC082206047E5008AB8B5 /* KeyPathApplier.swift in Sources */,
 				1D21BAF020768AA600B936F6 /* FontStyleTypeConverter.swift in Sources */,

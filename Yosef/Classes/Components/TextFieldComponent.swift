@@ -12,7 +12,6 @@ class DynamicTextField: UITextField {
     public var action: String?
 }
 
-
 class TextFieldComponent: NSObject, PropertyBasedViewComponent {
     func createView() -> UITextField {
         let textField = DynamicTextField()
@@ -25,13 +24,6 @@ class TextFieldComponent: NSObject, PropertyBasedViewComponent {
         ["text": AnyPropertyApplier(KeyPathApplier(\UITextField.text)),
          "textColor": AnyPropertyApplier(KeyPathApplier(\UITextField.textColor)),
          "placeholder": AnyPropertyApplier(KeyPathApplier(\UITextField.placeholder))]
-    
-    fileprivate let kTextFieldComponentType = "textField"
-    fileprivate let kTextFieldComponentLeadingConstraint = CGFloat(16)
-    fileprivate let kTextFieldComponentTrailingConstraint = CGFloat(-16)
-    fileprivate let kTextFieldComponentTopConstraint = CGFloat(50)
-    fileprivate let kTextFieldComponentHeightConstraint = CGFloat(0)
-    fileprivate let kTextFieldComponentDefaultMultiplierConstraint = CGFloat(1)
     
     private var textField: DynamicTextField!
     private var actionDelegate: DynamicActionDelegate?

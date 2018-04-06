@@ -20,7 +20,7 @@ public class MarginTypeConverter: TypedTypeConverter {
             return nil
         }
         
-        let margins = stringValue.split(separator: ",").flatMap({ stringValue -> CGFloat? in
+        let margins = stringValue.split(separator: ",").compactMap({ stringValue -> CGFloat? in
             if let value = NumberFormatter().number(from: String(stringValue)) {
                 return CGFloat(truncating: value)
             } else {

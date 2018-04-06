@@ -9,8 +9,6 @@ import UIKit
 
 class FrameComponent: ViewComponent {
     
-    fileprivate let kFrameComponentType = "frame"
-    
     func createViewFromJson(dynamicComponent: DynamicComponent,
                                      actionDelegate: DynamicActionDelegate) throws -> UIView {
         

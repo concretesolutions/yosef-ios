@@ -15,8 +15,6 @@ fileprivate enum LottieProperty: String {
 
 class LottieComponent: ViewComponent {
     
-    fileprivate let kLottieComponentType = "animation"
-    
     fileprivate var lottieView: LOTAnimationView!
     
     func createViewFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
