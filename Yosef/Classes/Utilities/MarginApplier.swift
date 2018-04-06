@@ -8,7 +8,7 @@
 class MarginApplier {
     
     private func findMargin(component: DynamicComponent) -> Margin? {
-        return component.properties?.first(where: { $0.name == "margin" })?.value as? Margin
+        return component.properties.first(where: { $0.name == "margin" })?.value as? Margin
     }
     
     func applyIfExistMargin(component: DynamicComponent, to view: UIView, in container: UIView) {

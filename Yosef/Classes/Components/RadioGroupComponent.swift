@@ -8,24 +8,24 @@
 
 import UIKit
 
-class RadioGroupComponent: BaseComponent {
+class RadioGroupComponent: ViewComponent {
 
     private var radioView: RadioGroupView?
     
-    override func applyViewsFromJson(dynamicComponent: DynamicComponent,
+    func createViewFromJson(dynamicComponent: DynamicComponent,
                                      actionDelegate: DynamicActionDelegate) throws -> UIView {
         
             var items = [String]()
-            for child in dynamicComponent.children ?? [] {
+            for child in dynamicComponent.children {
                 let item = child
-                    .properties?
+                    .properties
                     .filter { $0.name == "text" }
                     .first?
                     .value as? String ?? ""
                 items.append(item)
             }
             let title = dynamicComponent
-                .properties?
+                .properties
                 .filter { $0.name == "text" }
                 .first?
                 .value as? String ?? ""

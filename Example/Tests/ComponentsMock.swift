@@ -14,7 +14,7 @@ class ComponentsMocks {
     
     var labelMock: DynamicComponent {
         return DynamicComponent(type: "text",
-                                  children: nil,
+                                  children: [],
                                   properties: [
                                     property([
                                         "name": "text",
@@ -41,7 +41,7 @@ class ComponentsMocks {
     
     var buttonMock: DynamicComponent {
         return DynamicComponent(type: "button",
-                                  children: nil,
+                                  children: [],
                                   properties: [
                                     property([
                                         "name": "text",
@@ -74,7 +74,7 @@ class ComponentsMocks {
     var imageMock: DynamicComponent {
         let path = Bundle(for: type(of: self)).path(forResource: "Saldo", ofType: "png")!
         return DynamicComponent(type: "image",
-                                  children: nil,
+                                  children: [],
                                   properties: [
                                     property([
                                         "name": "url",
@@ -95,11 +95,11 @@ class ComponentsMocks {
     }
     
     var elementGroup: DynamicComponent {
-        return DynamicComponent.parse(dictionary: loadComponent(fileName: "Step1") ?? [:])
+        return DynamicComponent(dictionary: loadComponent(fileName: "Step1") ?? [:])
     }
     
     var radioGroup: DynamicComponent {
-        return DynamicComponent.parse(dictionary: loadComponent(fileName: "Step2") ?? [:])
+        return DynamicComponent(dictionary: loadComponent(fileName: "Step2") ?? [:])
     }
     
     func property(_ info: [String: Any]) -> DynamicProperty {

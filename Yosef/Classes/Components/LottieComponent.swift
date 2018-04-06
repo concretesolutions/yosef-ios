@@ -13,13 +13,13 @@ fileprivate enum LottieProperty: String {
     case value = "animate"
 }
 
-class LottieComponent: BaseComponent {
+class LottieComponent: ViewComponent {
     
     fileprivate let kLottieComponentType = "animation"
     
     fileprivate var lottieView: LOTAnimationView!
     
-    override func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
+    func createViewFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
     
             self.addProperties(dynamicComponent.properties)
             self.setUpAnimation()

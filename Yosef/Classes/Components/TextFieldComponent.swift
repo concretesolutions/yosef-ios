@@ -12,19 +12,19 @@ class DynamicTextField: UITextField {
     public var action: String?
 }
 
-fileprivate enum TextFieldProperty: String {
-    case text = "text"
-    case textColor = "textColor"
-//    case action = "action"
-    case placeholder = "placeholder"
-}
 
-class TextFieldComponent: BaseComponent {
+class TextFieldComponent: NSObject, PropertyBasedViewComponent {
+    func createView() -> UITextField {
+        let textField = DynamicTextField()
+        textField.delegate = self
+        textField.returnKeyType = .done
+        return textField
+    }
     
-    private var propertyDictionary: [TextFieldProperty: AnyPropertyApplier<UITextField>] =
-        [.text: AnyPropertyApplier(KeyPathApplier(\UITextField.text)),
-         .textColor: AnyPropertyApplier(KeyPathApplier(\UITextField.textColor)),
-         .placeholder: AnyPropertyApplier(KeyPathApplier(\UITextField.placeholder))]
+    var propertyDictionary: [String: AnyPropertyApplier<UITextField>] =
+        ["text": AnyPropertyApplier(KeyPathApplier(\UITextField.text)),
+         "textColor": AnyPropertyApplier(KeyPathApplier(\UITextField.textColor)),
+         "placeholder": AnyPropertyApplier(KeyPathApplier(\UITextField.placeholder))]
     
     fileprivate let kTextFieldComponentType = "textField"
     fileprivate let kTextFieldComponentLeadingConstraint = CGFloat(16)
@@ -35,43 +35,7 @@ class TextFieldComponent: BaseComponent {
     
     private var textField: DynamicTextField!
     private var actionDelegate: DynamicActionDelegate?
-    
-    override func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
-            self.textField = DynamicTextField()
-            self.textField.delegate = self
-            self.textField.returnKeyType = .done
-            self.actionDelegate = actionDelegate
-            try self.addProperties(properties: dynamicComponent.properties)
-        return self.textField
-    }
-    
-    // MARK: Setup Properties
-    
-    private func setupConstraints(view: UIView) {
-        self.textField.translatesAutoresizingMaskIntoConstraints = false
-        self.textField.setContentHuggingPriority(.required, for: .vertical)
-        self.textField.setContentCompressionResistancePriority(.required, for: .vertical)
-        
-        view.addConstraint(NSLayoutConstraint(item: self.textField, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: kTextFieldComponentDefaultMultiplierConstraint, constant: kTextFieldComponentTopConstraint))
-        view.addConstraint(NSLayoutConstraint(item: self.textField, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: kTextFieldComponentDefaultMultiplierConstraint, constant: kTextFieldComponentLeadingConstraint))
-        view.addConstraint(NSLayoutConstraint(item: self.textField, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: kTextFieldComponentDefaultMultiplierConstraint, constant: kTextFieldComponentTrailingConstraint))
-        view.addConstraint(NSLayoutConstraint(item: self.textField, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: kTextFieldComponentDefaultMultiplierConstraint, constant: kTextFieldComponentHeightConstraint))
-    }
-    
-    private func addProperties(properties: [DynamicProperty]?) throws {
-        try properties?.forEach({
-            try self.identityAndApplyProperties(property: $0)
-        })
-    }
-    
-    private func identityAndApplyProperties(property: DynamicProperty) throws {
-        guard let textFieldProperty = TextFieldProperty(rawValue: property.name),
-            let applier = propertyDictionary[textFieldProperty] else {
-                throw ParseError.unknownProperty(property.name)
-        }
-        
-        _ = try applier.apply(value: property.value, to: textField)
-    }
+
 }
 
 extension TextFieldComponent: UITextFieldDelegate {

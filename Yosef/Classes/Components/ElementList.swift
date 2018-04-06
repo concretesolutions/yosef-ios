@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ElementList: BaseComponent {
+class ElementList: ViewComponent {
     
-    override func applyViewsFromJson(dynamicComponent: DynamicComponent,
+    func createViewFromJson(dynamicComponent: DynamicComponent,
                                      actionDelegate: DynamicActionDelegate) throws -> UIView {
         
-        let listView = ElementListView(items: dynamicComponent.children ?? [], delegate: actionDelegate)
+        let listView = ElementListView(items: dynamicComponent.children, delegate: actionDelegate)
         listView.translatesAutoresizingMaskIntoConstraints = false
         return listView
         

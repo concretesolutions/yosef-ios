@@ -17,20 +17,20 @@ fileprivate enum ElementGroupOrientation: String {
     case vertical   = "vertical"
 }
 
-class ElementGroupComponent: BaseComponent {
+class ElementGroupComponent: ViewComponent {
     
     fileprivate let kElementGroupComponentType = "elementGroup"
     fileprivate var orientation = ElementGroupOrientation.vertical
     fileprivate var stackView: UIStackView!
     
-    override func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
+    func createViewFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
         
-            self.stackView = UIStackView()
+            let stackView = UIStackView()
             
-            self.addProperties(properties: dynamicComponent.properties)
-            setUpStackView()
-            addChild(dynamicComponent.children ?? [], action: actionDelegate)
-        return self.stackView
+            self.addProperties(properties: dynamicComponent.properties, on: stackView)
+            setUp(stackView: stackView)
+            addChild(dynamicComponent.children, action: actionDelegate, on: stackView)
+        return stackView
         
     }
 }
@@ -38,15 +38,15 @@ class ElementGroupComponent: BaseComponent {
 // MARK: - Setup Properties
 
 extension ElementGroupComponent {
-    private func addProperties(properties: [DynamicProperty]?) {
+    private func addProperties(properties: [DynamicProperty]?, on view: UIStackView) {
         if let properties = properties {
             for item in properties {
-                self.identityAndApplyProperties(property: item)
+                self.identityAndApplyProperties(property: item, on: view)
             }
         }
     }
     
-    private func identityAndApplyProperties(property: DynamicProperty) {
+    private func identityAndApplyProperties(property: DynamicProperty, on view: UIStackView) {
         if let propertyValue = property.value as? String, let elementGroupProperty = ElementGroupProperty(rawValue: property.name) {
             switch elementGroupProperty {
             case .orientation:
@@ -62,29 +62,29 @@ extension ElementGroupComponent {
 // MARK: - Setup Stack View
 
 extension ElementGroupComponent {
-    private func setUpStackView() {
+    private func setUp(stackView: UIStackView) {
         
         switch self.orientation {
         case .horizontal:
-            self.stackView.axis = .horizontal
-            self.stackView.distribution = .fillEqually
+            stackView.axis = .horizontal
+            stackView.distribution = .fillEqually
             break
         case .vertical:
-            self.stackView.axis = .vertical
-            self.stackView.distribution = .equalSpacing
+            stackView.axis = .vertical
+            stackView.distribution = .equalSpacing
             break
         }
         
-        self.stackView.alignment = .fill
-        self.stackView.spacing = 16
-        self.stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .fill
+        stackView.spacing = 16
+        stackView.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 
 // MARK: - Add Child elements
 
 extension ElementGroupComponent {
-    private func addChild(_ childs: [DynamicComponent], action: DynamicActionDelegate) {
+    private func addChild(_ childs: [DynamicComponent], action: DynamicActionDelegate, on stackView: UIStackView) {
         for child in childs {
             let view = try! DynamicView.createView(dynamicsComponent: child, actionDelegate: action)
             let marginView = UIView()
@@ -96,7 +96,7 @@ extension ElementGroupComponent {
             let marginApplier = MarginApplier()
             marginApplier.tryApplyMargin(component: child, to: view, in: marginView)
             
-            self.stackView.addArrangedSubview(marginView)
+            stackView.addArrangedSubview(marginView)
         }
     }
 }

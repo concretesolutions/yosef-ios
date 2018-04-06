@@ -12,6 +12,6 @@ import UIKit
     func callAction(sender: String)
 }
 
-protocol ComponentDelegate: class {
-    func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView
-}
+//protocol ComponentDelegate: class {
+//    func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView
+//}

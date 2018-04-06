@@ -49,13 +49,30 @@ extension UIButton {
     }
 }
 
-class ButtonComponent: BaseComponent {
+class ButtonComponent: PropertyBasedViewComponent {
     
-    private var propertyDictionary: [ButtonProperty: AnyPropertyApplier<UIButton>] =
-        [.text: AnyPropertyApplier(KeyPathApplier(\UIButton.text)),
-         .textColor: AnyPropertyApplier(KeyPathApplier(\UIButton.textColor)),
-         .backgroundColor: AnyPropertyApplier(KeyPathApplier(\UIButton.backgroundColor)),
-         .textSize: AnyPropertyApplier(FontSizeApplier<UIButton>())]
+    typealias View = UIButton
+    
+    func createView() -> UIButton {
+        let button = DynamicButton()
+        button.titleEdgeInsets = UIEdgeInsetsMake(kButtonComponentTitleInsetTop, kButtonComponentTitleInsetLeft, kButtonComponentTitleInsetBottom, kButtonComponentTitleInsetRight)
+        button.titleLabel?.numberOfLines = kButtonComponentNumberOfLines
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.lineBreakMode = .byClipping
+        button.titleLabel?.baselineAdjustment = .alignCenters
+//        self.button.delegate = actionDelegate
+        button.addTarget(self.button, action: #selector(DynamicButton.buttonTapped), for: .touchUpInside)
+//        self.buttonActionListener = actionDelegate
+        self.setupDefaultProperties(on: button)
+//        try self.addProperties(properties: dynamicComponent.properties)
+        return button
+    }
+        
+    var propertyDictionary: [String: AnyPropertyApplier<UIButton>] =
+        ["text": AnyPropertyApplier(KeyPathApplier(\UIButton.text)),
+         "textColor": AnyPropertyApplier(KeyPathApplier(\UIButton.textColor)),
+         "backgroundColor": AnyPropertyApplier(KeyPathApplier(\UIButton.backgroundColor)),
+         "textSize": AnyPropertyApplier(FontSizeApplier<UIButton>())]
     
     fileprivate let kButtonComponentType = "button"
     fileprivate let kButtonComponentTitleInsetTop = CGFloat(4)
@@ -74,50 +91,10 @@ class ButtonComponent: BaseComponent {
     fileprivate var button: DynamicButton!
     fileprivate var buttonActionListener: DynamicActionDelegate!
     
-    override func applyViewsFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
-            self.button = DynamicButton()
-            self.button.titleEdgeInsets = UIEdgeInsetsMake(kButtonComponentTitleInsetTop, kButtonComponentTitleInsetLeft, kButtonComponentTitleInsetBottom, kButtonComponentTitleInsetRight)
-            self.button.titleLabel?.numberOfLines = kButtonComponentNumberOfLines
-            self.button.titleLabel?.adjustsFontSizeToFitWidth = true
-            self.button.titleLabel?.lineBreakMode = .byClipping
-            self.button.titleLabel?.baselineAdjustment = .alignCenters
-            self.button.delegate = actionDelegate
-            self.button.addTarget(self.button, action: #selector(DynamicButton.buttonTapped), for: .touchUpInside)
-            self.buttonActionListener = actionDelegate
-            self.setupDefaultProperties()
-            try self.addProperties(properties: dynamicComponent.properties)
-            return self.button
-    }
     
-    private func setupDefaultProperties(){
-        self.button.layer.cornerRadius = kButtonComponentDefaultCornerRadius
-        self.button.layer.borderWidth = kButtonComponentDefaultBorderWidth
-        self.button.layer.borderColor = UIColor.clear.cgColor
-    }
-    
-    private func setupConstraints(view: UIView) {
-        self.button.translatesAutoresizingMaskIntoConstraints = false
-        self.button.setContentHuggingPriority(.required, for: .vertical)
-        self.button.setContentCompressionResistancePriority(.required, for: .vertical)
-        
-        view.addConstraint(NSLayoutConstraint(item: self.button, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: kButtonComponentDefaultMultiplierConstraint, constant: kButtonComponentTopConstraint))
-        view.addConstraint(NSLayoutConstraint(item: self.button, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: kButtonComponentDefaultMultiplierConstraint, constant: kButtonComponentLeadingConstraint))
-        view.addConstraint(NSLayoutConstraint(item: self.button, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: kButtonComponentDefaultMultiplierConstraint, constant: kButtonComponentTrailingConstraint))
-        view.addConstraint(NSLayoutConstraint(item: self.button, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: kButtonComponentDefaultMultiplierConstraint, constant: kButtonComponentHeightConstraint))
-    }
-    
-    private func addProperties(properties: [DynamicProperty]?) throws {
-        try properties?.forEach({
-            try self.identityAndApplyProperties(property: $0)
-        })
-    }
-    
-    private func identityAndApplyProperties(property: DynamicProperty) throws {
-        guard let textViewProperty = ButtonProperty(rawValue: property.name),
-            let applier = propertyDictionary[textViewProperty] else {
-                throw ParseError.unknownProperty(property.name)
-        }
-        
-        _ = try applier.apply(value: property.value, to: button)
+    private func setupDefaultProperties(on button: DynamicButton){
+        button.layer.cornerRadius = kButtonComponentDefaultCornerRadius
+        button.layer.borderWidth = kButtonComponentDefaultBorderWidth
+        button.layer.borderColor = UIColor.clear.cgColor
     }
 }

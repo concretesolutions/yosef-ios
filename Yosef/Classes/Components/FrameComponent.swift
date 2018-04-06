@@ -7,14 +7,14 @@
 
 import UIKit
 
-class FrameComponent: BaseComponent {
+class FrameComponent: ViewComponent {
     
     fileprivate let kFrameComponentType = "frame"
     
-    override func applyViewsFromJson(dynamicComponent: DynamicComponent,
+    func createViewFromJson(dynamicComponent: DynamicComponent,
                                      actionDelegate: DynamicActionDelegate) throws -> UIView {
         
-        let view = try FrameComponentView(items: dynamicComponent.children ?? [], delegate: actionDelegate)
+        let view = try FrameComponentView(items: dynamicComponent.children, delegate: actionDelegate)
         return view
         
     }
@@ -49,7 +49,7 @@ private class FrameComponentView: UIView {
             self.addSubview(childView)
             childView.translatesAutoresizingMaskIntoConstraints = false
             
-            if let gravity = component.properties?.first(where: { $0.name == "gravity" })?.value as? Gravity {
+            if let gravity = component.properties.first(where: { $0.name == "gravity" })?.value as? Gravity {
             
             
             

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class DynamicComponent: NSObject {
+public class DynamicComponent {
 
     // MARK: Constants
     
@@ -19,34 +19,30 @@ public class DynamicComponent: NSObject {
     // MARK: Properties
     
     var type: String
-    var children: [DynamicComponent]?
-    var properties: [DynamicProperty]?
+    var children: [DynamicComponent]
+    var properties: [DynamicProperty]
     
     // MARK: Initializers
     
-    override init() {
-        fatalError()
-    }
-    
-    init(type: String, children: [DynamicComponent]?, properties: [DynamicProperty]?) {
+    public init(type: String, children: [DynamicComponent], properties: [DynamicProperty]) {
         self.type = type
         self.children = children
         self.properties = properties
     }
     
-    public static func parse(dictionary: [String: Any]) -> DynamicComponent {
-        let childrens = self.parseChildrenArray(dictionary: dictionary)
-        let properties = self.parsePropertiesArray(dictionary: dictionary)
-        let type = dictionary[kType] as? String ?? ""
+    public convenience init(dictionary: [String: Any]) {
+        let childrens = DynamicComponent.parseChildrenArray(dictionary: dictionary)
+        let properties = DynamicComponent.parsePropertiesArray(dictionary: dictionary)
+        let type = dictionary[DynamicComponent.kType] as? String ?? ""
         
-        return DynamicComponent(type: type, children: childrens, properties: properties)
+        self.init(type: type, children: childrens, properties: properties)
     }
     
     static private func parseChildrenArray(dictionary: [String: Any]) -> [DynamicComponent] {
         var childrenArray = [DynamicComponent]()
         if let childrenDictionary = dictionary[kChildren] as? [[String : Any]] {
             for item in childrenDictionary {
-                childrenArray.append(DynamicComponent.parse(dictionary: item))
+                childrenArray.append(DynamicComponent(dictionary: item))
             }
         }
         return childrenArray

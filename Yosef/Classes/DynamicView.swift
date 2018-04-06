@@ -22,9 +22,8 @@ public class DynamicView: NSObject {
                                   actionDelegate: DynamicActionDelegate) throws -> UIView {
         
         let componentTypeName = dynamicsComponent.type
-        if let componentType = components[componentTypeName] {
-            let comp = componentType.init()
-            return try! comp.applyViewsFromJson(dynamicComponent: dynamicsComponent,
+        if let comp = components[componentTypeName] {
+            return try! comp.createViewFromJson(dynamicComponent: dynamicsComponent,
                                     actionDelegate: actionDelegate)
         } else {
             throw ParseError.invalidType(componentTypeName)
@@ -32,16 +31,16 @@ public class DynamicView: NSObject {
     }
     
     // Add new components here
-    private static let components = [
-        "text": LabelComponent.self,
-        "button": ButtonComponent.self,
-        "textField": TextFieldComponent.self,
-        "elementGroup": ElementGroupComponent.self,
-        "radioGroupButton": RadioGroupComponent.self,
-        "image": ImageComponent.self,
-        "animation": LottieComponent.self,
-        "elementList": ElementList.self,
-        "frame": FrameComponent.self
+    private static let components: [String: ViewComponent] = [
+        "text": LabelComponent(),
+        "button": ButtonComponent(),
+        "textField": TextFieldComponent(),
+        "elementGroup": ElementGroupComponent(),
+        "radioGroupButton": RadioGroupComponent(),
+        "image": ImageComponent(),
+        "animation": LottieComponent(),
+        "elementList": ElementList(),
+        "frame": FrameComponent()
     ]
     
 }

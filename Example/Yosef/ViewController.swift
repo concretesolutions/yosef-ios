@@ -29,7 +29,7 @@ class ViewController: UIViewController {
                 let jsonResult = try JSONSerialization.jsonObject(with: data, options:.mutableLeaves)
                 if let jResult = jsonResult as? [String: Any] {
                     
-                    let comp = DynamicComponent.parse(dictionary: jResult) as DynamicComponent
+                    let comp = DynamicComponent(dictionary: jResult)
                     let view = try! DynamicView.createView(dynamicsComponent: comp, actionDelegate: self)
                     addView(view)
                 }

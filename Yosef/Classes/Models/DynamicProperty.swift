@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DynamicProperty: NSObject {
+public class DynamicProperty: NSObject {
     
     static var typeConverters: [String: TypeConverter] = ["dimen" : FloatTypeConverter(),
                                                           "string" : ConcreteTypeConverter<String>(),
@@ -58,7 +58,7 @@ class DynamicProperty: NSObject {
 
 extension DynamicProperty {
     
-    override var debugDescription: String {
+    public override var debugDescription: String {
         let name = self.name
         let type = self.type
         let value = self.value
