@@ -51,7 +51,7 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: DynamicActionDelegate {
-    func callAction(sender: String) {
+    func callAction(event sender: String) {
         print(sender)
     }
 }

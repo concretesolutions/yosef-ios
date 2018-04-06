@@ -16,7 +16,7 @@ class SeparatorComponent: PropertyBasedViewComponent {
         "width": AnyPropertyApplier(EmptyApplier())
     ]
     
-    func createView() -> UIView {
+    func createView(actionDelegate: DynamicActionDelegate) -> UIView {
         return UIView()
     }
     

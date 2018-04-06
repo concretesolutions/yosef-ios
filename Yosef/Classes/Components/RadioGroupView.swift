@@ -59,7 +59,7 @@ class RadioGroupView: UIView, RadioItemDelegate {
     
     @objc func confirmButtonTapped() {
         if let item = selectedItem {
-            delegate?.callAction(sender: item)
+            delegate?.callAction(event: item)
         }
     }
     

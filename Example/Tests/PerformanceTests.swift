@@ -60,5 +60,5 @@ class PerformanceTests: XCTestCase {
 }
 
 class MockDelegate: DynamicActionDelegate {
-    func callAction(sender: String) {}
+    func callAction(event sender: String) {}
 }

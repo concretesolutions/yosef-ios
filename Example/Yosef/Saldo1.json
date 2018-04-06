@@ -13,7 +13,7 @@
                  "properties": [
                                 {
                                 "name": "url",
-                                "type": "string",
+                                "type": "url",
                                 "value": "https://www.alt-codes.net/images/dollar-sign.png"
                                 },
                                 {

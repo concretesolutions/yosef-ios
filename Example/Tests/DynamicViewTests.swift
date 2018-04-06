@@ -15,7 +15,7 @@ class MockDynamicViewDelegate: DynamicActionDelegate {
     
     var calledAction: String?
     
-    func callAction(sender: String) {
+    func callAction(event sender: String) {
         calledAction = sender
     }
     
@@ -81,8 +81,7 @@ class DynamicViewTests: FBSnapshotTestCase {
         let button = try! DynamicView
             .createView(dynamicsComponent: info,
                         actionDelegate: delegate)
-            .subviews
-            .first as? DynamicButton
+            as? DynamicButton
         
         button?.buttonTapped()
         
@@ -97,10 +96,8 @@ class DynamicViewTests: FBSnapshotTestCase {
         let dynamicView = try! DynamicView
             .createView(dynamicsComponent: info,
                         actionDelegate: delegate)
-            .subviews // TODO: change structure
-            .first
         
-        let group = dynamicView?.subviews[1].subviews.first as? RadioGroupView
+        let group = dynamicView.subviews[1].subviews.first as? RadioGroupView
         
         XCTAssertNotNil(group)
         XCTAssert(group?.delegate === delegate)
@@ -126,7 +123,7 @@ extension DynamicViewTests {
         view.addSubview(subview)
         subview.translatesAutoresizingMaskIntoConstraints = false
         subview.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        subview.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        subview.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor).isActive = true
         subview.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         subview.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }

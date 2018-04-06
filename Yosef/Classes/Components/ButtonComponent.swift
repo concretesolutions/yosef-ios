@@ -15,35 +15,36 @@ public class DynamicButton: UIButton {
     
     @objc func buttonTapped() {
         if let action = action {
-            delegate?.callAction(sender: action)
+            delegate?.callAction(event: action)
         }
     }
 }
 
 class ButtonComponent: PropertyBasedViewComponent {
     
-    typealias View = UIButton
+    typealias View = DynamicButton
     
-    func createView() -> UIButton {
+    func createView(actionDelegate: DynamicActionDelegate) -> DynamicButton {
         let button = DynamicButton()
         button.titleEdgeInsets = UIEdgeInsetsMake(4, 8, 4, 8)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.lineBreakMode = .byClipping
         button.titleLabel?.baselineAdjustment = .alignCenters
-//        self.button.delegate = actionDelegate
+        button.delegate = actionDelegate
         button.addTarget(self.button, action: #selector(DynamicButton.buttonTapped), for: .touchUpInside)
-//        self.buttonActionListener = actionDelegate
+        
         self.setupDefaultProperties(on: button)
-//        try self.addProperties(properties: dynamicComponent.properties)
+
         return button
     }
         
-    var propertyDictionary: [String: AnyPropertyApplier<UIButton>] =
-        ["text": AnyPropertyApplier(KeyPathApplier(\UIButton.text)),
-         "textColor": AnyPropertyApplier(KeyPathApplier(\UIButton.textColor)),
-         "backgroundColor": AnyPropertyApplier(KeyPathApplier(\UIButton.backgroundColor)),
-         "textSize": AnyPropertyApplier(FontSizeApplier<UIButton>())]
+    var propertyDictionary: [String: AnyPropertyApplier<DynamicButton>] =
+        ["text": AnyPropertyApplier(KeyPathApplier(\DynamicButton.text)),
+         "textColor": AnyPropertyApplier(KeyPathApplier(\DynamicButton.textColor)),
+         "backgroundColor": AnyPropertyApplier(KeyPathApplier(\DynamicButton.backgroundColor)),
+         "textSize": AnyPropertyApplier(FontSizeApplier<DynamicButton>()),
+         "action": AnyPropertyApplier(KeyPathApplier(\DynamicButton.action))]
     
     fileprivate var button: DynamicButton!
     fileprivate var buttonActionListener: DynamicActionDelegate!

@@ -9,7 +9,7 @@
 import UIKit
 
 class LabelComponent: PropertyBasedViewComponent {
-    func createView() -> UILabel {
+    func createView(actionDelegate: DynamicActionDelegate) -> UILabel {
         let label = UILabel()
         label.numberOfLines = 0
         label.adjustsFontSizeToFitWidth = true

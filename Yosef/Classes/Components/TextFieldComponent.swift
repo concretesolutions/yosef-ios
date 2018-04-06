@@ -13,7 +13,7 @@ class DynamicTextField: UITextField {
 }
 
 class TextFieldComponent: NSObject, PropertyBasedViewComponent {
-    func createView() -> UITextField {
+    func createView(actionDelegate: DynamicActionDelegate) -> UITextField {
         let textField = DynamicTextField()
         textField.delegate = self
         textField.returnKeyType = .done
@@ -34,14 +34,14 @@ extension TextFieldComponent: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if self.actionDelegate != nil {
-            self.actionDelegate?.callAction(sender: self.textField.text ?? "")
+            self.actionDelegate?.callAction(event: self.textField.text ?? "")
         }
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if self.actionDelegate != nil {
-            self.actionDelegate?.callAction(sender: self.textField.text ?? "")
+            self.actionDelegate?.callAction(event: self.textField.text ?? "")
         }
     }
     

@@ -10,12 +10,12 @@ import Foundation
 protocol PropertyBasedViewComponent: ViewComponent {
     associatedtype View: UIView
     var propertyDictionary: [String: AnyPropertyApplier<View>] { get }
-    func createView() -> View
+    func createView(actionDelegate: DynamicActionDelegate) -> View
 }
 
 extension PropertyBasedViewComponent {
     func createViewFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
-        let view = self.createView()
+        let view = self.createView(actionDelegate: actionDelegate)
         
         try self.addProperties(properties: dynamicComponent.properties, to: view)
         

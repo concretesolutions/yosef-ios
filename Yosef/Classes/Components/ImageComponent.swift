@@ -9,7 +9,7 @@
 import UIKit
 
 class ImageComponent: PropertyBasedViewComponent {
-    func createView() -> UIImageView {
+    func createView(actionDelegate: DynamicActionDelegate) -> UIImageView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill

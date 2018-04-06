@@ -78,7 +78,7 @@ class ComponentsMocks {
                                   properties: [
                                     property([
                                         "name": "url",
-                                        "type": "string",
+                                        "type": "url",
                                         "value": path
                                         ]),
                                     property([
