@@ -40,7 +40,8 @@ public class DynamicView: NSObject {
         "image": ImageComponent(),
         "animation": LottieComponent(),
         "elementList": ElementList(),
-        "frame": FrameComponent()
+        "frame": FrameComponent(),
+        "separator": SeparatorComponent()
     ]
     
 }
