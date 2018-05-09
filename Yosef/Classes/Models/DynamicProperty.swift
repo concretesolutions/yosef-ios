@@ -20,7 +20,7 @@ public class DynamicProperty: NSObject {
                                                           "fontStyle": FontStyleTypeConverter(),
                                                           "margin": MarginTypeConverter(),
                                                           "scaleType": ScaleTypeTypeConverter(),
-                                                          "aspectRatio": aspectRatioTypeConverter()]
+                                                          "aspectRatio": AspectRatioTypeConverter()]
     
     // MARK: Constants
     

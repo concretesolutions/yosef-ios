@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct aspectRatio {
-    var height: Float
+struct AspectRatio {
     var width: Float
+    var height: Float
     
-    init?(height: Float, width: Float) {
+    init?(width: Float, height: Float) {
         guard height > 0 && width > 0 else {
             return nil
         }
         
-        self.height = height
         self.width = width
+        self.height = height
     }
     
     var radio: Float {
@@ -25,9 +25,9 @@ struct aspectRatio {
     }
 }
 
-class aspectRatioTypeConverter: TypedTypeConverter {
+class AspectRatioTypeConverter: TypedTypeConverter {
     
-    func validateForType(value: Any) -> aspectRatio? {
+    func validateForType(value: Any) -> AspectRatio? {
         guard let stringValue = value as? String else {
             return nil
         }
@@ -47,9 +47,9 @@ class aspectRatioTypeConverter: TypedTypeConverter {
             return nil
         }
         
-        let heightString = valuesArray[0]
-        let widthString = valuesArray[1]
+        let widthString = valuesArray[0]
+        let heightString = valuesArray[1]
         
-        return aspectRatio(height: heightString.floatValue, width: widthString.floatValue)
+        return AspectRatio(width: widthString.floatValue, height: heightString.floatValue)
     }
 }

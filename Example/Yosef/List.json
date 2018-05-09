@@ -28,7 +28,7 @@
                                              {
                                              "name": "aspectRatio",
                                              "type": "aspectRatio",
-                                             "value": "100:118"
+                                             "value": "118:100"
                                              },
                                              {
                                              "name": "margin",
@@ -233,7 +233,7 @@
                                              {
                                              "name": "aspectRatio",
                                              "type": "aspectRatio",
-                                             "value": "1.5:2"
+                                             "value": "2:1.5"
                                              },
                                              {
                                              "name": "margin",
