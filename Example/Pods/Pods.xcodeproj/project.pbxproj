@@ -44,7 +44,7 @@
 		0F83BE6B2064533500A3DD0F /* FrameComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F83BE692064531500A3DD0F /* FrameComponent.swift */; };
 		0F83BE6D20645DD900A3DD0F /* FontStyleApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F83BE6C20645DD900A3DD0F /* FontStyleApplier.swift */; };
 		0FCD971E8D1ADF47505F579AD27BC81B /* LOTKeyframe.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E1D363BDF2CC3DA7C804624D53439F0 /* LOTKeyframe.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0FF4DE0F209C9D8E00970962 /* ShadowComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4DE0D209C9D7C00970962 /* ShadowComponent.swift */; };
+		0FF4DE0F209C9D8E00970962 /* GradientComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4DE0D209C9D7C00970962 /* GradientComponent.swift */; };
 		0FF4DE11209CA16300970962 /* GradientApplier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4DE10209CA16300970962 /* GradientApplier.swift */; };
 		0FF4DE13209CCBC500970962 /* ColorsTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4DE12209CCBC500970962 /* ColorsTypeConverter.swift */; };
 		0FF4DE15209D05B200970962 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4DE14209D05B200970962 /* GradientView.swift */; };
@@ -325,7 +325,7 @@
 		0F7FC08320604828008AB8B5 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
 		0F83BE692064531500A3DD0F /* FrameComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameComponent.swift; sourceTree = "<group>"; };
 		0F83BE6C20645DD900A3DD0F /* FontStyleApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontStyleApplier.swift; sourceTree = "<group>"; };
-		0FF4DE0D209C9D7C00970962 /* ShadowComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowComponent.swift; sourceTree = "<group>"; };
+		0FF4DE0D209C9D7C00970962 /* GradientComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientComponent.swift; sourceTree = "<group>"; };
 		0FF4DE10209CA16300970962 /* GradientApplier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientApplier.swift; sourceTree = "<group>"; };
 		0FF4DE12209CCBC500970962 /* ColorsTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTypeConverter.swift; sourceTree = "<group>"; };
 		0FF4DE14209D05B200970962 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -1101,7 +1101,7 @@
 				0F25EB42205B239800A5E608 /* ElementList.swift */,
 				1D21BAF52076A63600B936F6 /* SeparatorComponent.swift */,
 				1DEBEA502077CA8200EFD977 /* PropertyBasedViewComponent.swift */,
-				0FF4DE0D209C9D7C00970962 /* ShadowComponent.swift */,
+				0FF4DE0D209C9D7C00970962 /* GradientComponent.swift */,
 				0FF4DE14209D05B200970962 /* GradientView.swift */,
 			);
 			name = Components;
@@ -1477,7 +1477,7 @@
 				0F3A6EB0206998A600F60D31 /* GravityTypeConverter.swift in Sources */,
 				4F6600E2CDB6C4B9BB3931FC3B51D1B5 /* ImageComponent.swift in Sources */,
 				1D21BAEC20766A3600B936F6 /* AspectRatioApplier.swift in Sources */,
-				0FF4DE0F209C9D8E00970962 /* ShadowComponent.swift in Sources */,
+				0FF4DE0F209C9D8E00970962 /* GradientComponent.swift in Sources */,
 				FFB3D356C5B8E194A5A0619FEB5D8F76 /* LabelComponent.swift in Sources */,
 				0F0B2C3B206286B400837C20 /* ColorTypeConverter.swift in Sources */,
 				1F9214A4C924FA030E8DFDEDF4D3BBDF /* LottieComponent.swift in Sources */,

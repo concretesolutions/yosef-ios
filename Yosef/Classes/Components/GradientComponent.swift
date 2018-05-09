@@ -1,5 +1,5 @@
 //
-//  ShadowComponent.swift
+//  GradientComponent.swift
 //  Yosef
 //
 //  Created by kaique.pantosi on 04/05/18.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ShadowComponent: PropertyBasedViewComponent {
+class GradientComponent: PropertyBasedViewComponent {
     
     var propertyDictionary: [String : AnyPropertyApplier<UIView>] = [
         "margin": AnyPropertyApplier(EmptyApplier()),
@@ -18,5 +18,5 @@ class ShadowComponent: PropertyBasedViewComponent {
         return GradientView()
     }
     
-    fileprivate let kFrameComponentType = "shadow"
+    fileprivate let kFrameComponentType = "gradient"
 }

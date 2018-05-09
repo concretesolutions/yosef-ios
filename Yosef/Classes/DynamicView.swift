@@ -42,7 +42,7 @@ public class DynamicView: NSObject {
         "elementList": ElementList(),
         "frame": FrameComponent(),
         "separator": SeparatorComponent(),
-        "shadow": ShadowComponent()
+        "gradient": GradientComponent()
     ]
     
 }

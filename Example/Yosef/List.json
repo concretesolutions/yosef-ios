@@ -38,7 +38,7 @@
                                              ]
                               },
                               {
-                              "type": "shadow",
+                              "type": "gradient",
                               "properties": [
                                              {
                                              "name": "colors",
