@@ -49,7 +49,6 @@ class ButtonComponent: PropertyBasedViewComponent {
     fileprivate var button: DynamicButton!
     fileprivate var buttonActionListener: DynamicActionDelegate!
     
-    
     private func setupDefaultProperties(on button: DynamicButton){
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1

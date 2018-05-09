@@ -26,4 +26,3 @@ class LabelComponent: PropertyBasedViewComponent {
          "textStyle": AnyPropertyApplier(FontStyleApplier<UILabel>()),
          "margin": AnyPropertyApplier(EmptyApplier<UILabel>())]    
 }
-

@@ -42,11 +42,10 @@ class ViewController: UIViewController {
     func addView(_ view: UIView) {
         self.view.addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+        view.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -20).isActive = true
         view.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
         view.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
         view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        
     }
 }
 

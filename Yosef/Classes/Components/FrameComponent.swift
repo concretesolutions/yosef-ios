@@ -36,9 +36,7 @@ private class FrameComponentView: UIView {
     }
     
     func setupView() {
-        
         self.translatesAutoresizingMaskIntoConstraints = false
-        
     }
     
     private func setupChilds() throws {
@@ -48,8 +46,6 @@ private class FrameComponentView: UIView {
             childView.translatesAutoresizingMaskIntoConstraints = false
             
             if let gravity = component.properties.first(where: { $0.name == "gravity" })?.value as? Gravity {
-            
-            
             
             switch gravity.vertical {
             case .bottom:

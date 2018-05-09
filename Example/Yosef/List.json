@@ -23,12 +23,12 @@
                                              {
                                              "name": "scaleType",
                                              "type": "scaleType",
-                                             "value": "scaleAspectFit"
+                                             "value": "scaleAspectFill"
                                              },
                                              {
                                              "name": "aspectRatio",
                                              "type": "aspectRatio",
-                                             "value": "6:11"
+                                             "value": "100:118"
                                              },
                                              {
                                              "name": "margin",
@@ -36,6 +36,22 @@
                                              "value": "0"
                                              }
                                              ]
+                              },
+                              {
+                              "type": "shadow",
+                              "properties": [
+                                             {
+                                             "name": "colors",
+                                             "type": "colors",
+                                             "value": "0.0.0.128, 0.0.0.0, 0.0.0.128, 0.0.0.255"
+                                             },
+                                             {
+                                             "name": "margin",
+                                             "type": "margin",
+                                             "value": "0, 0, 0, 0"
+                                             }
+                                             ],
+                              "children": []
                               },
                               {
                               "type": "elementGroup",
@@ -223,9 +239,7 @@
                                              "name": "margin",
                                              "type": "margin",
                                              "value": "0"
-                                             },
-                                             
-                                             
+                                             }
                                              ]
                               },
                               {
@@ -244,22 +258,22 @@
                                              ],
                               "children": [
                                            {
-                                           "type": "text",
+                                           "type": "separator",
                                            "properties": [
                                                           {
-                                                          "name": "text",
-                                                          "type": "string",
-                                                          "value": "______________________________________________"
-                                                          },
-                                                          {
-                                                          "name": "textColor",
-                                                          "type": "color",
-                                                          "value": "#FFFFFF"
-                                                          },
-                                                          {
-                                                          "name": "textSize",
+                                                          "name": "height",
                                                           "type": "dimen",
-                                                          "value": "18"
+                                                          "value": "1"
+                                                          },
+                                                          {
+                                                          "name": "backgroundColor",
+                                                          "type": "color",
+                                                          "value": "#000000"
+                                                          },
+                                                          {
+                                                          "name": "margin",
+                                                          "type": "margin",
+                                                          "value": "0, 0, 0, 0"
                                                           }
                                                           ]
                                            },

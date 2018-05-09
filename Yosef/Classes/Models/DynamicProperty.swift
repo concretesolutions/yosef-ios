@@ -13,6 +13,7 @@ public class DynamicProperty: NSObject {
     static var typeConverters: [String: TypeConverter] = ["dimen" : FloatTypeConverter(),
                                                           "string" : ConcreteTypeConverter<String>(),
                                                           "color" : ColorTypeConverter(),
+                                                          "colors": ColorsTypeConverter(),
                                                           "url" : URLTypeConverter(),
                                                           "fontWeight": FontWeightTypeConverter(),
                                                           "gravity": GravityTypeConverter(),
