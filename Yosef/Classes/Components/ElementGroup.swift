@@ -68,7 +68,7 @@ class ElementGroupComponent: ViewComponent {
         }
         
         stackView.alignment = .fill
-        stackView.spacing = 16
+        stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
     }
 

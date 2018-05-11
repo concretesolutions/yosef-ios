@@ -22,7 +22,7 @@ class LabelComponent: PropertyBasedViewComponent {
         ["text": AnyPropertyApplier(KeyPathApplier(\UILabel.text)),
          "textColor": AnyPropertyApplier(KeyPathApplier(\UILabel.textColor)),
          "backgroundColor": AnyPropertyApplier(KeyPathApplier(\UILabel.backgroundColor)),
-         "textSize": AnyPropertyApplier(FontSizeApplier<UILabel>()),
          "textStyle": AnyPropertyApplier(FontStyleApplier<UILabel>()),
+         "textSize": AnyPropertyApplier(FontSizeApplier<UILabel>()),
          "margin": AnyPropertyApplier(EmptyApplier<UILabel>())]    
 }

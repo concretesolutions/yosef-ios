@@ -9,20 +9,16 @@ import Foundation
 
 public class FontStyleTypeConverter: TypedTypeConverter {
     
-    func validateForType(value: Any) -> [UIFontDescriptorSymbolicTraits]? {
+    func validateForType(value: Any) -> UIFont.Weight? {
         guard let stringValue = value as? String else {
             return nil
         }
         
         if stringValue == "bold" {
-            return [UIFontDescriptorSymbolicTraits.traitBold]
-        } else if stringValue == "italic" {
-            return [UIFontDescriptorSymbolicTraits.traitItalic]
-        } else if stringValue == "boldItalic" {
-            return [UIFontDescriptorSymbolicTraits.traitBold, UIFontDescriptorSymbolicTraits.traitItalic]
+            return .bold
         }
         
-        return nil
+        return .regular
     }
     
 }

@@ -23,7 +23,7 @@ class ImageComponent: PropertyBasedViewComponent {
          "width": AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .width)),
          "height": AnyPropertyApplier(SelfConstraintApplier<UIImageView>(dimension: .height)),
          "scaleType": AnyPropertyApplier(ScaleTypeApplier<UIImageView>()),
-         "aspectRatio": AnyPropertyApplier(aspectRatioApplier<UIImageView>()),
+         "aspectRatio": AnyPropertyApplier(AspectRatioApplier<UIImageView>()),
          "margin": AnyPropertyApplier(EmptyApplier<UIImageView>()),
     ]
     

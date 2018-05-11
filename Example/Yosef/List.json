@@ -21,14 +21,19 @@
                                              "value": "https://demoalto-impresionesaerea.netdna-ssl.com/2017/11/baby-driver.jpg"
                                              },
                                              {
-                                             "name": "scaleType",
-                                             "type": "scaleType",
-                                             "value": "scaleAspectFill"
+                                             "name": "width",
+                                             "type": "dimenSpec",
+                                             "value": "match"
                                              },
                                              {
                                              "name": "aspectRatio",
                                              "type": "aspectRatio",
                                              "value": "118:100"
+                                             },
+                                             {
+                                             "name": "scaleType",
+                                             "type": "scaleType",
+                                             "value": "scaleAspectFill"
                                              },
                                              {
                                              "name": "margin",
@@ -43,15 +48,14 @@
                                              {
                                              "name": "colors",
                                              "type": "colors",
-                                             "value": "0.0.0.128, 0.0.0.0, 0.0.0.128, 0.0.0.255"
+                                             "value": "0.0.0.90, 0.0.0.0, 0.0.0.50, 0.0.0.128, 0.0.0.255"
                                              },
                                              {
                                              "name": "margin",
                                              "type": "margin",
-                                             "value": "0, 0, 0, 0"
+                                             "value": "0"
                                              }
-                                             ],
-                              "children": []
+                                             ]
                               },
                               {
                               "type": "elementGroup",
@@ -74,7 +78,7 @@
                                                           {
                                                           "name": "text",
                                                           "type": "string",
-                                                          "value": "Lorem Ipsum"
+                                                          "value": "LOREM IPSUM"
                                                           },
                                                           {
                                                           "name": "textStyle",
@@ -94,7 +98,7 @@
                                                           {
                                                           "name": "margin",
                                                           "type": "margin",
-                                                          "value": "14,0"
+                                                          "value": "14, 0, 14, 0"
                                                           }
                                                           ]
                                            },
@@ -124,7 +128,7 @@
                                                           {
                                                           "name": "margin",
                                                           "type": "margin",
-                                                          "value": "14,0"
+                                                          "value": "14, 4, 14, 20"
                                                           }
                                                           ]
                                            }
@@ -143,7 +147,7 @@
                                 {
                                 "name": "textColor",
                                 "type": "color",
-                                "value": "#999999"
+                                "value": "#5F5F5F"
                                 },
                                 {
                                 "name": "textSize",
@@ -153,7 +157,7 @@
                                 {
                                 "name": "margin",
                                 "type": "margin",
-                                "value": "14, 14, 14, 0"
+                                "value": "14, 20, 14, 14"
                                 }
                                 ]
                  },
@@ -168,7 +172,7 @@
                                 {
                                 "name": "textColor",
                                 "type": "color",
-                                "value": "#3d000000"
+                                "value": "#C2C2C2"
                                 },
                                 {
                                 "name": "textSize",
@@ -178,7 +182,7 @@
                                 {
                                 "name": "margin",
                                 "type": "margin",
-                                "value": "14, 4, 14, 0"
+                                "value": "14, 0, 14, 0"
                                 }
                                 ]
                  },
@@ -193,7 +197,7 @@
                                 {
                                 "name": "textColor",
                                 "type": "color",
-                                "value": "#dd000000"
+                                "value": "#5F5F5F"
                                 },
                                 {
                                 "name": "textSize",
@@ -203,7 +207,7 @@
                                 {
                                 "name": "margin",
                                 "type": "margin",
-                                "value": "14, 20, 14, 0"
+                                "value": "14, 20, 14, 20"
                                 }
                                 ]
                  },
@@ -213,7 +217,7 @@
                                 {
                                 "name": "margin",
                                 "type": "margin",
-                                "value": "14, 20, 14, 0"
+                                "value": "14, 0, 14, 0"
                                 }
                                 ],
                  "children": [
@@ -226,14 +230,34 @@
                                              "value": "https://i.ytimg.com/vi/DpjdZSvt7sU/maxresdefault.jpg"
                                              },
                                              {
-                                             "name": "scaleType",
-                                             "type": "scaleType",
-                                             "value": "scaleAspectFit"
+                                             "name": "width",
+                                             "type": "dimenSpec",
+                                             "value": "match"
                                              },
                                              {
                                              "name": "aspectRatio",
                                              "type": "aspectRatio",
-                                             "value": "2:1.5"
+                                             "value": "157:100"
+                                             },
+                                             {
+                                             "name": "scaleType",
+                                             "type": "scaleType",
+                                             "value": "scaleAspectFill"
+                                             },
+                                             {
+                                             "name": "margin",
+                                             "type": "margin",
+                                             "value": "0"
+                                             }
+                                             ]
+                              },
+                              {
+                              "type": "gradient",
+                              "properties": [
+                                             {
+                                             "name": "colors",
+                                             "type": "colors",
+                                             "value": "0.0.0.178, 0.0.0.0, 0.0.0.0, 0.0.0.127, 0.0.0.204, 0.0.0.255"
                                              },
                                              {
                                              "name": "margin",
@@ -254,12 +278,22 @@
                                              "name": "gravity",
                                              "type": "gravity",
                                              "value": "bottom"
+                                             },
+                                             {
+                                             "name": "margin",
+                                             "type": "margin",
+                                             "value": "14, 0, 14, 4"
                                              }
                                              ],
                               "children": [
                                            {
                                            "type": "separator",
                                            "properties": [
+                                                          {
+                                                          "name": "width",
+                                                          "type": "dimenSpec",
+                                                          "value": "match"
+                                                          },
                                                           {
                                                           "name": "height",
                                                           "type": "dimen",
@@ -268,18 +302,19 @@
                                                           {
                                                           "name": "backgroundColor",
                                                           "type": "color",
-                                                          "value": "#000000"
+                                                          "value": "#80FFFFFF"
                                                           },
                                                           {
                                                           "name": "margin",
                                                           "type": "margin",
-                                                          "value": "0, 0, 0, 0"
+                                                          "value": "0"
                                                           }
                                                           ]
                                            },
                                            {
                                            "type": "frame",
-                                           "properties": [],
+                                           "properties": [
+                                           ],
                                            "children": [
                                                         {
                                                         "type": "elementGroup",
@@ -292,7 +327,7 @@
                                                                        {
                                                                        "name": "margin",
                                                                        "type": "margin",
-                                                                       "value": "14, 8, 14, 8"
+                                                                       "value": "0, 4, 0, 0"
                                                                        }
                                                                        ],
                                                         "children": [
@@ -360,7 +395,7 @@
                                 {
                                 "name": "textColor",
                                 "type": "color",
-                                "value": "#dd000000"
+                                "value": "#5F5F5F"
                                 },
                                 {
                                 "name": "textSize",
@@ -370,7 +405,7 @@
                                 {
                                 "name": "margin",
                                 "type": "margin",
-                                "value": "14, 20, 14, 14"
+                                "value": "14, 20, 14, 20"
                                 }
                                 ]
                  }

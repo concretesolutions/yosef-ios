@@ -38,7 +38,7 @@ public class FontSizeApplier<TextViewComponent: TextComponent>: TypedPropertyApp
     typealias ViewType = TextViewComponent
     
     func apply(value: CGFloat, to view: TextViewComponent) throws -> TextViewComponent {
-        view._font = UIFont.systemFont(ofSize: value)
+        view._font = UIFont(name: view._font.fontName, size: value)
         return view
     }
 }

@@ -26,8 +26,6 @@ public class FontWeightTypeConverter: TypeConverter {
             return nil
         }
         
-        
-        
         guard let fontWeight = FontWeight(rawValue: stringValue)?.getFontWeight() else {
             return nil
         }

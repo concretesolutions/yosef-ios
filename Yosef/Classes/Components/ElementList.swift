@@ -13,15 +13,26 @@ class ElementList: ViewComponent {
     func createViewFromJson(dynamicComponent: DynamicComponent,
                                      actionDelegate: DynamicActionDelegate) throws -> UIView {
         
-        let listView = ElementListView(items: dynamicComponent.children, delegate: actionDelegate)
+        let listView = ElementListView(items: dynamicComponent.children, delegate: actionDelegate, properties: dynamicComponent.properties)
         listView.translatesAutoresizingMaskIntoConstraints = false
         return listView
-        
     }
-    
 }
 
 private class ElementListView: UIView, UITableViewDataSource, UITableViewDelegate {
+    
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.estimatedRowHeight = 300
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
+        return tableView
+    }()
     
     var components = [DynamicComponent]() {
         didSet {
@@ -29,15 +40,20 @@ private class ElementListView: UIView, UITableViewDataSource, UITableViewDelegat
         }
     }
     var delegate: DynamicActionDelegate
+    var properties: [DynamicProperty]
     
-    init(items: [DynamicComponent], delegate: DynamicActionDelegate) {
+    var cellBackgroundColor: UIColor = .white
+    
+    init(items: [DynamicComponent], delegate: DynamicActionDelegate, properties: [DynamicProperty]) {
         self.components = items
         self.delegate = delegate
+        self.properties = properties
         super.init(frame: .zero)
         setupViews()
     }
     
     func setupViews() {
+        applyProperties()
         addSubview(tableView)
         self.topAnchor(equalTo: tableView.topAnchor)
             .bottomAnchor(equalTo: tableView.bottomAnchor)
@@ -46,21 +62,17 @@ private class ElementListView: UIView, UITableViewDataSource, UITableViewDelegat
         tableView.reloadData()
     }
     
+    func applyProperties() {
+        for property in properties where property.name == "backgroundColor" {
+            if let color = property.value as? UIColor {
+                cellBackgroundColor = color
+            }
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.tableFooterView = UIView()
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.estimatedRowHeight = 300
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
-        return tableView
-    }()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return components.count
@@ -75,6 +87,7 @@ private class ElementListView: UIView, UITableViewDataSource, UITableViewDelegat
         let view = try! DynamicView.createView(dynamicsComponent: component,
                                           actionDelegate: delegate)
         cell.contentView.addSubview(view)
+        cell.contentView.backgroundColor = cellBackgroundColor
         view.translatesAutoresizingMaskIntoConstraints = false
         
         let marginApplier = MarginApplier()

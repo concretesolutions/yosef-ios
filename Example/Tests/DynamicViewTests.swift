@@ -50,6 +50,10 @@ class DynamicViewTests: FBSnapshotTestCase {
         FBSnapshotVerifyView(view)
     }
     
+    func testeTeste() {
+        
+    }
+    
     func testGroup() {
         let info = mocks.elementGroup
         let group = try! DynamicView.createView(dynamicsComponent: info, actionDelegate: MockDynamicViewDelegate())

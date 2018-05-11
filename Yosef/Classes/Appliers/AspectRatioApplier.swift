@@ -1,5 +1,5 @@
 //
-//  aspectRatioApplier.swift
+//  AspectRatioApplier.swift
 //  Yosef
 //
 //  Created by Bruno Mazzo on 05/04/2018.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class aspectRatioApplier<View: UIView>: TypedPropertyApplier {
+class AspectRatioApplier<View: UIView>: TypedPropertyApplier {
     typealias ViewType = View
     
     func apply(value: AspectRatio, to view: View) throws -> View {

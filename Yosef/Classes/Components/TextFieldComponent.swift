@@ -44,5 +44,4 @@ extension TextFieldComponent: UITextFieldDelegate {
             self.actionDelegate?.callAction(event: self.textField.text ?? "")
         }
     }
-    
 }

@@ -22,6 +22,10 @@ public class SelfConstraintApplier<V: UIView>: TypedPropertyApplier {
     }
     
     func apply(value: CGFloat, to view: V) throws -> V {
+        if value == 0 {
+            return view
+        }
+        
         switch self.dimension {
         case .width:
             view.widthAnchor.constraint(equalToConstant: value).isActive = true
