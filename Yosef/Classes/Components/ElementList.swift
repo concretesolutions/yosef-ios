@@ -31,6 +31,9 @@ private class ElementListView: UIView, UITableViewDataSource, UITableViewDelegat
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        }
         return tableView
     }()
     
