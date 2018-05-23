@@ -64,6 +64,7 @@ private class FrameComponentView: UIView {
                 case .bottom:
                     childView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
                     childView.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor).isActive = true
+                    childView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
                 case .top:
                     childView.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor).isActive = true
                     childView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -96,7 +97,7 @@ private class FrameComponentView: UIView {
         let tuple = (corners.topRight, corners.topLeft, corners.bottomRight, corners.bottomLeft)
         
         switch tuple {
-        case let (tr, tl, bt, br):
+        case let (tr, tl, br, bl) where tr == tl && tl == br && br == bl:
             radius = tr
         default:
             radius = 0
