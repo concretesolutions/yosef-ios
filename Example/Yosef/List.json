@@ -48,7 +48,7 @@
                                              {
                                              "name": "colors",
                                              "type": "colors",
-                                             "value": "0.0.0.90, 0.0.0.0, 0.0.0.50, 0.0.0.128, 0.0.0.255"
+                                             "value": "0.0.0.0, 0.0.0.255"
                                              },
                                              {
                                              "name": "margin",
@@ -131,6 +131,48 @@
                                                           "value": "14, 4, 14, 20"
                                                           }
                                                           ]
+                                           },
+                                           {
+                                           "type": "frame",
+                                           "properties": [
+                                                          {
+                                                          "name": "corner",
+                                                          "type": "corner",
+                                                          "value": "4, 4, 0, 0"
+                                                          },
+                                                          {
+                                                          "name": "height",
+                                                          "type": "dimen",
+                                                          "value": "6"
+                                                          },
+                                                          {
+                                                          "name": "width",
+                                                          "type": "dimenSpec",
+                                                          "value": "match"
+                                                          }
+                                                          ],
+                                           "children": [
+                                                        {
+                                                        "type": "gradient",
+                                                        "properties": [
+                                                                       {
+                                                                       "name": "colors",
+                                                                       "type": "colors",
+                                                                       "value": "246.249.253.255, 246.249.253.255"
+                                                                       },
+                                                                       {
+                                                                       "name": "margin",
+                                                                       "type": "margin",
+                                                                       "value": "0"
+                                                                       },
+                                                                       {
+                                                                       "name": "height",
+                                                                       "type": "dimen",
+                                                                       "value": "6"
+                                                                       }
+                                                                       ]
+                                                        }
+                                                        ]
                                            }
                                            ]
                               }
@@ -218,6 +260,11 @@
                                 "name": "margin",
                                 "type": "margin",
                                 "value": "14, 0, 14, 0"
+                                },
+                                {
+                                "name": "corner",
+                                "type": "corner",
+                                "value": "4, 4, 4, 4"
                                 }
                                 ],
                  "children": [
@@ -250,137 +297,6 @@
                                              "value": "0"
                                              }
                                              ]
-                              },
-                              {
-                              "type": "gradient",
-                              "properties": [
-                                             {
-                                             "name": "colors",
-                                             "type": "colors",
-                                             "value": "0.0.0.178, 0.0.0.0, 0.0.0.0, 0.0.0.127, 0.0.0.204, 0.0.0.255"
-                                             },
-                                             {
-                                             "name": "margin",
-                                             "type": "margin",
-                                             "value": "0"
-                                             }
-                                             ]
-                              },
-                              {
-                              "type": "elementGroup",
-                              "properties": [
-                                             {
-                                             "name": "orientation",
-                                             "type": "string",
-                                             "value": "vertical"
-                                             },
-                                             {
-                                             "name": "gravity",
-                                             "type": "gravity",
-                                             "value": "bottom"
-                                             },
-                                             {
-                                             "name": "margin",
-                                             "type": "margin",
-                                             "value": "14, 0, 14, 4"
-                                             }
-                                             ],
-                              "children": [
-                                           {
-                                           "type": "separator",
-                                           "properties": [
-                                                          {
-                                                          "name": "width",
-                                                          "type": "dimenSpec",
-                                                          "value": "match"
-                                                          },
-                                                          {
-                                                          "name": "height",
-                                                          "type": "dimen",
-                                                          "value": "1"
-                                                          },
-                                                          {
-                                                          "name": "backgroundColor",
-                                                          "type": "color",
-                                                          "value": "#80FFFFFF"
-                                                          },
-                                                          {
-                                                          "name": "margin",
-                                                          "type": "margin",
-                                                          "value": "0"
-                                                          }
-                                                          ]
-                                           },
-                                           {
-                                           "type": "frame",
-                                           "properties": [
-                                           ],
-                                           "children": [
-                                                        {
-                                                        "type": "elementGroup",
-                                                        "properties": [
-                                                                       {
-                                                                       "name": "orientation",
-                                                                       "type": "string",
-                                                                       "value": "horizontal"
-                                                                       },
-                                                                       {
-                                                                       "name": "margin",
-                                                                       "type": "margin",
-                                                                       "value": "0, 4, 0, 0"
-                                                                       }
-                                                                       ],
-                                                        "children": [
-                                                                     {
-                                                                     "type": "image",
-                                                                     "properties": [
-                                                                                    {
-                                                                                    "name": "url",
-                                                                                    "type": "url",
-                                                                                    "value": "http://www.iconsplace.com/icons/preview/white/slr-camera-256.png"
-                                                                                    },
-                                                                                    {
-                                                                                    "name": "width",
-                                                                                    "type": "dimen",
-                                                                                    "value": "20"
-                                                                                    },
-                                                                                    {
-                                                                                    "name": "height",
-                                                                                    "type": "dimen",
-                                                                                    "value": "20"
-                                                                                    }
-                                                                                    ]
-                                                                     },
-                                                                     {
-                                                                     "type": "text",
-                                                                     "properties": [
-                                                                                    {
-                                                                                    "name": "text",
-                                                                                    "type": "string",
-                                                                                    "value": "Lorem ipsum dolor sit amet, consectetur"
-                                                                                    },
-                                                                                    {
-                                                                                    "name": "textColor",
-                                                                                    "type": "color",
-                                                                                    "value": "#FFFFFF"
-                                                                                    },
-                                                                                    {
-                                                                                    "name": "textSize",
-                                                                                    "type": "dimen",
-                                                                                    "value": "10"
-                                                                                    },
-                                                                                    {
-                                                                                    "name": "margin",
-                                                                                    "type": "margin",
-                                                                                    "value": "14, 5, 0, 0"
-                                                                                    }
-                                                                                    ]
-                                                                     }
-                                                                     ]
-                                                        }
-                                                        ]
-                                           }
-                                           ]
                               }
                               ]
                  },
