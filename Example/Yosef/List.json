@@ -179,6 +179,32 @@
                               ]
                  },
                  {
+                 "type": "button",
+                 "properties": [
+                                {
+                                "name": "action",
+                                "type": "string",
+                                "value": "closeFlow"
+                                },
+                                {
+                                "name": "text",
+                                "type": "string",
+                                "value": "Here is a button"
+                                },
+                                {
+                                "name": "backgroundColor",
+                                "type": "color",
+                                "value": "#a4a4a4"
+                                },
+                                {
+                                "name": "textColor",
+                                "type": "color",
+                                "value": "#515151"
+                                }
+                                ],
+                 "children": null
+                 },
+                 {
                  "type": "text",
                  "properties": [
                                 {

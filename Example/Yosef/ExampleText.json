@@ -1,0 +1,20 @@
+{
+    "type": "text",
+    "properties": [
+                   {
+                   "name": "text",
+                   "type": "string",
+                   "value": "Hello, world!"
+                   },
+                   {
+                   "name": "textColor",
+                   "type": "color",
+                   "value": "#aa34ff"
+                   },
+                   {
+                   "name": "textSize",
+                   "type": "dimen",
+                   "value": "25"
+                   }
+                   ]
+}

@@ -17,12 +17,11 @@
 		955E9901204DE74F0004270D /* DynamicViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E98FB204DE64B0004270D /* DynamicViewTests.swift */; };
 		955E9902204DE75A0004270D /* ComponentsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E98FD204DE6AF0004270D /* ComponentsMock.swift */; };
 		955E9903204DE75F0004270D /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955E98FF204DE6E00004270D /* PerformanceTests.swift */; };
-		955E9909204DECF00004270D /* Saldo1.json in Resources */ = {isa = PBXBuildFile; fileRef = 955E9908204DECF00004270D /* Saldo1.json */; };
-		955E990B204DECFE0004270D /* Saldo2.json in Resources */ = {isa = PBXBuildFile; fileRef = 955E990A204DECFE0004270D /* Saldo2.json */; };
-		955E990D204DED380004270D /* Saldo3.json in Resources */ = {isa = PBXBuildFile; fileRef = 955E990C204DED380004270D /* Saldo3.json */; };
+		955E9909204DECF00004270D /* ExampleElementGroup.json in Resources */ = {isa = PBXBuildFile; fileRef = 955E9908204DECF00004270D /* ExampleElementGroup.json */; };
 		955E990F204DF0080004270D /* Saldo.png in Resources */ = {isa = PBXBuildFile; fileRef = 955E990E204DF0080004270D /* Saldo.png */; };
 		955E9910204DF1E50004270D /* Step1.json in Resources */ = {isa = PBXBuildFile; fileRef = 955E9904204DE9750004270D /* Step1.json */; };
 		955E9911204DF1EB0004270D /* Step2.json in Resources */ = {isa = PBXBuildFile; fileRef = 955E9906204DE9820004270D /* Step2.json */; };
+		C90C1D3520B57BB800395708 /* ExampleText.json in Resources */ = {isa = PBXBuildFile; fileRef = C90C1D3420B57BB800395708 /* ExampleText.json */; };
 		FA8052C7719652ECCDFFAC6D /* Pods_Yosef_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3093661BE8E8FA5883404480 /* Pods_Yosef_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,12 +57,11 @@
 		955E98FF204DE6E00004270D /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		955E9904204DE9750004270D /* Step1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Step1.json; sourceTree = "<group>"; };
 		955E9906204DE9820004270D /* Step2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Step2.json; sourceTree = "<group>"; };
-		955E9908204DECF00004270D /* Saldo1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Saldo1.json; sourceTree = "<group>"; };
-		955E990A204DECFE0004270D /* Saldo2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Saldo2.json; sourceTree = "<group>"; };
-		955E990C204DED380004270D /* Saldo3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Saldo3.json; sourceTree = "<group>"; };
+		955E9908204DECF00004270D /* ExampleElementGroup.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExampleElementGroup.json; sourceTree = "<group>"; };
 		955E990E204DF0080004270D /* Saldo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Saldo.png; sourceTree = "<group>"; };
 		99FA9DCC4CFECB72F533FD27 /* Pods-Yosef_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yosef_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yosef_Tests/Pods-Yosef_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B04FD715540B2A026431FA8A /* Pods-Yosef_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yosef_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yosef_Example/Pods-Yosef_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		C90C1D3420B57BB800395708 /* ExampleText.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExampleText.json; sourceTree = "<group>"; };
 		CA3D57EFEFB360C926D5C6D5 /* Pods-Yosef_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yosef_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yosef_Example/Pods-Yosef_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,10 +129,9 @@
 		607FACD21AFB9204008FA782 /* Example for Yosef */ = {
 			isa = PBXGroup;
 			children = (
-				955E9908204DECF00004270D /* Saldo1.json */,
-				955E990A204DECFE0004270D /* Saldo2.json */,
+				C90C1D3420B57BB800395708 /* ExampleText.json */,
+				955E9908204DECF00004270D /* ExampleElementGroup.json */,
 				0F25EB45205B281000A5E608 /* List.json */,
-				955E990C204DED380004270D /* Saldo3.json */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -278,11 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				955E990D204DED380004270D /* Saldo3.json in Resources */,
+				C90C1D3520B57BB800395708 /* ExampleText.json in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				0F25EB46205B281000A5E608 /* List.json in Resources */,
-				955E990B204DECFE0004270D /* Saldo2.json in Resources */,
-				955E9909204DECF00004270D /* Saldo1.json in Resources */,
+				955E9909204DECF00004270D /* ExampleElementGroup.json in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

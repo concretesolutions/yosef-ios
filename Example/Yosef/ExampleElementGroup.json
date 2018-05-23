@@ -14,17 +14,12 @@
                                 {
                                 "name": "url",
                                 "type": "url",
-                                "value": "https://www.alt-codes.net/images/dollar-sign.png"
+                                "value": "https://farm1.staticflickr.com/827/27374564207_50cc5de217_m_d.jpg"
                                 },
                                 {
                                 "name": "width",
-                                "type": "dimen",
-                                "value": "115"
-                                },
-                                {
-                                "name": "height",
-                                "type": "dimen",
-                                "value": "115"
+                                "type": "dimenSpec",
+                                "value": "match"
                                 }
                                 ]
                  },
@@ -34,7 +29,7 @@
                                 {
                                 "name": "text",
                                 "type": "string",
-                                "value": "O seu saldo é R$ 32,00"
+                                "value": "Lorem ipsum"
                                 },
                                 {
                                 "name": "textColor",
@@ -54,7 +49,7 @@
                                 {
                                 "name": "text",
                                 "type": "string",
-                                "value": "Você gostaria de um empréstimo para equilibrar suas finanças?"
+                                "value": "Lorem ipsum dolor sit amet, consectetur adipiscing."
                                 },
                                 {
                                 "name": "textColor",
@@ -84,12 +79,12 @@
                                              {
                                              "name": "action",
                                              "type": "string",
-                                             "value": "closeFlow"
+                                             "value": "cancelAction"
                                              },
                                              {
                                              "name": "text",
                                              "type": "string",
-                                             "value": "Não"
+                                             "value": "Cancel"
                                              },
                                              {
                                              "name": "backgroundColor",
@@ -110,17 +105,17 @@
                                              {
                                              "name": "action",
                                              "type": "string",
-                                             "value": "sim"
+                                             "value": "okAction"
                                              },
                                              {
                                              "name": "text",
                                              "type": "string",
-                                             "value": "Sim"
+                                             "value": "Ok"
                                              },
                                              {
                                              "name": "backgroundColor",
                                              "type": "color",
-                                             "value": "#fd5501"
+                                             "value": "#aa34ff"
                                              },
                                              {
                                              "name": "textColor",
