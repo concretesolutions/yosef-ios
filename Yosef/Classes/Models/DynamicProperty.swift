@@ -21,7 +21,8 @@ public class DynamicProperty: NSObject {
                                                           "margin": MarginTypeConverter(),
                                                           "scaleType": ScaleTypeTypeConverter(),
                                                           "aspectRatio": AspectRatioTypeConverter(),
-                                                          "dimenSpec": DimenSpecTypeConverter()]
+                                                          "dimenSpec": DimenSpecTypeConverter(),
+                                                          "corner": CornerTypeConverter()]
     
     // MARK: Constants
     

@@ -11,7 +11,8 @@ class GradientComponent: PropertyBasedViewComponent {
     
     var propertyDictionary: [String : AnyPropertyApplier<UIView>] = [
         "margin": AnyPropertyApplier(EmptyApplier()),
-        "colors": AnyPropertyApplier(GradientApplier())
+        "colors": AnyPropertyApplier(GradientApplier()),
+        "height": AnyPropertyApplier(SelfConstraintApplier(dimension: .height))
     ]
     
     func createView(actionDelegate: DynamicActionDelegate) -> UIView {
