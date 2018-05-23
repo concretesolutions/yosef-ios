@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     /*
      *  Name of JSON file
      */
-    let jsonName = "List"
+    let jsonName = "ExampleText"
     
     override func viewDidLoad() {
         super.viewDidLoad()
