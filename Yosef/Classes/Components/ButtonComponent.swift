@@ -26,7 +26,7 @@ class ButtonComponent: PropertyBasedViewComponent {
     
     func createView(actionDelegate: DynamicActionDelegate) -> DynamicButton {
         let button = DynamicButton()
-        button.titleEdgeInsets = UIEdgeInsetsMake(4, 8, 4, 8)
+        button.titleEdgeInsets = UIEdgeInsets.init(top: 4, left: 8, bottom: 4, right: 8)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.titleLabel?.lineBreakMode = .byClipping

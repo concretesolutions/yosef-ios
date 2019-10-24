@@ -29,7 +29,7 @@ private class ElementListView: UIView, UITableViewDataSource, UITableViewDelegat
         tableView.tableFooterView = UIView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.estimatedRowHeight = 300
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
         return tableView
     }()

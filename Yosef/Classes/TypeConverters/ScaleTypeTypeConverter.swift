@@ -9,19 +9,19 @@ import Foundation
 
 class ScaleTypeTypeConverter: TypedTypeConverter {
     
-    typealias Model = UIViewContentMode
+    typealias Model = UIView.ContentMode
     
-    func validateForType(value: Any) -> UIViewContentMode? {
+    func validateForType(value: Any) -> UIView.ContentMode? {
         guard let stringValue = value as? String else {
             return nil
         }
         
         if stringValue == "scaleToFill" {
-            return UIViewContentMode.scaleToFill
+            return UIView.ContentMode.scaleToFill
         } else if stringValue == "scaleAspectFit" {
-            return UIViewContentMode.scaleAspectFit
+            return UIView.ContentMode.scaleAspectFit
         } else if stringValue == "scaleAspectFill" {
-            return UIViewContentMode.scaleAspectFill
+            return UIView.ContentMode.scaleAspectFill
         }
         
         return nil

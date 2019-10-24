@@ -1,29 +1,37 @@
 PODS:
-  - iOSSnapshotTestCase (2.2.0):
-    - iOSSnapshotTestCase/SwiftSupport (= 2.2.0)
-  - iOSSnapshotTestCase/Core (2.2.0)
-  - iOSSnapshotTestCase/SwiftSupport (2.2.0):
+  - iOSSnapshotTestCase (6.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
+  - iOSSnapshotTestCase/Core (6.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.2.0):
     - iOSSnapshotTestCase/Core
-  - Kingfisher (4.6.1)
-  - lottie-ios (2.5.0)
-  - Yosef (0.1.0):
-    - Kingfisher (~> 4.0)
-    - lottie-ios (~> 2.0)
+  - Kingfisher (5.8.3):
+    - Kingfisher/Core (= 5.8.3)
+  - Kingfisher/Core (5.8.3)
+  - lottie-ios (3.1.3)
+  - Yosef (0.0.6):
+    - Kingfisher
+    - lottie-ios
 
 DEPENDENCIES:
   - iOSSnapshotTestCase
   - Yosef (from `../`)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - iOSSnapshotTestCase
+    - Kingfisher
+    - lottie-ios
+
 EXTERNAL SOURCES:
   Yosef:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  iOSSnapshotTestCase: 415bd84f9dbba4ff45fede49d800bc7332fbedac
-  Kingfisher: 1f9157d9c02b380cbd0b7cc890161195164eb634
-  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
-  Yosef: 122c2775109b03ceff18033a3d247b25de737caf
+  iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
+  Kingfisher: b7e4cb65ff24c264bd2a1284b75b974d907afd94
+  lottie-ios: 496ac5cea1bbf1a7bd1f1f472f3232eb1b8d744b
+  Yosef: 55ca711c94a9868879edd176be80122312feb975
 
-PODFILE CHECKSUM: 35d261a24b11a6cae64e71f7e88bc764f6df92f0
+PODFILE CHECKSUM: 147a4224c38e9a61175bd173e5d6ae0b891dab43
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.8.4
