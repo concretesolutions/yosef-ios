@@ -9,7 +9,7 @@ import Foundation
 
 class ScaleTypeApplier<ViewType: UIView>: TypedPropertyApplier {
     
-    func apply(value: UIViewContentMode, to: ViewType) throws -> ViewType {
+    func apply(value: UIView.ContentMode, to: ViewType) throws -> ViewType {
         to.contentMode = value
         return to
     }

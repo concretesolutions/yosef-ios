@@ -1,6 +1,0 @@
-framework module Yosef {
-  umbrella header "Yosef-umbrella.h"
-
-  export *
-  module * { export * }
-}
