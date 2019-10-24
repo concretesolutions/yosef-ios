@@ -15,7 +15,7 @@ fileprivate enum LottieProperty: String {
 
 class LottieComponent: ViewComponent {
     
-    fileprivate var lottieView: LOTAnimationView!
+    fileprivate var lottieView: AnimationView!
     
     func createViewFromJson(dynamicComponent: DynamicComponent, actionDelegate: DynamicActionDelegate) throws -> UIView {
     
@@ -50,8 +50,8 @@ extension LottieComponent {
     
     private func setAnimationValue(_ value: String?) {
         if let jsonString = value {
-            if let jsonObject = jsonString.toJSON() as? [AnyHashable:Any] {
-                self.lottieView = LOTAnimationView(json: jsonObject)
+            if let animate = try? jsonString.toAnimate() {
+                self.lottieView = AnimationView(animation: animate)
             }
         }
     }
@@ -63,7 +63,7 @@ extension LottieComponent {
     private func setUpAnimation() {
         //        lottieView.contentMode = .scaleAspectFit
         //        lottieView.animationSpeed = 1.0
-        lottieView.loopAnimation = true
+        lottieView.loopMode = .loop
         lottieView.play()
     }
 }
@@ -71,8 +71,8 @@ extension LottieComponent {
 // MARK: - JSON
 
 extension String {
-    func toJSON() -> Any? {
+    func toAnimate() throws -> Animation? {
         guard let data = self.data(using: .utf8, allowLossyConversion: false) else { return nil }
-        return try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+        return try JSONDecoder().decode(Animation.self, from: data)
     }
 }
