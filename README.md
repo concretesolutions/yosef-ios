@@ -32,9 +32,9 @@ Diagamos que temos um View Controller cuja View deve ser populada com as informa
 ```swift
 func updateUI() {
     // 1
-    let comp = ITDynamicComponent.parse(dictionary: info)
+    let comp = DynamicComponent.parse(dictionary: info)
     // 2
-    let view = ITDynamicView.createView(dynamicsComponent: comp, actionDelegate: self)
+    let view = DynamicView.createView(dynamicsComponent: comp, actionDelegate: self)
     // 3
     self.view.addSubview(view)
     view.translatesAutoresizingMaskIntoConstraints = false
